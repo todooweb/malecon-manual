@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Votar el próximo estreno – MalecónTV · Manual</title>
+<title>Fuentes, importación y revisión – MalecónTV · Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./votar.html">Votar</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./importacion.html">Fuentes e importación</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -322,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./votar.html" class="sidebar-item-text sidebar-link active">
+  <a href="./votar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Votar</span></a>
   </div>
 </li>
@@ -357,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./importacion.html" class="sidebar-item-text sidebar-link">
+  <a href="./importacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Fuentes e importación</span></a>
   </div>
 </li>
@@ -449,9 +449,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cómo-se-vota" id="toc-cómo-se-vota" class="nav-link active" data-scroll-target="#cómo-se-vota">Cómo se vota</a></li>
-  <li><a href="#pedir-una-película" id="toc-pedir-una-película" class="nav-link" data-scroll-target="#pedir-una-película">Pedir una película</a></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a></li>
+  <li><a href="#fuentes-admin-fuentes" id="toc-fuentes-admin-fuentes" class="nav-link active" data-scroll-target="#fuentes-admin-fuentes">Fuentes (Admin › Fuentes)</a>
+  <ul class="collapse">
+  <li><a href="#importación-masiva" id="toc-importación-masiva" class="nav-link" data-scroll-target="#importación-masiva">Importación masiva</a></li>
+  <li><a href="#qué-filtra-cada-fuente" id="toc-qué-filtra-cada-fuente" class="nav-link" data-scroll-target="#qué-filtra-cada-fuente">Qué filtra cada fuente</a></li>
+  </ul></li>
+  <li><a href="#el-cron-semanal" id="toc-el-cron-semanal" class="nav-link" data-scroll-target="#el-cron-semanal">El cron semanal</a></li>
+  <li><a href="#revisiones-aprobar-un-vídeo" id="toc-revisiones-aprobar-un-vídeo" class="nav-link" data-scroll-target="#revisiones-aprobar-un-vídeo">Revisiones: aprobar un vídeo</a></li>
+  <li><a href="#importar-una-serie" id="toc-importar-una-serie" class="nav-link" data-scroll-target="#importar-una-serie">Importar una serie</a></li>
   </ul>
 </nav>
     </div>
@@ -459,9 +464,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./votar.html">Votar</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./importacion.html">Fuentes e importación</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Votar el próximo estreno</h1>
+<h1 class="title">Fuentes, importación y revisión</h1>
 </div>
 
 
@@ -478,34 +483,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>MalecónTV deja que la comunidad <strong>elija el próximo estreno</strong>. Cuando hay votación abierta, aparece en <strong><a href="./biblioteca.html">Biblioteca</a></strong> y se puede compartir un enlace <code>/vota/:token</code>.</p>
-<section id="cómo-se-vota" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-se-vota">Cómo se vota</h2>
+<p>Así llega el contenido nuevo al catálogo: unas <strong>fuentes</strong> traen títulos automáticamente a <strong>Revisiones</strong>, y tú los apruebas antes de publicar.</p>
+<section id="fuentes-admin-fuentes" class="level2">
+<h2 class="anchored" data-anchor-id="fuentes-admin-fuentes">Fuentes (Admin › Fuentes)</h2>
+<p>Las <strong>fuentes</strong> son orígenes de contenido que importan solos. Cada una tiene un <strong>tipo</strong>:</p>
+<ul>
+<li><strong>Automáticas:</strong> Canal de <strong>YouTube</strong>, colección de <strong>Archive.org</strong>, <strong>Películas (TMDB)</strong>, <strong>Series (TMDB)</strong>.</li>
+<li><strong>Manuales:</strong> playlist <strong>M3U/IPTV</strong>, <strong>HLS/M3U8</strong> directo, <strong>MP4</strong> individual, proveedor <strong>IPTV</strong>.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/votar.png" class="img-fluid figure-img"></p>
-<figcaption>La página de votación: las películas candidatas y el botón “Votar”.</figcaption>
+<p><img src="images/fuentes.png" class="img-fluid figure-img"></p>
+<figcaption>Admin › Fuentes: importación masiva (“N por fuente”), y la lista de fuentes con su tipo y estado.</figcaption>
 </figure>
 </div>
+<p>En la ficha de cada fuente: <strong>nombre</strong>, <strong>categoría</strong> asignada, <strong>notas</strong> internas, interruptor <strong>Activo</strong>, y <strong>“Requiere VPN”</strong>. Las automáticas piden su dato (URL del canal, buscador de Archive/TMDB, o una lista TMDB: <em>popular, top_rated, upcoming, now_playing, trending</em> + idioma).</p>
+<p>Botones de cada fuente: <strong>▶ Ejecutar ahora</strong>, <strong>✏ Editar</strong>, <strong>🗑 Borrar</strong> y el interruptor Activo/Inactivo.</p>
+<section id="importación-masiva" class="level3">
+<h3 class="anchored" data-anchor-id="importación-masiva">Importación masiva</h3>
+<p>La tarjeta <strong>“Importación masiva de fuentes”</strong> procesa <strong>todas las fuentes activas</strong> de una vez y trae lo nuevo a <strong>Revisiones</strong> como borradores. El desplegable <strong>“Vídeos por fuente”</strong> (5/10/20) es el <strong>tope por fuente</strong> —reparto justo, para que ninguna acapare— y se guarda en <code>sources_import_limit</code>. <strong>Ese mismo tope lo usan el botón ▶ de cada fuente y el cron semanal.</strong></p>
+</section>
+<section id="qué-filtra-cada-fuente" class="level3">
+<h3 class="anchored" data-anchor-id="qué-filtra-cada-fuente">Qué filtra cada fuente</h3>
 <ul>
-<li>Ves las <strong>películas candidatas</strong> en tarjetas, con su póster y un botón <strong>“Votar”</strong>.</li>
-<li><strong>1 voto por persona.</strong> Arriba hay una <strong>cuenta atrás</strong> de cuánto queda.</li>
-<li>El botón <strong>ⓘ</strong> de cada tarjeta abre el detalle (sinopsis, año, género).</li>
+<li><strong>Archive.org:</strong> solo populares (<strong>≥500 descargas</strong>, rating <strong>≥2.5</strong>) y formatos reproducibles (mp4 &gt; webm &gt; ogv).</li>
+<li><strong>TMDB (vidsrc):</strong> solo <strong>en español</strong> (audio o subtítulos) y que <strong>tenga stream</strong> (descarta “fantasmas” sin reproducción).</li>
+<li><strong>YouTube:</strong> lo reciente del canal (RSS).</li>
+</ul>
+<p>Nunca re-importa lo que ya está publicado, lo que espera en Revisiones, ni lo que aparcaste (deduplicación).</p>
+</section>
+</section>
+<section id="el-cron-semanal" class="level2">
+<h2 class="anchored" data-anchor-id="el-cron-semanal">El cron semanal</h2>
+<p>Un <strong>cron corre cada 7 días</strong> y hace exactamente lo mismo que “Importar ahora” (con el mismo tope).</p>
+<ul>
+<li>Se marca la hora <strong>al empezar</strong> (en <code>sources_last_run</code>), así un reinicio a mitad <strong>no lo re-dispara</strong>.</li>
+<li>Al arrancar el servidor, si ya pasaron ≥7 días, corre a los 60 s; si no, espera.</li>
+<li>No se solapa con importaciones manuales. Si se agota la cuota de IA a mitad, te <strong>avisa</strong>.</li>
 </ul>
 </section>
-<section id="pedir-una-película" class="level2">
-<h2 class="anchored" data-anchor-id="pedir-una-película">Pedir una película</h2>
-<p>Debajo, la sección <strong>“¿No es el estreno que buscas?”</strong> permite <strong>pedir</strong> un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra <em>“Pedido recibido, lo revisaremos”</em>.</p>
-</section>
-<section id="resultados" class="level2">
-<h2 class="anchored" data-anchor-id="resultados">Resultados</h2>
-<p>Si ya votaste o la votación <strong>cerró</strong>, ves los <strong>resultados</strong>:</p>
+<section id="revisiones-aprobar-un-vídeo" class="level2">
+<h2 class="anchored" data-anchor-id="revisiones-aprobar-un-vídeo">Revisiones: aprobar un vídeo</h2>
+<p>Lo importado llega a <strong>Admin › Revisiones</strong> (“Revisión de contenido”). Son borradores a los que <strong>les faltan campos</strong> — tú los completas y publicas, o los rechazas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/revisiones.png" class="img-fluid figure-img"></p>
+<figcaption>Admin › Revisiones: la cola de importados; cada uno con “Revisar” (completar y publicar) o “Desactivar”.</figcaption>
+</figure>
+</div>
+<p>Para <strong>publicar uno</strong>:</p>
+<ol type="1">
+<li>Pulsa <strong>“Revisar”</strong> (el lápiz) → se abre <strong>“Completar y publicar”</strong>.</li>
+<li>Completa lo obligatorio: <strong>título, URL del vídeo, categoría, miniatura, etiquetas, año</strong> (y en series: <strong>serie, temporada, episodio</strong>).</li>
+<li><strong>“Publicar ahora”</strong> → pasa al catálogo oficial y desaparece de Revisiones.</li>
+</ol>
+<p>Otras acciones:</p>
 <ul>
-<li>El <strong>ganador</strong> grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.</li>
-<li>La lista <strong>“Le persiguen”</strong> (2º, 3º…) con barras de votos.</li>
-<li><strong>Compartir la votación</strong> y <strong>“Avísame del estreno”</strong> (recordatorio por correo).</li>
+<li><strong>Desactivar (sin publicar)</strong> → lo aparca en la vista <strong>“Inactivos”</strong> (no se borra ni se re-importa).</li>
+<li><strong>🗑 Borrar</strong> → lo elimina.</li>
+<li><strong>En lote:</strong> marca varios → <strong>Aprobar</strong>, <strong>Edición masiva</strong> (categoría/año/tags…) o <strong>Eliminar</strong>.</li>
 </ul>
-<p>El admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según <strong><a href="./configuracion.html">Ajustes › Votación</a></strong>.</p>
+<p>Filtros útiles: por <strong>disponibilidad</strong> — ✅ Disponible, ❌ No disponible, ⚠ Inconcluso, ⏳ Sin verificar. Si algo sale <strong>“No disponible (403/fantasma)”</strong>, mira <strong><a href="./fallos-comunes.html">Fallos comunes</a></strong>.</p>
+</section>
+<section id="importar-una-serie" class="level2">
+<h2 class="anchored" data-anchor-id="importar-una-serie">Importar una serie</h2>
+<p>Una serie se importa <strong>por TMDB</strong> (endpoint interno): das el título/ID, el servidor valida en TMDB y —en segundo plano— crea <strong>un borrador por episodio</strong> (con temporada/episodio), validando cada uno con el resolver y descartando los que no tienen stream. Luego los apruebas en <strong>Revisiones</strong> como cualquier otro.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Importar de <strong>TMDB (películas o series)</strong> necesita el navegador headless (<strong>Chromium</strong>) en producción para validar que hay stream. Sin él, TMDB no importa (Archive.org, YouTube y M3U sí). Si falla, el error lo dice claro: “no hay chromium” ≠ “no hay stream”.</p>
+</div>
+</div>
 
 
 </section>

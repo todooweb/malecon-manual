@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Votar el próximo estreno – MalecónTV · Manual</title>
+<title>Estrenos – MalecónTV · Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./votar.html">Votar</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./estrenos.html">Estrenos</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -322,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./votar.html" class="sidebar-item-text sidebar-link active">
+  <a href="./votar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Votar</span></a>
   </div>
 </li>
@@ -363,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./estrenos.html" class="sidebar-item-text sidebar-link">
+  <a href="./estrenos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Estrenos</span></a>
   </div>
 </li>
@@ -449,9 +449,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cómo-se-vota" id="toc-cómo-se-vota" class="nav-link active" data-scroll-target="#cómo-se-vota">Cómo se vota</a></li>
-  <li><a href="#pedir-una-película" id="toc-pedir-una-película" class="nav-link" data-scroll-target="#pedir-una-película">Pedir una película</a></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a></li>
+  <li><a href="#cómo-funciona" id="toc-cómo-funciona" class="nav-link active" data-scroll-target="#cómo-funciona">Cómo funciona</a></li>
   </ul>
 </nav>
     </div>
@@ -459,9 +457,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./votar.html">Votar</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./estrenos.html">Estrenos</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Votar el próximo estreno</h1>
+<h1 class="title">Estrenos</h1>
 </div>
 
 
@@ -478,34 +476,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>MalecónTV deja que la comunidad <strong>elija el próximo estreno</strong>. Cuando hay votación abierta, aparece en <strong><a href="./biblioteca.html">Biblioteca</a></strong> y se puede compartir un enlace <code>/vota/:token</code>.</p>
-<section id="cómo-se-vota" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-se-vota">Cómo se vota</h2>
+<p>En <strong>Admin › Estrenos</strong> (“Próximos Estrenos”) gestionas las <strong>fechas de estreno</strong> y las <strong>notificaciones automáticas</strong> a los usuarios.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/votar.png" class="img-fluid figure-img"></p>
-<figcaption>La página de votación: las películas candidatas y el botón “Votar”.</figcaption>
+<p><img src="images/estrenos.png" class="img-fluid figure-img"></p>
+<figcaption>Admin › Estrenos: total, con/sin notificación, y la lista con su fecha y el botón de notificar.</figcaption>
 </figure>
 </div>
+<p>Arriba, tres contadores: <strong>Total estrenos</strong>, <strong>Con notificación</strong> y <strong>Sin notificación</strong>. Debajo, la lista de títulos programados con su <strong>fecha</strong>, su categoría, y un botón <strong>“Notificando”</strong> (avisa a los usuarios en su fecha) + editar la fecha.</p>
+<section id="cómo-funciona" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-funciona">Cómo funciona</h2>
 <ul>
-<li>Ves las <strong>películas candidatas</strong> en tarjetas, con su póster y un botón <strong>“Votar”</strong>.</li>
-<li><strong>1 voto por persona.</strong> Arriba hay una <strong>cuenta atrás</strong> de cuánto queda.</li>
-<li>El botón <strong>ⓘ</strong> de cada tarjeta abre el detalle (sinopsis, año, género).</li>
+<li>Un <strong>programador</strong> asigna la <strong>fecha de estreno</strong> (<code>release_date</code>) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las <strong>series</strong> se reparten por partes.</li>
+<li>El contenido “estrena” en su fecha: aparece en <strong>Próximos Estrenos</strong> de la portada, y el usuario puede darle <strong>“Avisarme”</strong> para que le notifiquen.</li>
+<li>Puedes ajustar la fecha de cada título a mano desde aquí.</li>
 </ul>
-</section>
-<section id="pedir-una-película" class="level2">
-<h2 class="anchored" data-anchor-id="pedir-una-película">Pedir una película</h2>
-<p>Debajo, la sección <strong>“¿No es el estreno que buscas?”</strong> permite <strong>pedir</strong> un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra <em>“Pedido recibido, lo revisaremos”</em>.</p>
-</section>
-<section id="resultados" class="level2">
-<h2 class="anchored" data-anchor-id="resultados">Resultados</h2>
-<p>Si ya votaste o la votación <strong>cerró</strong>, ves los <strong>resultados</strong>:</p>
-<ul>
-<li>El <strong>ganador</strong> grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.</li>
-<li>La lista <strong>“Le persiguen”</strong> (2º, 3º…) con barras de votos.</li>
-<li><strong>Compartir la votación</strong> y <strong>“Avísame del estreno”</strong> (recordatorio por correo).</li>
-</ul>
-<p>El admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según <strong><a href="./configuracion.html">Ajustes › Votación</a></strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El estreno es solo la <strong>fecha visible</strong>: no cambia el contenido, solo cuándo aparece como novedad y a quién se le avisa. Ver también la <strong><a href="./catalogo.html">votación de estrenos</a></strong>, que deja a la comunidad elegir el próximo.</p>
+</div>
+</div>
 
 
 </section>
