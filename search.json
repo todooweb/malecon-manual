@@ -370,135 +370,201 @@
     ]
   },
   {
-    "objectID": "subtitulos.html",
-    "href": "subtitulos.html",
-    "title": "Subtítulos y traducciones",
+    "objectID": "cartelera.html",
+    "href": "cartelera.html",
+    "title": "Cartelera (guía de TV)",
     "section": "",
-    "text": "Hay dos fuentes de subtítulos, y conviene no confundirlas:",
+    "text": "La Cartelera muestra qué emiten los canales en directo: la programación de ahora y de todo el día, canal por canal. Se abre desde En Vivo o por el enlace público /Cartelera (la guía se ve sin cuenta; para ver un canal hay que iniciar sesión).",
     "crumbs": [
-      "Configuración",
-      "Subtítulos"
+      "Para el usuario",
+      "Cartelera (guía de TV)"
     ]
   },
   {
-    "objectID": "subtitulos.html#gestor-de-subtítulos-admin",
-    "href": "subtitulos.html#gestor-de-subtítulos-admin",
-    "title": "Subtítulos y traducciones",
-    "section": "Gestor de subtítulos (admin)",
-    "text": "Gestor de subtítulos (admin)\nEn la ficha de un vídeo embed (vidsrc/vidlink con id de TMDB) aparece el Gestor de subtítulos —plegado por defecto—. Desde ahí puedes:\n\nBuscar en OpenSubtitles — lista los candidatos en español del título (búsqueda gratis). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se descarga (cuesta 1 de cuota) y queda cacheado.\nSubir .srt/.vtt — subes tu propio fichero. Se convierte a VTT y se le quitan los anuncios (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).\nSincronía (±s) — ajusta todos los tiempos: −1s, −0.5s, +0.5s, +1s. Se acumula (“− adelanta, + atrasa”).\nQuitar — borra el subtítulo guardado y vuelve al automático.\n\n\n\n\n\n\n\nNote\n\n\n\nLos subtítulos ES solo aplican a embeds vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).",
+    "objectID": "cartelera.html#en-antena-ahora",
+    "href": "cartelera.html#en-antena-ahora",
+    "title": "Cartelera (guía de TV)",
+    "section": "En antena ahora",
+    "text": "En antena ahora\nEn En Vivo, arriba, el bloque “En antena ahora” muestra los canales que están emitiendo en este momento, con su programa actual. Pulsa “Ver ahora” para sintonizar el canal, o “Ver la cartelera” para la guía completa.\n\n\n\nEl bloque “En antena ahora” en la sección En Vivo.",
     "crumbs": [
-      "Configuración",
-      "Subtítulos"
+      "Para el usuario",
+      "Cartelera (guía de TV)"
     ]
   },
   {
-    "objectID": "subtitulos.html#está-en-español-al-importar",
-    "href": "subtitulos.html#está-en-español-al-importar",
-    "title": "Subtítulos y traducciones",
-    "section": "“¿Está en español?” al importar",
-    "text": "“¿Está en español?” al importar\nAl importar, el sistema decide si un título es entendible en español con esta lógica:\n\nEl idioma original en TMDB es español → ok.\nTMDB dice que se habla español → ok.\nOpenSubtitles tiene subtítulos en español → ok.\nSi nada de eso → no se publica (salvo que no haya clave de OpenSubtitles configurada).\n\nPor eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.",
+    "objectID": "cartelera.html#destacados-de-hoy",
+    "href": "cartelera.html#destacados-de-hoy",
+    "title": "Cartelera (guía de TV)",
+    "section": "Destacados de hoy",
+    "text": "Destacados de hoy\nEn la Cartelera, arriba, “Destacados de hoy” propone una selección del día (elegida por IA): un destacado grande más una lista de otros. Cada uno lleva “Ver ahora” (si está en directo) o la campana “Avísame” (si todavía no ha empezado).",
     "crumbs": [
-      "Configuración",
-      "Subtítulos"
+      "Para el usuario",
+      "Cartelera (guía de TV)"
     ]
   },
   {
-    "objectID": "usuarios.html",
-    "href": "usuarios.html",
-    "title": "Usuarios",
+    "objectID": "cartelera.html#guía-por-canal",
+    "href": "cartelera.html#guía-por-canal",
+    "title": "Cartelera (guía de TV)",
+    "section": "Guía por canal",
+    "text": "Guía por canal\nDebajo, cada canal muestra:\n\nAhora — el programa en emisión, con una barra de progreso.\nA continuación — lo siguiente y a qué hora.\nFiltros por género (Deportes, Noticias, Documentales…) y por día (Hoy / Mañana / …).\n“Ver día” — despliega la parrilla completa del día, hora por hora.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#avísame-alarmas",
+    "href": "cartelera.html#avísame-alarmas",
+    "title": "Cartelera (guía de TV)",
+    "section": "Avísame (alarmas)",
+    "text": "Avísame (alarmas)\nEn cualquier programa que aún no ha empezado hay una campana “Avísame”. Al activarla recibes un aviso por correo (y una notificación en el navegador, si lo permites) 10 minutos antes de que empiece. Vuelve a pulsarla para cancelar el aviso. No hace falta dar permiso de notificaciones: el correo llega igual.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#dar-guía-a-un-canal-paso-a-paso",
+    "href": "cartelera.html#dar-guía-a-un-canal-paso-a-paso",
+    "title": "Cartelera (guía de TV)",
+    "section": "Dar guía a un canal (paso a paso)",
+    "text": "Dar guía a un canal (paso a paso)\n\nAbre Canales › “Guía de canales” y busca el canal.\nSi está en Mapeables con una buena sugerencia → pulsa “Generar”. Baja la parrilla al momento y pasa a Con guía.\nSi la sugerencia no convence, o el canal está en Sin guía disponible → pulsa el canal y usa el buscador (elige una guía con parrilla).\nSi ninguna guía coincide con lo que emite → “Dejar como Programación continua” (mejor eso que una parrilla equivocada).\nAsigna la categoría (género) del canal para que caiga en el filtro correcto de la cartelera.\nAjusta su posición con las flechas ▲▼ (arriba salen los que quieres destacar).",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#el-buscador-de-guías",
+    "href": "cartelera.html#el-buscador-de-guías",
+    "title": "Cartelera (guía de TV)",
+    "section": "El buscador de guías",
+    "text": "El buscador de guías\nBusca en todas las fuentes (El País, GatoTV, Pluto TV) y solo muestra las guías que traen parrilla — verifica descargándolas, así no pierdes tiempo con guías vacías. La primera búsqueda tarda unos segundos (está comprobando); las siguientes van cacheadas. Si ninguna guía coincide con el canal, abajo tienes “Dejar como Programación continua”.\n\n\n\nEl buscador solo muestra guías con parrilla; abajo, la opción “Programación continua”.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#canales-de-pluto-automático",
+    "href": "cartelera.html#canales-de-pluto-automático",
+    "title": "Cartelera (guía de TV)",
+    "section": "Canales de Pluto (automático)",
+    "text": "Canales de Pluto (automático)\nLos canales de Pluto se mapean solos, sin buscar nada: el sistema saca el identificador exacto del enlace del canal, así que siempre acierta la guía correcta. Si añades canales Pluto nuevos, obtienen su guía en la siguiente actualización.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#categorías-para-los-chips-de-género",
+    "href": "cartelera.html#categorías-para-los-chips-de-género",
+    "title": "Cartelera (guía de TV)",
+    "section": "Categorías (para los chips de género)",
+    "text": "Categorías (para los chips de género)\nLos chips de la cartelera (Deportes, Noticias, Documentales…) salen de la categoría del canal. Asigna la categoría correcta a cada canal mapeado o los filtros de género no lo colocarán bien.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "cartelera.html#activar-el-refresco-automático",
+    "href": "cartelera.html#activar-el-refresco-automático",
+    "title": "Cartelera (guía de TV)",
+    "section": "Activar el refresco automático",
+    "text": "Activar el refresco automático\nEl mapeo manual funciona siempre. Para que las guías se refresquen solas cada día (y los canales Pluto se auto-mapeen), el entorno del servidor necesita EPG_ENABLED=1. Ver Ajustes.",
+    "crumbs": [
+      "Para el usuario",
+      "Cartelera (guía de TV)"
+    ]
+  },
+  {
+    "objectID": "catalogo.html",
+    "href": "catalogo.html",
+    "title": "Catálogo",
     "section": "",
-    "text": "En Admin › Usuarios gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.",
+    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.",
     "crumbs": [
       "Administración",
-      "Usuarios"
+      "Catálogo"
     ]
   },
   {
-    "objectID": "usuarios.html#buscar-y-editar",
-    "href": "usuarios.html#buscar-y-editar",
-    "title": "Usuarios",
-    "section": "Buscar y editar",
-    "text": "Buscar y editar\n\nBuscador por nombre o email; los cambios (borrar, editar) se reflejan al momento aunque estés buscando.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía u origen.\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
-    "href": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
-    "title": "Usuarios",
-    "section": "Origen de usuarios (de dónde vienen)",
-    "text": "Origen de usuarios (de dónde vienen)\n¿Quieres saber si tus registros vienen de Facebook, de TikTok o de la web directa? En Ajustes › Sistema & Integraciones hay una tarjeta “Origen de usuarios” con un enlace por canal: Facebook, Instagram, TikTok, Otro. Cada enlace lleva ?origen=&lt;canal&gt;&k=&lt;token&gt;.\n\n\n\nTarjeta “Origen de usuarios” en Ajustes: un enlace por red, con botón de copiar y de regenerar.\n\n\n\nComparte cada enlace en su red. Quien se registre entrando por él queda marcado con ese Origen.\nEl origen se ve en la ficha del usuario (junto a “Referido por”), y en la lista puedes filtrar por origen y editar en masa el de varios usuarios a la vez.\nSi alguien se registra sin enlace (entró directo a malecontv.es), su origen es Web. Ese es el caso normal y no necesita enlace propio.\nCopiar (icono de copiar) → “Enlace copiado”. Regenerar (icono circular) rota el token de ese canal e invalida el enlace anterior → “Enlace generado”.\nEl enlace usa la URL donde estás (en local localhost:4173, en producción tu dominio real). Así nunca copias por error un enlace que apunta al sitio equivocado.\n\n\n\n\n\n\n\nNote\n\n\n\nEl token (&k=...) evita que alguien se invente un origen a mano. Si el token no coincide con el del canal, el registro cae a Web en vez de atribuirse a una red falsa.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#referidos-e-invitaciones",
-    "href": "usuarios.html#referidos-e-invitaciones",
-    "title": "Usuarios",
-    "section": "Referidos e invitaciones",
-    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#borrar-un-usuario",
-    "href": "usuarios.html#borrar-un-usuario",
-    "title": "Usuarios",
-    "section": "Borrar un usuario",
-    "text": "Borrar un usuario\nEl botón “Eliminar” anonimiza las referencias de auditoría (reportes, enlaces rotos) poniéndolas a NULL —para conservar el historial operativo— y luego borra la cuenta. El resto de datos personales (favoritos, historial, sesiones) se borra en cascada. Ver Fallos comunes si el borrado da error.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "votar.html",
-    "href": "votar.html",
-    "title": "Votar el próximo estreno",
+    "objectID": "catalogo.html#vídeos-películas-y-series",
+    "href": "catalogo.html#vídeos-películas-y-series",
+    "title": "Catálogo",
     "section": "",
-    "text": "MalecónTV deja que la comunidad elija el próximo estreno. Cuando hay votación abierta, aparece en Biblioteca y se puede compartir un enlace /vota/:token.",
+    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
+      "Administración",
+      "Catálogo"
     ]
   },
   {
-    "objectID": "votar.html#cómo-se-vota",
-    "href": "votar.html#cómo-se-vota",
-    "title": "Votar el próximo estreno",
-    "section": "Cómo se vota",
-    "text": "Cómo se vota\n\n\n\nLa página de votación: las películas candidatas y el botón “Votar”.\n\n\n\nVes las películas candidatas en tarjetas, con su póster y un botón “Votar”.\n1 voto por persona. Arriba hay una cuenta atrás de cuánto queda.\nEl botón ⓘ de cada tarjeta abre el detalle (sinopsis, año, género).",
+    "objectID": "catalogo.html#canales-en-vivo",
+    "href": "catalogo.html#canales-en-vivo",
+    "title": "Catálogo",
+    "section": "Canales en vivo",
+    "text": "Canales en vivo\nEn Admin › Canales. Señales HLS/M3U8, YouTube, OK.ru, Dailymotion, MP4 directo, etc. Se pueden importar en bloque desde TDTChannels (España e Internacional; entran inactivos para revisarlos).\n\n\n\nSección Canales: el punto de color junto a cada fila indica su estado de salud.\n\n\n\n\n\n\n\n\nTip\n\n\n\nSi un canal sale como caído pero sabes que funciona para tus usuarios, márcalo “Excluir Health” en su ficha: el cron dejará de tumbarlo. Ver Fallos comunes.",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
+      "Administración",
+      "Catálogo"
     ]
   },
   {
-    "objectID": "votar.html#pedir-una-película",
-    "href": "votar.html#pedir-una-película",
-    "title": "Votar el próximo estreno",
-    "section": "Pedir una película",
-    "text": "Pedir una película\nDebajo, la sección “¿No es el estreno que buscas?” permite pedir un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra “Pedido recibido, lo revisaremos”.",
+    "objectID": "catalogo.html#estrenos-y-votaciones",
+    "href": "catalogo.html#estrenos-y-votaciones",
+    "title": "Catálogo",
+    "section": "Estrenos y votaciones",
+    "text": "Estrenos y votaciones\n\nEstrenos — calendario que programa release_date (con margen y cadencia). El contenido “estrena” en su fecha.\nVotación — abres una campaña con candidatos (de Revisiones); los usuarios votan en /vota/:token; publicas el ganador como estreno. La votación abierta aparece también en /library (sección con los candidatos y “Tu voto decide”).\n\n\n\n\nGestión de votaciones (admin): enlace público, resultados en vivo y publicar ganador.",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
+      "Administración",
+      "Catálogo"
     ]
   },
   {
-    "objectID": "votar.html#resultados",
-    "href": "votar.html#resultados",
-    "title": "Votar el próximo estreno",
-    "section": "Resultados",
-    "text": "Resultados\nSi ya votaste o la votación cerró, ves los resultados:\n\nEl ganador grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.\nLa lista “Le persiguen” (2º, 3º…) con barras de votos.\nCompartir la votación y “Avísame del estreno” (recordatorio por correo).\n\nEl admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación.",
+    "objectID": "biblioteca.html",
+    "href": "biblioteca.html",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "",
+    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
     "crumbs": [
       "Para el usuario",
-      "Votar"
+      "Biblioteca y descargas"
+    ]
+  },
+  {
+    "objectID": "biblioteca.html#explorar-catálogo-library",
+    "href": "biblioteca.html#explorar-catálogo-library",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "",
+    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
+    "crumbs": [
+      "Para el usuario",
+      "Biblioteca y descargas"
+    ]
+  },
+  {
+    "objectID": "biblioteca.html#mi-lista",
+    "href": "biblioteca.html#mi-lista",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "Mi Lista",
+    "text": "Mi Lista\n\n\n\nMi Lista: tus canales, películas y series guardados.\n\n\nEl corazón de cualquier tarjeta o del reproductor guarda el título en Mi Lista. Ahí se separan Canales y Vídeos y series. Se sincroniza entre tus dispositivos. Vacía muestra “Guarda tus películas, series y canales favoritos para tenerlos siempre a mano.”",
+    "crumbs": [
+      "Para el usuario",
+      "Biblioteca y descargas"
+    ]
+  },
+  {
+    "objectID": "biblioteca.html#descargas-ver-sin-internet",
+    "href": "biblioteca.html#descargas-ver-sin-internet",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "Descargas (ver sin internet)",
+    "text": "Descargas (ver sin internet)\n\n\n\nMis Descargas: medidor de almacenamiento y estado de cada título.\n\n\nMis Descargas gestiona lo guardado en este dispositivo:\n\nMedidor de almacenamiento (usado/total) y aviso si te pasas del límite.\nEstados por título: Disponible (verde), Descargando % (amarillo), Error (rojo).\nAcciones: Reproducir (offline), Reintentar, o borrar (con confirmación).\nOtros dispositivos — lista lo descargado en tus otros equipos (solo lectura).\n\nLos límites de descargas dependen de la membresía (Free vs Premium) y se configuran en Ajustes.\n\n\n\n\n\n\nNote\n\n\n\nLas descargas se guardan en el almacenamiento seguro del navegador (no son ficheros .mp4 sueltos): no gastan datos al reproducir, pero si borras la caché del navegador, se pierden. No las confundas con archivos normales.",
+    "crumbs": [
+      "Para el usuario",
+      "Biblioteca y descargas"
     ]
   },
   {
@@ -557,91 +623,135 @@
     ]
   },
   {
-    "objectID": "biblioteca.html",
-    "href": "biblioteca.html",
-    "title": "Biblioteca, Mi Lista y Descargas",
+    "objectID": "votar.html",
+    "href": "votar.html",
+    "title": "Votar el próximo estreno",
     "section": "",
-    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
+    "text": "MalecónTV deja que la comunidad elija el próximo estreno. Cuando hay votación abierta, aparece en Biblioteca y se puede compartir un enlace /vota/:token.",
     "crumbs": [
       "Para el usuario",
-      "Biblioteca y descargas"
+      "Votar"
     ]
   },
   {
-    "objectID": "biblioteca.html#explorar-catálogo-library",
-    "href": "biblioteca.html#explorar-catálogo-library",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "",
-    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
+    "objectID": "votar.html#cómo-se-vota",
+    "href": "votar.html#cómo-se-vota",
+    "title": "Votar el próximo estreno",
+    "section": "Cómo se vota",
+    "text": "Cómo se vota\n\n\n\nLa página de votación: las películas candidatas y el botón “Votar”.\n\n\n\nVes las películas candidatas en tarjetas, con su póster y un botón “Votar”.\n1 voto por persona. Arriba hay una cuenta atrás de cuánto queda.\nEl botón ⓘ de cada tarjeta abre el detalle (sinopsis, año, género).",
     "crumbs": [
       "Para el usuario",
-      "Biblioteca y descargas"
+      "Votar"
     ]
   },
   {
-    "objectID": "biblioteca.html#mi-lista",
-    "href": "biblioteca.html#mi-lista",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "Mi Lista",
-    "text": "Mi Lista\n\n\n\nMi Lista: tus canales, películas y series guardados.\n\n\nEl corazón de cualquier tarjeta o del reproductor guarda el título en Mi Lista. Ahí se separan Canales y Vídeos y series. Se sincroniza entre tus dispositivos. Vacía muestra “Guarda tus películas, series y canales favoritos para tenerlos siempre a mano.”",
+    "objectID": "votar.html#pedir-una-película",
+    "href": "votar.html#pedir-una-película",
+    "title": "Votar el próximo estreno",
+    "section": "Pedir una película",
+    "text": "Pedir una película\nDebajo, la sección “¿No es el estreno que buscas?” permite pedir un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra “Pedido recibido, lo revisaremos”.",
     "crumbs": [
       "Para el usuario",
-      "Biblioteca y descargas"
+      "Votar"
     ]
   },
   {
-    "objectID": "biblioteca.html#descargas-ver-sin-internet",
-    "href": "biblioteca.html#descargas-ver-sin-internet",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "Descargas (ver sin internet)",
-    "text": "Descargas (ver sin internet)\n\n\n\nMis Descargas: medidor de almacenamiento y estado de cada título.\n\n\nMis Descargas gestiona lo guardado en este dispositivo:\n\nMedidor de almacenamiento (usado/total) y aviso si te pasas del límite.\nEstados por título: Disponible (verde), Descargando % (amarillo), Error (rojo).\nAcciones: Reproducir (offline), Reintentar, o borrar (con confirmación).\nOtros dispositivos — lista lo descargado en tus otros equipos (solo lectura).\n\nLos límites de descargas dependen de la membresía (Free vs Premium) y se configuran en Ajustes.\n\n\n\n\n\n\nNote\n\n\n\nLas descargas se guardan en el almacenamiento seguro del navegador (no son ficheros .mp4 sueltos): no gastan datos al reproducir, pero si borras la caché del navegador, se pierden. No las confundas con archivos normales.",
+    "objectID": "votar.html#resultados",
+    "href": "votar.html#resultados",
+    "title": "Votar el próximo estreno",
+    "section": "Resultados",
+    "text": "Resultados\nSi ya votaste o la votación cerró, ves los resultados:\n\nEl ganador grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.\nLa lista “Le persiguen” (2º, 3º…) con barras de votos.\nCompartir la votación y “Avísame del estreno” (recordatorio por correo).\n\nEl admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación.",
     "crumbs": [
       "Para el usuario",
-      "Biblioteca y descargas"
+      "Votar"
     ]
   },
   {
-    "objectID": "catalogo.html",
-    "href": "catalogo.html",
-    "title": "Catálogo",
+    "objectID": "usuarios.html",
+    "href": "usuarios.html",
+    "title": "Usuarios",
     "section": "",
-    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.",
+    "text": "En Admin › Usuarios gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.",
     "crumbs": [
       "Administración",
-      "Catálogo"
+      "Usuarios"
     ]
   },
   {
-    "objectID": "catalogo.html#vídeos-películas-y-series",
-    "href": "catalogo.html#vídeos-películas-y-series",
-    "title": "Catálogo",
+    "objectID": "usuarios.html#buscar-y-editar",
+    "href": "usuarios.html#buscar-y-editar",
+    "title": "Usuarios",
+    "section": "Buscar y editar",
+    "text": "Buscar y editar\n\nBuscador por nombre o email; los cambios (borrar, editar) se reflejan al momento aunque estés buscando.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía u origen.\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
+    "href": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
+    "title": "Usuarios",
+    "section": "Origen de usuarios (de dónde vienen)",
+    "text": "Origen de usuarios (de dónde vienen)\n¿Quieres saber si tus registros vienen de Facebook, de TikTok o de la web directa? En Ajustes › Sistema & Integraciones hay una tarjeta “Origen de usuarios” con un enlace por canal: Facebook, Instagram, TikTok, Otro. Cada enlace lleva ?origen=&lt;canal&gt;&k=&lt;token&gt;.\n\n\n\nTarjeta “Origen de usuarios” en Ajustes: un enlace por red, con botón de copiar y de regenerar.\n\n\n\nComparte cada enlace en su red. Quien se registre entrando por él queda marcado con ese Origen.\nEl origen se ve en la ficha del usuario (junto a “Referido por”), y en la lista puedes filtrar por origen y editar en masa el de varios usuarios a la vez.\nSi alguien se registra sin enlace (entró directo a malecontv.es), su origen es Web. Ese es el caso normal y no necesita enlace propio.\nCopiar (icono de copiar) → “Enlace copiado”. Regenerar (icono circular) rota el token de ese canal e invalida el enlace anterior → “Enlace generado”.\nEl enlace usa la URL donde estás (en local localhost:4173, en producción tu dominio real). Así nunca copias por error un enlace que apunta al sitio equivocado.\n\n\n\n\n\n\n\nNote\n\n\n\nEl token (&k=...) evita que alguien se invente un origen a mano. Si el token no coincide con el del canal, el registro cae a Web en vez de atribuirse a una red falsa.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#referidos-e-invitaciones",
+    "href": "usuarios.html#referidos-e-invitaciones",
+    "title": "Usuarios",
+    "section": "Referidos e invitaciones",
+    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#borrar-un-usuario",
+    "href": "usuarios.html#borrar-un-usuario",
+    "title": "Usuarios",
+    "section": "Borrar un usuario",
+    "text": "Borrar un usuario\nEl botón “Eliminar” anonimiza las referencias de auditoría (reportes, enlaces rotos) poniéndolas a NULL —para conservar el historial operativo— y luego borra la cuenta. El resto de datos personales (favoritos, historial, sesiones) se borra en cascada. Ver Fallos comunes si el borrado da error.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "subtitulos.html",
+    "href": "subtitulos.html",
+    "title": "Subtítulos y traducciones",
     "section": "",
-    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.",
+    "text": "Hay dos fuentes de subtítulos, y conviene no confundirlas:",
     "crumbs": [
-      "Administración",
-      "Catálogo"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {
-    "objectID": "catalogo.html#canales-en-vivo",
-    "href": "catalogo.html#canales-en-vivo",
-    "title": "Catálogo",
-    "section": "Canales en vivo",
-    "text": "Canales en vivo\nEn Admin › Canales. Señales HLS/M3U8, YouTube, OK.ru, Dailymotion, MP4 directo, etc. Se pueden importar en bloque desde TDTChannels (España e Internacional; entran inactivos para revisarlos).\n\n\n\nSección Canales: el punto de color junto a cada fila indica su estado de salud.\n\n\n\n\n\n\n\n\nTip\n\n\n\nSi un canal sale como caído pero sabes que funciona para tus usuarios, márcalo “Excluir Health” en su ficha: el cron dejará de tumbarlo. Ver Fallos comunes.",
+    "objectID": "subtitulos.html#gestor-de-subtítulos-admin",
+    "href": "subtitulos.html#gestor-de-subtítulos-admin",
+    "title": "Subtítulos y traducciones",
+    "section": "Gestor de subtítulos (admin)",
+    "text": "Gestor de subtítulos (admin)\nEn la ficha de un vídeo embed (vidsrc/vidlink con id de TMDB) aparece el Gestor de subtítulos —plegado por defecto—. Desde ahí puedes:\n\nBuscar en OpenSubtitles — lista los candidatos en español del título (búsqueda gratis). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se descarga (cuesta 1 de cuota) y queda cacheado.\nSubir .srt/.vtt — subes tu propio fichero. Se convierte a VTT y se le quitan los anuncios (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).\nSincronía (±s) — ajusta todos los tiempos: −1s, −0.5s, +0.5s, +1s. Se acumula (“− adelanta, + atrasa”).\nQuitar — borra el subtítulo guardado y vuelve al automático.\n\n\n\n\n\n\n\nNote\n\n\n\nLos subtítulos ES solo aplican a embeds vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).",
     "crumbs": [
-      "Administración",
-      "Catálogo"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {
-    "objectID": "catalogo.html#estrenos-y-votaciones",
-    "href": "catalogo.html#estrenos-y-votaciones",
-    "title": "Catálogo",
-    "section": "Estrenos y votaciones",
-    "text": "Estrenos y votaciones\n\nEstrenos — calendario que programa release_date (con margen y cadencia). El contenido “estrena” en su fecha.\nVotación — abres una campaña con candidatos (de Revisiones); los usuarios votan en /vota/:token; publicas el ganador como estreno. La votación abierta aparece también en /library (sección con los candidatos y “Tu voto decide”).\n\n\n\n\nGestión de votaciones (admin): enlace público, resultados en vivo y publicar ganador.",
+    "objectID": "subtitulos.html#está-en-español-al-importar",
+    "href": "subtitulos.html#está-en-español-al-importar",
+    "title": "Subtítulos y traducciones",
+    "section": "“¿Está en español?” al importar",
+    "text": "“¿Está en español?” al importar\nAl importar, el sistema decide si un título es entendible en español con esta lógica:\n\nEl idioma original en TMDB es español → ok.\nTMDB dice que se habla español → ok.\nOpenSubtitles tiene subtítulos en español → ok.\nSi nada de eso → no se publica (salvo que no haya clave de OpenSubtitles configurada).\n\nPor eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.",
     "crumbs": [
-      "Administración",
-      "Catálogo"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {

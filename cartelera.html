@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Usuarios – MalecónTV · Manual</title>
+<title>Cartelera (guía de TV) – MalecónTV · Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./usuarios.html">Usuarios</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./cartelera.html">Cartelera (guía de TV)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -310,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cartelera.html" class="sidebar-item-text sidebar-link">
+  <a href="./cartelera.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Cartelera (guía de TV)</span></a>
   </div>
 </li>
@@ -381,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usuarios.html" class="sidebar-item-text sidebar-link active">
+  <a href="./usuarios.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Usuarios</span></a>
   </div>
 </li>
@@ -455,10 +455,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#buscar-y-editar" id="toc-buscar-y-editar" class="nav-link active" data-scroll-target="#buscar-y-editar">Buscar y editar</a></li>
-  <li><a href="#origen-de-usuarios-de-dónde-vienen" id="toc-origen-de-usuarios-de-dónde-vienen" class="nav-link" data-scroll-target="#origen-de-usuarios-de-dónde-vienen">Origen de usuarios (de dónde vienen)</a></li>
-  <li><a href="#referidos-e-invitaciones" id="toc-referidos-e-invitaciones" class="nav-link" data-scroll-target="#referidos-e-invitaciones">Referidos e invitaciones</a></li>
-  <li><a href="#borrar-un-usuario" id="toc-borrar-un-usuario" class="nav-link" data-scroll-target="#borrar-un-usuario">Borrar un usuario</a></li>
+  <li><a href="#para-el-usuario" id="toc-para-el-usuario" class="nav-link active" data-scroll-target="#para-el-usuario">Para el usuario</a>
+  <ul class="collapse">
+  <li><a href="#en-antena-ahora" id="toc-en-antena-ahora" class="nav-link" data-scroll-target="#en-antena-ahora">En antena ahora</a></li>
+  <li><a href="#destacados-de-hoy" id="toc-destacados-de-hoy" class="nav-link" data-scroll-target="#destacados-de-hoy">Destacados de hoy</a></li>
+  <li><a href="#guía-por-canal" id="toc-guía-por-canal" class="nav-link" data-scroll-target="#guía-por-canal">Guía por canal</a></li>
+  <li><a href="#avísame-alarmas" id="toc-avísame-alarmas" class="nav-link" data-scroll-target="#avísame-alarmas">Avísame (alarmas)</a></li>
+  </ul></li>
+  <li><a href="#para-el-administrador" id="toc-para-el-administrador" class="nav-link" data-scroll-target="#para-el-administrador">Para el administrador</a>
+  <ul class="collapse">
+  <li><a href="#dar-guía-a-un-canal-paso-a-paso" id="toc-dar-guía-a-un-canal-paso-a-paso" class="nav-link" data-scroll-target="#dar-guía-a-un-canal-paso-a-paso">Dar guía a un canal (paso a paso)</a></li>
+  <li><a href="#el-buscador-de-guías" id="toc-el-buscador-de-guías" class="nav-link" data-scroll-target="#el-buscador-de-guías">El buscador de guías</a></li>
+  <li><a href="#canales-de-pluto-automático" id="toc-canales-de-pluto-automático" class="nav-link" data-scroll-target="#canales-de-pluto-automático">Canales de Pluto (automático)</a></li>
+  <li><a href="#categorías-para-los-chips-de-género" id="toc-categorías-para-los-chips-de-género" class="nav-link" data-scroll-target="#categorías-para-los-chips-de-género">Categorías (para los chips de género)</a></li>
+  <li><a href="#activar-el-refresco-automático" id="toc-activar-el-refresco-automático" class="nav-link" data-scroll-target="#activar-el-refresco-automático">Activar el refresco automático</a></li>
+  </ul></li>
+  <li><a href="#cuándo-un-canal-no-tiene-cartelera-o-no-coincide" id="toc-cuándo-un-canal-no-tiene-cartelera-o-no-coincide" class="nav-link" data-scroll-target="#cuándo-un-canal-no-tiene-cartelera-o-no-coincide">Cuándo un canal no tiene cartelera (o no coincide)</a></li>
   </ul>
 </nav>
     </div>
@@ -466,9 +478,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./usuarios.html">Usuarios</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./empezar.html">Para el usuario</a></li><li class="breadcrumb-item"><a href="./cartelera.html">Cartelera (guía de TV)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Usuarios</h1>
+<h1 class="title">Cartelera (guía de TV)</h1>
 </div>
 
 
@@ -485,55 +497,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>En <strong>Admin › Usuarios</strong> gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.</p>
-<section id="buscar-y-editar" class="level2">
-<h2 class="anchored" data-anchor-id="buscar-y-editar">Buscar y editar</h2>
-<ul>
-<li><strong>Buscador</strong> por nombre o email; los cambios (borrar, editar) se reflejan al momento aunque estés buscando.</li>
-<li><strong>Editar en masa</strong> — selecciona varios y cambia a la vez rol, estado, membresía u origen.</li>
-<li>La ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos.</li>
-</ul>
-</section>
-<section id="origen-de-usuarios-de-dónde-vienen" class="level2">
-<h2 class="anchored" data-anchor-id="origen-de-usuarios-de-dónde-vienen">Origen de usuarios (de dónde vienen)</h2>
-<p>¿Quieres saber si tus registros vienen de Facebook, de TikTok o de la web directa? En <strong>Ajustes › Sistema &amp; Integraciones</strong> hay una tarjeta <strong>“Origen de usuarios”</strong> con un enlace por canal: <strong>Facebook, Instagram, TikTok, Otro</strong>. Cada enlace lleva <code>?origen=&lt;canal&gt;&amp;k=&lt;token&gt;</code>.</p>
+<p>La <strong>Cartelera</strong> muestra qué emiten los canales en directo: la programación de ahora y de todo el día, canal por canal. Se abre desde <strong>En Vivo</strong> o por el enlace público <code>/Cartelera</code> (la guía se ve sin cuenta; para <strong>ver un canal</strong> hay que iniciar sesión).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/origen-card.png" class="img-fluid figure-img"></p>
-<figcaption>Tarjeta “Origen de usuarios” en Ajustes: un enlace por red, con botón de copiar y de regenerar.</figcaption>
+<p><img src="images/cartelera-guia.png" class="img-fluid figure-img"></p>
+<figcaption>La Cartelera: los destacados del día arriba y la guía por canal debajo.</figcaption>
 </figure>
 </div>
-<ul>
-<li><strong>Comparte</strong> cada enlace en su red. Quien se <strong>registre</strong> entrando por él queda marcado con ese <strong>Origen</strong>.</li>
-<li>El origen se ve en la <strong>ficha</strong> del usuario (junto a “Referido por”), y en la lista puedes <strong>filtrar</strong> por origen y <strong>editar en masa</strong> el de varios usuarios a la vez.</li>
-<li>Si alguien se registra <strong>sin enlace</strong> (entró directo a malecontv.es), su origen es <strong>Web</strong>. Ese es el caso normal y no necesita enlace propio.</li>
-<li><strong>Copiar</strong> (icono de copiar) → <em>“Enlace copiado”</em>. <strong>Regenerar</strong> (icono circular) rota el token de ese canal e invalida el enlace anterior → <em>“Enlace generado”</em>.</li>
-<li>El enlace usa <strong>la URL donde estás</strong> (en local <code>localhost:4173</code>, en producción tu dominio real). Así nunca copias por error un enlace que apunta al sitio equivocado.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El token (<code>&amp;k=...</code>) evita que alguien se invente un origen a mano. Si el token no coincide con el del canal, el registro cae a <strong>Web</strong> en vez de atribuirse a una red falsa.</p>
-</div>
+<section id="para-el-usuario" class="level1">
+<h1>Para el usuario</h1>
+<section id="en-antena-ahora" class="level2">
+<h2 class="anchored" data-anchor-id="en-antena-ahora">En antena ahora</h2>
+<p>En <strong><a href="./explorar.html">En Vivo</a></strong>, arriba, el bloque <strong>“En antena ahora”</strong> muestra los canales que están <strong>emitiendo en este momento</strong>, con su programa actual. Pulsa <strong>“Ver ahora”</strong> para sintonizar el canal, o <strong>“Ver la cartelera”</strong> para la guía completa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cartelera-envivo.png" class="img-fluid figure-img"></p>
+<figcaption>El bloque “En antena ahora” en la sección En Vivo.</figcaption>
+</figure>
 </div>
 </section>
-<section id="referidos-e-invitaciones" class="level2">
-<h2 class="anchored" data-anchor-id="referidos-e-invitaciones">Referidos e invitaciones</h2>
+<section id="destacados-de-hoy" class="level2">
+<h2 class="anchored" data-anchor-id="destacados-de-hoy">Destacados de hoy</h2>
+<p>En la Cartelera, arriba, <strong>“Destacados de hoy”</strong> propone una selección del día (elegida por IA): un destacado grande más una lista de otros. Cada uno lleva <strong>“Ver ahora”</strong> (si está en directo) o la campana <strong>“Avísame”</strong> (si todavía no ha empezado).</p>
+</section>
+<section id="guía-por-canal" class="level2">
+<h2 class="anchored" data-anchor-id="guía-por-canal">Guía por canal</h2>
+<p>Debajo, cada canal muestra:</p>
 <ul>
-<li><strong>Referidos</strong> — un usuario invita con su <code>?ref=CÓDIGO</code>; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario <strong>real</strong> (si no, no crea “referido fantasma”). El listado vive en <strong>Admin › Referidos</strong> (oculto del nav, se abre desde el Panel o la ficha de usuario).</li>
-<li><strong>Invitar por email</strong> — en <strong>Admin › Usuarios</strong>, “Invitar” <strong>envía un correo</strong> (diseño newsletter) con enlace de registro. Si el email <strong>ya existe</strong>, avisa y no envía.</li>
+<li><strong>Ahora</strong> — el programa en emisión, con una <strong>barra de progreso</strong>.</li>
+<li><strong>A continuación</strong> — lo siguiente y a qué hora.</li>
+<li><strong>Filtros</strong> por género (Deportes, Noticias, Documentales…) y por día (<strong>Hoy / Mañana / …</strong>).</li>
+<li><strong>“Ver día”</strong> — despliega la <strong>parrilla completa</strong> del día, hora por hora.</li>
 </ul>
 </section>
-<section id="borrar-un-usuario" class="level2">
-<h2 class="anchored" data-anchor-id="borrar-un-usuario">Borrar un usuario</h2>
-<p>El botón “Eliminar” <strong>anonimiza</strong> las referencias de auditoría (reportes, enlaces rotos) poniéndolas a <code>NULL</code> —para conservar el historial operativo— y luego borra la cuenta. El resto de datos personales (favoritos, historial, sesiones) se borra en cascada. Ver <strong><a href="./fallos-comunes.html">Fallos comunes</a></strong> si el borrado da error.</p>
+<section id="avísame-alarmas" class="level2">
+<h2 class="anchored" data-anchor-id="avísame-alarmas">Avísame (alarmas)</h2>
+<p>En cualquier programa que <strong>aún no ha empezado</strong> hay una campana <strong>“Avísame”</strong>. Al activarla recibes un <strong>aviso por correo</strong> (y una notificación en el navegador, si lo permites) <strong>10 minutos antes</strong> de que empiece. Vuelve a pulsarla para <strong>cancelar el aviso</strong>. No hace falta dar permiso de notificaciones: el correo llega igual.</p>
+</section>
+</section>
+<section id="para-el-administrador" class="level1">
+<h1>Para el administrador</h1>
+<p>La guía de cada canal se gestiona desde <strong>Canales › “Guía de canales”</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cartelera-admin.png" class="img-fluid figure-img"></p>
+<figcaption>El diálogo “Guía de canales”: los mapeados con su fuente, las flechas para reordenar y “Programación continua”.</figcaption>
+</figure>
+</div>
+<p>El diálogo agrupa los canales en:</p>
+<ul>
+<li><strong>Con guía</strong> — ya mapeados, con su <strong>fuente</strong> y nº de programas próximos. Las <strong>flechas ▲▼</strong> ajustan el <strong>orden</strong> en que aparecen en la cartelera (por defecto, por visualizaciones del canal). <strong>“Cambiar”</strong> pone otra guía; <strong>“Quitar”</strong> la retira.</li>
+<li><strong>Mapeables</strong> — el sistema <strong>sugiere</strong> una guía por el nombre (con un nivel de confianza). <strong>“Generar”</strong> acepta la sugerencia y baja la parrilla al momento; <strong>“Otra”</strong> abre el buscador para elegir a mano.</li>
+<li><strong>Sin guía disponible</strong> — canales sin sugerencia automática. Pulsa uno para <strong>buscarle una guía a mano</strong>.</li>
+</ul>
+<section id="dar-guía-a-un-canal-paso-a-paso" class="level2">
+<h2 class="anchored" data-anchor-id="dar-guía-a-un-canal-paso-a-paso">Dar guía a un canal (paso a paso)</h2>
+<ol type="1">
+<li>Abre <strong>Canales › “Guía de canales”</strong> y busca el canal.</li>
+<li>Si está en <strong>Mapeables</strong> con una buena sugerencia → pulsa <strong>“Generar”</strong>. Baja la parrilla al momento y pasa a <strong>Con guía</strong>.</li>
+<li>Si la sugerencia no convence, o el canal está en <strong>Sin guía disponible</strong> → pulsa el canal y usa el <strong>buscador</strong> (elige una guía <strong>con parrilla</strong>).</li>
+<li>Si <strong>ninguna</strong> guía coincide con lo que emite → <strong>“Dejar como Programación continua”</strong> (mejor eso que una parrilla equivocada).</li>
+<li>Asigna la <strong>categoría</strong> (género) del canal para que caiga en el filtro correcto de la cartelera.</li>
+<li>Ajusta su posición con las <strong>flechas ▲▼</strong> (arriba salen los que quieres destacar).</li>
+</ol>
+</section>
+<section id="el-buscador-de-guías" class="level2">
+<h2 class="anchored" data-anchor-id="el-buscador-de-guías">El buscador de guías</h2>
+<p>Busca en <strong>todas las fuentes</strong> (El País, GatoTV, Pluto TV) y <strong>solo muestra las guías que traen parrilla</strong> — verifica descargándolas, así no pierdes tiempo con guías vacías. La <strong>primera búsqueda tarda unos segundos</strong> (está comprobando); las siguientes van cacheadas. Si <strong>ninguna guía coincide</strong> con el canal, abajo tienes <strong>“Dejar como Programación continua”</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cartelera-buscador.png" class="img-fluid figure-img"></p>
+<figcaption>El buscador solo muestra guías con parrilla; abajo, la opción “Programación continua”.</figcaption>
+</figure>
+</div>
+</section>
+<section id="canales-de-pluto-automático" class="level2">
+<h2 class="anchored" data-anchor-id="canales-de-pluto-automático">Canales de Pluto (automático)</h2>
+<p>Los canales de <strong>Pluto</strong> se mapean <strong>solos</strong>, sin buscar nada: el sistema saca el identificador exacto del enlace del canal, así que siempre acierta la guía correcta. Si añades canales Pluto nuevos, obtienen su guía en la siguiente actualización.</p>
+</section>
+<section id="categorías-para-los-chips-de-género" class="level2">
+<h2 class="anchored" data-anchor-id="categorías-para-los-chips-de-género">Categorías (para los chips de género)</h2>
+<p>Los chips de la cartelera (Deportes, Noticias, Documentales…) salen de la <strong>categoría</strong> del canal. Asigna la categoría correcta a cada canal mapeado o los filtros de género no lo colocarán bien.</p>
+</section>
+<section id="activar-el-refresco-automático" class="level2">
+<h2 class="anchored" data-anchor-id="activar-el-refresco-automático">Activar el refresco automático</h2>
+<p>El mapeo manual funciona siempre. Para que las guías se <strong>refresquen solas cada día</strong> (y los canales Pluto se auto-mapeen), el entorno del servidor necesita <strong><code>EPG_ENABLED=1</code></strong>. Ver <strong><a href="./configuracion.html">Ajustes</a></strong>.</p>
+</section>
+</section>
+<section id="cuándo-un-canal-no-tiene-cartelera-o-no-coincide" class="level1">
+<h1>Cuándo un canal no tiene cartelera (o no coincide)</h1>
+<ul>
+<li><strong>El canal no aparece en la cartelera.</strong> No tiene guía asignada. En la cartelera solo salen los canales <strong>mapeados</strong> o marcados como <strong>“Programación continua”</strong>. → Mapéalo desde <strong>Canales › “Guía de canales”</strong>.</li>
+<li><strong>Sale “Programación continua”.</strong> No existe una guía que case su emisión exacta (típico de canales <strong>FAST</strong> tipo Xumo, cubanos o bucles de música). Es lo correcto: <strong>mejor eso que una parrilla que miente</strong>. El canal se sigue viendo con normalidad.</li>
+<li><strong>La parrilla no coincide con lo que emite.</strong> La guía asignada es de <strong>otro <em>feed</em></strong> del mismo canal (mismo nombre, emisión distinta — p.&nbsp;ej. un “Telemundo” de otro país). <strong>Quítala</strong> y busca otra; si no hay ninguna exacta, déjalo en <strong>“Programación continua”</strong>.</li>
+<li><strong>No encuentro la guía en el buscador.</strong> Solo se muestran las que <strong>traen parrilla</strong>; muchas variantes vienen vacías. Prueba con otro nombre o región.</li>
+<li><strong>La guía no se actualiza sola.</strong> Falta <strong><code>EPG_ENABLED=1</code></strong> en el entorno (el refresco automático está apagado). El mapeo manual sí funciona sin él.</li>
+<li><strong>Un canal desapareció de “En antena ahora”.</strong> Ese bloque solo muestra los que están <strong>emitiendo justo ahora</strong>; cuando termina su programa en curso, sale del bloque (pero sigue en la guía).</li>
+</ul>
 
 
 </section>
