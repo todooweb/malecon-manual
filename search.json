@@ -1045,7 +1045,18 @@
     "href": "correos.html",
     "title": "Correos (emails)",
     "section": "",
-    "text": "MalecónTV envía correos por Gmail (nodemailer), con las credenciales EMAIL_USER / EMAIL_PASS del entorno. Todos usan la plantilla de la casa.",
+    "text": "MalecónTV envía todos sus correos desde el dominio propio noreply@malecontv.es, a través de Resend (relay SMTP). Todos usan la plantilla de la casa (mismo diseño, logo y colores). El proveedor de envío se configura por variables de entorno, así que cambiarlo no toca el código.",
+    "crumbs": [
+      "Configuración",
+      "Correos"
+    ]
+  },
+  {
+    "objectID": "correos.html#cómo-se-envían-dominio-propio-autenticado",
+    "href": "correos.html#cómo-se-envían-dominio-propio-autenticado",
+    "title": "Correos (emails)",
+    "section": "Cómo se envían: dominio propio autenticado",
+    "text": "Cómo se envían: dominio propio autenticado\nAntes los correos salían desde una cuenta de Gmail, sin autenticación del dominio → los filtros los marcaban como spam. Ahora salen desde noreply@malecontv.es con el dominio autenticado (SPF · DKIM · DMARC), lo que hace que lleguen a la bandeja de entrada, no a spam, y blinda la marca frente a suplantación (que nadie mande correos “de MalecónTV”).\n\nProveedor: Resend, vía SMTP (smtp.resend.com).\nRemitente visible: MalecónTV &lt;noreply@malecontv.es&gt;.\nRegistro de envíos: todos los correos enviados se ven en el panel de Resend → resend.com/emails (entregas, rebotes, aperturas).\nCambiar de proveedor (o volver a Gmail) es solo tocar variables de entorno (EMAIL_HOST, EMAIL_USER, EMAIL_PASS, EMAIL_FROM) y reconstruir. Sin EMAIL_HOST, vuelve a Gmail.\n\n\n\n\n\n\n\nImportant\n\n\n\nTope del plan. El plan gratuito de Resend tiene un límite de correos por día. Con muchos usuarios, un solo newsletter puede agotarlo (los que sobren fallan y se pierden ese envío, sin romper nada). Si el catálogo de usuarios crece, hay que subir de plan en Resend.",
     "crumbs": [
       "Configuración",
       "Correos"
@@ -1056,7 +1067,7 @@
     "href": "correos.html#tipos-de-correo",
     "title": "Correos (emails)",
     "section": "Tipos de correo",
-    "text": "Tipos de correo\n\n\n\n\n\n\n\nCorreo\nCuándo se envía\n\n\n\n\nVerificación\nAl registrarse (o reactivar cuenta): lleva un código para confirmar el email.\n\n\nBienvenida\nJusto después de verificar la cuenta.\n\n\nRecuperar contraseña\nCuando el usuario pide restablecerla (lleva un código).\n\n\nInvitación\nCuando un admin invita a alguien por email desde Usuarios.\n\n\nNewsletter (personalizado)\nBoletín automático/manual, adaptado al gusto de cada usuario.\n\n\nInformativo (broadcast)\nUn anuncio igual para todos, redactado a mano o con IA.\n\n\nMantenimiento\nAviso de que la web entra/sale de mantenimiento.",
+    "text": "Tipos de correo\n\n\n\n\n\n\n\nCorreo\nCuándo se envía\n\n\n\n\nVerificación\nAl registrarse (o reactivar cuenta): lleva un código para confirmar el email.\n\n\nBienvenida\nJusto después de verificar la cuenta.\n\n\nRecuperar contraseña\nCuando el usuario pide restablecerla (lleva un código).\n\n\nNuevo dispositivo\nAviso de seguridad cuando se inicia sesión desde un aparato no visto antes.\n\n\nAviso de programa (cartelera)\n~10 min antes de un programa que el usuario marcó con “Avísame”.\n\n\nEstreno\nCuando estrena un título que el usuario esperaba.\n\n\nInvitación\nCuando un admin invita a alguien por email desde Usuarios.\n\n\nNewsletter (personalizado)\nBoletín automático/manual, adaptado al gusto de cada usuario.\n\n\nInformativo (broadcast)\nUn anuncio igual para todos, redactado a mano o con IA.\n\n\nMantenimiento\nAviso de que la web entra/sale de mantenimiento.\n\n\n\nLos masivos (newsletter, informativo, mantenimiento) llevan cabecera List-Unsubscribe y una versión en texto plano además del HTML, para cumplir las normas anti-spam de Gmail/Yahoo.",
     "crumbs": [
       "Configuración",
       "Correos"
@@ -1067,7 +1078,7 @@
     "href": "correos.html#newsletter-personalizado",
     "title": "Correos (emails)",
     "section": "Newsletter personalizado",
-    "text": "Newsletter personalizado\n\nSe arma por usuario según lo que ve; no repite contenido en una ventana de 28 días.\nSi un usuario tiene menos de 6 cosas nuevas que enseñarle, se le salta ese ciclo.\nEnvío con freno anti-spam: ~3 s entre correos y ~30 s entre lotes. El tamaño de lote y la periodicidad se ajustan en Ajustes › Newsletter.",
+    "text": "Newsletter personalizado\n\nSe arma por usuario según lo que ve; no repite contenido en una ventana de 28 días.\nSi un usuario tiene menos de 3 cosas nuevas que enseñarle, se le salta ese ciclo (no se le manda un correo casi vacío).\nEnvío con freno gradual: ~3 s entre correos y ~30 s entre lotes, para no saturar al proveedor. El tamaño de lote y la periodicidad se ajustan en Ajustes › Newsletter.\nEl envío corre en la app (no en una cola persistente): si se reinicia a mitad, el resto se pierde → no despliegues mientras hay un newsletter en curso.",
     "crumbs": [
       "Configuración",
       "Correos"

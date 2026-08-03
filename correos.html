@@ -455,7 +455,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tipos-de-correo" id="toc-tipos-de-correo" class="nav-link active" data-scroll-target="#tipos-de-correo">Tipos de correo</a></li>
+  <li><a href="#cómo-se-envían-dominio-propio-autenticado" id="toc-cómo-se-envían-dominio-propio-autenticado" class="nav-link active" data-scroll-target="#cómo-se-envían-dominio-propio-autenticado">Cómo se envían: dominio propio autenticado</a></li>
+  <li><a href="#tipos-de-correo" id="toc-tipos-de-correo" class="nav-link" data-scroll-target="#tipos-de-correo">Tipos de correo</a></li>
   <li><a href="#newsletter-personalizado" id="toc-newsletter-personalizado" class="nav-link" data-scroll-target="#newsletter-personalizado">Newsletter personalizado</a></li>
   <li><a href="#informativo-con-ia" id="toc-informativo-con-ia" class="nav-link" data-scroll-target="#informativo-con-ia">Informativo con IA</a></li>
   </ul>
@@ -484,7 +485,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>MalecónTV envía correos por <strong>Gmail</strong> (nodemailer), con las credenciales <code>EMAIL_USER</code> / <code>EMAIL_PASS</code> del entorno. Todos usan la plantilla de la casa.</p>
+<p>MalecónTV envía todos sus correos desde el <strong>dominio propio</strong> <code>noreply@malecontv.es</code>, a través de <strong><a href="https://resend.com">Resend</a></strong> (relay SMTP). Todos usan la plantilla de la casa (mismo diseño, logo y colores). El proveedor de envío se configura por variables de entorno, así que cambiarlo no toca el código.</p>
+<section id="cómo-se-envían-dominio-propio-autenticado" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-se-envían-dominio-propio-autenticado">Cómo se envían: dominio propio autenticado</h2>
+<p>Antes los correos salían desde una cuenta de <strong>Gmail</strong>, sin autenticación del dominio → los filtros los marcaban como <strong>spam</strong>. Ahora salen desde <strong><code>noreply@malecontv.es</code></strong> con el dominio <strong>autenticado</strong> (<strong>SPF · DKIM · DMARC</strong>), lo que hace que <strong>lleguen a la bandeja de entrada</strong>, no a spam, y <strong>blinda la marca</strong> frente a suplantación (que nadie mande correos “de MalecónTV”).</p>
+<ul>
+<li><strong>Proveedor:</strong> Resend, vía SMTP (<code>smtp.resend.com</code>).</li>
+<li><strong>Remitente visible:</strong> <code>MalecónTV &lt;noreply@malecontv.es&gt;</code>.</li>
+<li><strong>Registro de envíos:</strong> todos los correos enviados se ven en el panel de Resend → <strong><a href="https://resend.com/emails">resend.com/emails</a></strong> (entregas, rebotes, aperturas).</li>
+<li><strong>Cambiar de proveedor</strong> (o volver a Gmail) es solo tocar variables de entorno (<code>EMAIL_HOST</code>, <code>EMAIL_USER</code>, <code>EMAIL_PASS</code>, <code>EMAIL_FROM</code>) y reconstruir. Sin <code>EMAIL_HOST</code>, vuelve a Gmail.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tope del plan.</strong> El plan gratuito de Resend tiene un <strong>límite de correos por día</strong>. Con muchos usuarios, un solo newsletter puede agotarlo (los que sobren fallan y se pierden ese envío, sin romper nada). Si el catálogo de usuarios crece, hay que <strong>subir de plan</strong> en Resend.</p>
+</div>
+</div>
+</section>
 <section id="tipos-de-correo" class="level2">
 <h2 class="anchored" data-anchor-id="tipos-de-correo">Tipos de correo</h2>
 <table class="caption-top table">
@@ -512,30 +536,44 @@ ul.task-list li input[type="checkbox"] {
 <td>Cuando el usuario pide restablecerla (lleva un código).</td>
 </tr>
 <tr class="even">
+<td><strong>Nuevo dispositivo</strong></td>
+<td>Aviso de seguridad cuando se inicia sesión desde un aparato no visto antes.</td>
+</tr>
+<tr class="odd">
+<td><strong>Aviso de programa (cartelera)</strong></td>
+<td>~10 min antes de un programa que el usuario marcó con “Avísame”.</td>
+</tr>
+<tr class="even">
+<td><strong>Estreno</strong></td>
+<td>Cuando estrena un título que el usuario esperaba.</td>
+</tr>
+<tr class="odd">
 <td><strong>Invitación</strong></td>
 <td>Cuando un admin invita a alguien por email desde <strong>Usuarios</strong>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Newsletter (personalizado)</strong></td>
 <td>Boletín automático/manual, adaptado al gusto de cada usuario.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Informativo (broadcast)</strong></td>
 <td>Un anuncio igual para todos, redactado a mano o con IA.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Mantenimiento</strong></td>
 <td>Aviso de que la web entra/sale de mantenimiento.</td>
 </tr>
 </tbody>
 </table>
+<p>Los <strong>masivos</strong> (newsletter, informativo, mantenimiento) llevan cabecera <strong><code>List-Unsubscribe</code></strong> y una versión en <strong>texto plano</strong> además del HTML, para cumplir las normas anti-spam de Gmail/Yahoo.</p>
 </section>
 <section id="newsletter-personalizado" class="level2">
 <h2 class="anchored" data-anchor-id="newsletter-personalizado">Newsletter personalizado</h2>
 <ul>
 <li>Se arma <strong>por usuario</strong> según lo que ve; <strong>no repite</strong> contenido en una ventana de <strong>28 días</strong>.</li>
-<li>Si un usuario tiene <strong>menos de 6</strong> cosas nuevas que enseñarle, se le <strong>salta</strong> ese ciclo.</li>
-<li>Envío con freno anti-spam: ~3 s entre correos y ~30 s entre lotes. El <strong>tamaño de lote</strong> y la <strong>periodicidad</strong> se ajustan en <strong><a href="./configuracion.html">Ajustes › Newsletter</a></strong>.</li>
+<li>Si un usuario tiene <strong>menos de 3</strong> cosas nuevas que enseñarle, se le <strong>salta</strong> ese ciclo (no se le manda un correo casi vacío).</li>
+<li>Envío con freno gradual: ~3 s entre correos y ~30 s entre lotes, para no saturar al proveedor. El <strong>tamaño de lote</strong> y la <strong>periodicidad</strong> se ajustan en <strong><a href="./configuracion.html">Ajustes › Newsletter</a></strong>.</li>
+<li>El envío corre <strong>en la app</strong> (no en una cola persistente): si se reinicia a mitad, el resto se pierde → <strong>no despliegues mientras hay un newsletter en curso</strong>.</li>
 </ul>
 </section>
 <section id="informativo-con-ia" class="level2">
