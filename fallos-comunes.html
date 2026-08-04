@@ -480,6 +480,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#correos" id="toc-correos" class="nav-link" data-scroll-target="#correos">Correos</a>
   <ul class="collapse">
   <li><a href="#no-se-envían-los-correos" id="toc-no-se-envían-los-correos" class="nav-link" data-scroll-target="#no-se-envían-los-correos">No se envían los correos</a></li>
+  <li><a href="#a-un-usuario-no-le-llega-ningún-correo" id="toc-a-un-usuario-no-le-llega-ningún-correo" class="nav-link" data-scroll-target="#a-un-usuario-no-le-llega-ningún-correo">A un usuario no le llega NINGÚN correo</a></li>
+  <li><a href="#el-webhook-de-rebotes-no-marca-a-nadie" id="toc-el-webhook-de-rebotes-no-marca-a-nadie" class="nav-link" data-scroll-target="#el-webhook-de-rebotes-no-marca-a-nadie">El webhook de rebotes no marca a nadie</a></li>
   <li><a href="#el-correo-con-ia-tarda-o-falla" id="toc-el-correo-con-ia-tarda-o-falla" class="nav-link" data-scroll-target="#el-correo-con-ia-tarda-o-falla">El correo con IA tarda o falla</a></li>
   </ul></li>
   <li><a href="#usuarios" id="toc-usuarios" class="nav-link" data-scroll-target="#usuarios">Usuarios</a>
@@ -670,6 +672,18 @@ Note
 <p><strong>Síntoma:</strong> newsletter o avisos que no llegan.</p>
 <p><strong>Causa:</strong> faltan credenciales <code>EMAIL_USER</code> / <code>EMAIL_PASS</code>, o el usuario tiene <strong>menos de 6</strong> cosas nuevas que enseñarle (el newsletter personalizado <strong>salta</strong> ese ciclo).</p>
 <p><strong>Solución:</strong> revisa las credenciales del entorno; recuerda la ventana de <strong>28 días</strong> anti-repetición y el <strong>tamaño de lote</strong>/periodicidad en <strong><a href="./configuracion.html">Ajustes</a></strong>.</p>
+</section>
+<section id="a-un-usuario-no-le-llega-ningún-correo" class="level3">
+<h3 class="anchored" data-anchor-id="a-un-usuario-no-le-llega-ningún-correo">A un usuario no le llega NINGÚN correo</h3>
+<p><strong>Síntoma:</strong> un usuario concreto no recibe <strong>nada</strong> (ni verificación, ni avisos, ni newsletter), aunque al resto sí les llega.</p>
+<p><strong>Causa:</strong> su dirección está en la <strong>lista negra</strong> de correo — <strong>rebotó</strong> (buzón muerto) o <strong>marcó spam</strong>. Cuando eso pasa, se le corta <strong>todo</strong> el email para no dañar la reputación del dominio.</p>
+<p><strong>Solución:</strong> compruébalo en <strong>Admin › Usuarios</strong>: verás el <strong>chip rojo “Blacklist”</strong> en su fila (o usa el <strong>filtro “En blacklist”</strong>), y al abrir su ficha, el <strong>ribbon “BLACKLIST”</strong>. Es <strong>solo lectura</strong>: no hay botón para sacarlo a mano (a propósito). Si de verdad su buzón ya funciona, habría que quitarlo por BD. El <strong>web push</strong> a ese usuario <strong>sí</strong> sigue funcionando. Ver <strong><a href="./correos.html">Correos › Lista negra</a></strong>.</p>
+</section>
+<section id="el-webhook-de-rebotes-no-marca-a-nadie" class="level3">
+<h3 class="anchored" data-anchor-id="el-webhook-de-rebotes-no-marca-a-nadie">El webhook de rebotes no marca a nadie</h3>
+<p><strong>Síntoma:</strong> hay rebotes/quejas en Resend pero nadie aparece en la lista negra.</p>
+<p><strong>Causa:</strong> falta configurar el <strong>webhook en Resend</strong> (eventos <code>email.bounced</code> / <code>email.complained</code>) o el secreto <strong><code>RESEND_WEBHOOK_SECRET</code></strong> en el entorno; sin firma válida, el endpoint responde <strong>401</strong>.</p>
+<p><strong>Solución:</strong> crea el webhook apuntando a <code>https://malecontv.es/api/webhooks/resend</code>, copia el <em>signing secret</em> a <code>RESEND_WEBHOOK_SECRET</code> y redespliega. Si falla la comprobación, el correo <strong>se envía igual</strong> (fail-open): nunca bloquea todo el correo por un fallo de la lista.</p>
 </section>
 <section id="el-correo-con-ia-tarda-o-falla" class="level3">
 <h3 class="anchored" data-anchor-id="el-correo-con-ia-tarda-o-falla">El correo con IA tarda o falla</h3>

@@ -456,6 +456,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#cómo-se-envían-dominio-propio-autenticado" id="toc-cómo-se-envían-dominio-propio-autenticado" class="nav-link active" data-scroll-target="#cómo-se-envían-dominio-propio-autenticado">Cómo se envían: dominio propio autenticado</a></li>
+  <li><a href="#lista-negra-de-correo-rebotes-y-quejas" id="toc-lista-negra-de-correo-rebotes-y-quejas" class="nav-link" data-scroll-target="#lista-negra-de-correo-rebotes-y-quejas">Lista negra de correo (rebotes y quejas)</a></li>
   <li><a href="#tipos-de-correo" id="toc-tipos-de-correo" class="nav-link" data-scroll-target="#tipos-de-correo">Tipos de correo</a></li>
   <li><a href="#newsletter-personalizado" id="toc-newsletter-personalizado" class="nav-link" data-scroll-target="#newsletter-personalizado">Newsletter personalizado</a></li>
   <li><a href="#informativo-con-ia" id="toc-informativo-con-ia" class="nav-link" data-scroll-target="#informativo-con-ia">Informativo con IA</a></li>
@@ -506,6 +507,49 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Tope del plan.</strong> El plan gratuito de Resend tiene un <strong>límite de correos por día</strong>. Con muchos usuarios, un solo newsletter puede agotarlo (los que sobren fallan y se pierden ese envío, sin romper nada). Si el catálogo de usuarios crece, hay que <strong>subir de plan</strong> en Resend.</p>
+</div>
+</div>
+</section>
+<section id="lista-negra-de-correo-rebotes-y-quejas" class="level2">
+<h2 class="anchored" data-anchor-id="lista-negra-de-correo-rebotes-y-quejas">Lista negra de correo (rebotes y quejas)</h2>
+<p>Para <strong>proteger la reputación</strong> del dominio, MalecónTV mantiene una <strong>lista negra</strong>: direcciones a las que <strong>deja de enviar</strong> cualquier correo porque <strong>rebotaron</strong> (buzón muerto) o <strong>marcaron spam</strong>. Seguir escribiendo a rebotes es justo lo que acaba mandando a spam a <em>todos</em> los demás.</p>
+<p><strong>Cómo se alimenta (automático).</strong> Resend avisa por un <strong>webhook</strong> (<code>/api/webhooks/resend</code>, con firma verificada) de dos eventos, y la dirección entra en la lista:</p>
+<ul>
+<li><code>email.bounced</code> — rebote <strong>permanente</strong> (dirección inexistente). Los rebotes <strong>temporales</strong> NO cuentan.</li>
+<li><code>email.complained</code> — el destinatario <strong>marcó spam</strong>.</li>
+</ul>
+<p><strong>Qué frena.</strong> Afecta a <strong>todos</strong> los tipos de correo (verificación incluida). Es el <strong>último filtro</strong>: da igual la preferencia de newsletter o cualquier otra cosa — si la dirección está en la lista, ese correo <strong>no sale</strong>. <strong>El web push NO se ve afectado</strong> (es otro canal): un usuario en lista negra <strong>sigue recibiendo</strong> los avisos push.</p>
+<p><strong>Dónde se ve</strong> (en <strong>Admin › <a href="./usuarios.html">Usuarios</a></strong>):</p>
+<ul>
+<li><strong>Chip rojo “Blacklist”</strong> en la fila del usuario.</li>
+<li><strong>Filtro “En blacklist”</strong> para listar solo a los afectados.</li>
+<li><strong>Ribbon diagonal “BLACKLIST”</strong> + aviso en la ficha del usuario: &gt; Correo en lista negra (rebotó o marcó spam) — no se le envían emails. El web push sí funciona.</li>
+<li>Tarjeta <strong>“Blacklist”</strong> en el <strong>Panel</strong> con el número de usuarios afectados (al pulsarla abre la lista ya filtrada).</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La lista es <strong>por dirección</strong> (no por usuario), así que cubre también los correos de <strong>verificación de alta</strong> que rebotan (alguien que tecleó mal su email y nunca llegó a ser usuario). En el panel es <strong>solo lectura</strong>: <strong>no</strong> hay botón para “sacar” a nadie a mano — reenviar a un rebote o a quien te marcó spam vuelve a dañar la reputación.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Requiere el <strong>webhook configurado en Resend</strong> (eventos <code>email.bounced</code> y <code>email.complained</code>, apuntando a <code>https://malecontv.es/api/webhooks/resend</code>) y el secreto <strong><code>RESEND_WEBHOOK_SECRET</code></strong> en el entorno. Sin eso, la lista simplemente <strong>no se llena</strong> (no se rompe nada).</p>
 </div>
 </div>
 </section>
