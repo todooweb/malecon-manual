@@ -495,6 +495,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#descargas-offline" id="toc-descargas-offline" class="nav-link" data-scroll-target="#descargas-offline">Descargas (offline)</a>
   <ul class="collapse">
   <li><a href="#se-perdieron-las-descargas" id="toc-se-perdieron-las-descargas" class="nav-link" data-scroll-target="#se-perdieron-las-descargas">Se perdieron las descargas</a></li>
+  <li><a href="#una-descarga-dice-descarga-no-disponible" id="toc-una-descarga-dice-descarga-no-disponible" class="nav-link" data-scroll-target="#una-descarga-dice-descarga-no-disponible">Una descarga dice “Descarga no disponible”</a></li>
+  <li><a href="#un-usuario-reporta-pantalla-en-blanco-o-negra-y-no-sé-por-qué" id="toc-un-usuario-reporta-pantalla-en-blanco-o-negra-y-no-sé-por-qué" class="nav-link" data-scroll-target="#un-usuario-reporta-pantalla-en-blanco-o-negra-y-no-sé-por-qué">Un usuario reporta pantalla en blanco o negra y no sé por qué</a></li>
   <li><a href="#una-descarga-de-embed-no-avanza-o-da-error" id="toc-una-descarga-de-embed-no-avanza-o-da-error" class="nav-link" data-scroll-target="#una-descarga-de-embed-no-avanza-o-da-error">Una descarga de embed no avanza o da error</a></li>
   <li><a href="#descarga-en-espera-viendo" id="toc-descarga-en-espera-viendo" class="nav-link" data-scroll-target="#descarga-en-espera-viendo">“Descarga en espera (viendo)”</a></li>
   </ul></li>
@@ -745,6 +747,18 @@ Warning
 <p><strong>Síntoma:</strong> un usuario tenía títulos descargados y desaparecieron.</p>
 <p><strong>Causa:</strong> están en el <strong>almacenamiento del navegador</strong> (IndexedDB), no son ficheros sueltos. <strong>Borrar la caché del navegador los borra.</strong></p>
 <p><strong>Solución:</strong> avisar de no limpiar datos del sitio; volver a descargar (necesita internet).</p>
+</section>
+<section id="una-descarga-dice-descarga-no-disponible" class="level3">
+<h3 class="anchored" data-anchor-id="una-descarga-dice-descarga-no-disponible">Una descarga dice “Descarga no disponible”</h3>
+<p><strong>Síntoma:</strong> al abrir una descarga en modo offline sale “Descarga no disponible — esta descarga ya no está en tu dispositivo”.</p>
+<p><strong>Causa:</strong> el sistema del móvil (sobre todo <strong>iOS</strong> con poco espacio o batería) <strong>borró los datos</strong> de la descarga para liberar espacio, aunque la ficha siguiera apareciendo como descargada. Antes este caso se veía como “FUENTE NO DISPONIBLE” en negro (o pantalla en blanco), sin explicación.</p>
+<p><strong>Solución:</strong> conectarse y <strong>volver a descargar</strong> el título. Además, cuando esto ocurre la app <strong>crea sola una alerta tipo Bug</strong> en <code>Panel › Alertas</code> con todo el contexto del dispositivo — usa <strong>Copiar detalle</strong> para pasárselo a la IA si el caso se repite. La app también pide almacenamiento <em>persistente</em> al sistema para reducir estas evicciones.</p>
+</section>
+<section id="un-usuario-reporta-pantalla-en-blanco-o-negra-y-no-sé-por-qué" class="level3">
+<h3 class="anchored" data-anchor-id="un-usuario-reporta-pantalla-en-blanco-o-negra-y-no-sé-por-qué">Un usuario reporta pantalla en blanco o negra y no sé por qué</h3>
+<p><strong>Síntoma:</strong> a un usuario “se le puso la pantalla en blanco/negra” y en los logs del servidor no hay nada.</p>
+<p><strong>Causa:</strong> los errores del navegador del usuario <strong>ocurren en su dispositivo</strong> y no llegan a los logs del servidor.</p>
+<p><strong>Solución:</strong> mira <code>Panel › Alertas</code> filtrando por tipo <strong>Bug</strong>: los crashes, pantallas en blanco y descargas perdidas <strong>se auto-reportan</strong> desde la app del usuario con su contexto (dispositivo, almacenamiento, ruta). <strong>Copiar detalle</strong> te da el informe listo para diagnosticar.</p>
 </section>
 <section id="una-descarga-de-embed-no-avanza-o-da-error" class="level3">
 <h3 class="anchored" data-anchor-id="una-descarga-de-embed-no-avanza-o-da-error">Una descarga de embed no avanza o da error</h3>

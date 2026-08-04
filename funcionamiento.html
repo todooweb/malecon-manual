@@ -457,7 +457,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#arquitectura-en-una-frase" id="toc-arquitectura-en-una-frase" class="nav-link active" data-scroll-target="#arquitectura-en-una-frase">Arquitectura, en una frase</a></li>
   <li><a href="#cómo-llega-el-vídeo-al-usuario" id="toc-cómo-llega-el-vídeo-al-usuario" class="nav-link" data-scroll-target="#cómo-llega-el-vídeo-al-usuario">Cómo llega el vídeo al usuario</a></li>
-  <li><a href="#panel-de-administración" id="toc-panel-de-administración" class="nav-link" data-scroll-target="#panel-de-administración">Panel de administración</a></li>
+  <li><a href="#panel-de-administración" id="toc-panel-de-administración" class="nav-link" data-scroll-target="#panel-de-administración">Panel de administración</a>
+  <ul class="collapse">
+  <li><a href="#centro-de-alertas" id="toc-centro-de-alertas" class="nav-link" data-scroll-target="#centro-de-alertas">Centro de Alertas</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -536,8 +539,18 @@ Important
 <li><strong>Ajustes</strong> — claves de API, límites, salud, y los enlaces de <em>origen de usuarios</em>.</li>
 </ul>
 <p>Algunas páginas no están en la barra y se abren desde el Panel o desde un botón: <strong>Alertas</strong>, <strong>Referidos</strong> y <strong>Votación</strong>. Esas llevan <strong>migas de pan</strong> (p.&nbsp;ej. <code>Panel › Alertas</code>) para volver.</p>
+<section id="centro-de-alertas" class="level3">
+<h3 class="anchored" data-anchor-id="centro-de-alertas">Centro de Alertas</h3>
+<p>En <strong>Panel › Alertas</strong> se reúnen los avisos del sistema, cada uno con su tipo (Moderación, Reporte, Job, Votación, Importación, Newsletter, Mantenimiento y <strong>Bug</strong>). Se filtran por estado/tipo/prioridad y las de evento se cierran con ✓ cuando las atiendes.</p>
+<p>El tipo <strong>Bug</strong> es especial: <strong>lo envía la propia app desde el dispositivo del usuario</strong> cuando algo falla en su navegador (un error de pantalla, una descarga que perdió sus datos…). Esos errores ocurren en el móvil del usuario y <strong>no aparecen en los logs del servidor</strong> — la alerta es el puente que los trae al panel. Cada alerta Bug incluye el contexto completo (usuario, dispositivo, almacenamiento, ruta) y dos acciones:</p>
+<ul>
+<li><strong>Revisar</strong> — abre el vídeo afectado <strong>en modo normal (online)</strong> para comprobar en segundos si el título sigue bien en la web (si reproduce, el problema fue solo del dispositivo del usuario).</li>
+<li><strong>Copiar detalle</strong> — copia el reporte completo para pegárselo a la IA y diagnosticar la causa.</li>
+</ul>
+<p>Se crea <strong>una alerta por usuario, tipo y día</strong> (no se acumulan duplicados).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
