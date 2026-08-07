@@ -136,7 +136,7 @@
     "href": "fallos-comunes.html#apis-y-cuotas",
     "title": "Fallos comunes y soluciones",
     "section": "APIs y cuotas",
-    "text": "APIs y cuotas\n\nGemini deja de responder\nCausa: cuota agotada del plan gratuito, o una clave nueva sin acceso a los modelos recientes (404).\nSolución: el sistema prueba varios modelos en cascada; si es cuota, espera al reinicio. Ver APIs.\n\n\nOpenSubtitles no descarga subtítulos\nCausa: 100 descargas/día. Buscar es gratis; descargar gasta cuota.\nSolución: espera al reinicio de cuota o pon una clave con margen. Revisa que la clave esté puesta en Ajustes › Claves de API.",
+    "text": "APIs y cuotas\n\nGemini deja de responder\nCausa: cuota agotada del plan gratuito, o una clave nueva sin acceso a los modelos recientes (404).\nSolución: el sistema prueba varios modelos en cascada; si es cuota, espera al reinicio. Ver APIs.\n\n\nOpenSubtitles no descarga subtítulos\nCausa: 100 descargas/día. Buscar es gratis; descargar gasta cuota.\nSolución: espera al reinicio de cuota o pon una clave con margen. Revisa que la clave esté puesta en Ajustes › Claves de API.\n\n\nUn vídeo sin estrenar da “locked” (403) al reproducir\nEs el muro de pre-estreno trabajando: los free no pueden resolver contenido con fecha futura ni premium (los Premium/admin sí; el 1x01 de una serie pasa siempre). Si algún día bloquease de más, el interruptor de emergencia es RELEASE_GATE_DISABLED=1 en el .env + reiniciar — apaga solo la validación del servidor sin tocar código. El diseño es fail-open: ante cualquier error interno deja pasar, nunca tumba el catálogo.",
     "crumbs": [
       "Operación",
       "Fallos comunes"
@@ -330,7 +330,7 @@
     "href": "reproducir.html#series-y-episodios",
     "title": "Ver contenido: reproductor y series",
     "section": "Series y episodios",
-    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.",
+    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.\n\nDentro del reproductor, la lista de episodios sale desplegada y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:\n\nReproduciendo — resaltado coral con “· reproduciendo”.\nVisto (completado) — fila atenuada.\nA medias — barrita de progreso en la miniatura (por dónde vas).\nSin estrenar — candado 🔒 con su fecha corta (ej. “1 SEP”); con Premium se ven ya con la etiqueta PRE-ESTRENO (ver Premium).",
     "crumbs": [
       "Para el usuario",
       "Ver contenido"
@@ -363,7 +363,18 @@
     "href": "estrenos.html#cómo-funciona",
     "title": "Estrenos",
     "section": "Cómo funciona",
-    "text": "Cómo funciona\n\nUn programador asigna la fecha de estreno (release_date) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las series se reparten por partes.\nEl contenido “estrena” en su fecha: aparece en Próximos Estrenos de la portada, y el usuario puede darle “Avisarme” para que le notifiquen.\nPuedes ajustar la fecha de cada título a mano desde aquí.\n\n\n\n\n\n\n\nNote\n\n\n\nEl estreno es solo la fecha visible: no cambia el contenido, solo cuándo aparece como novedad y a quién se le avisa. Ver también la votación de estrenos, que deja a la comunidad elegir el próximo.",
+    "text": "Cómo funciona\n\nUn programador asigna la fecha de estreno (release_date) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las series se reparten por partes.\nEl contenido “estrena” en su fecha: aparece en Próximos Estrenos de la portada, y el usuario puede darle “Avisarme” para que le notifiquen.\nPuedes ajustar la fecha de cada título a mano desde aquí.",
+    "crumbs": [
+      "Administración",
+      "Estrenos"
+    ]
+  },
+  {
+    "objectID": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
+    "href": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
+    "title": "Estrenos",
+    "section": "Premium ve antes (pre-estreno) y el piloto es libre",
+    "text": "Premium ve antes (pre-estreno) y el piloto es libre\n\nLos usuarios Premium (y admins) pueden ver y descargar el contenido con fecha futura antes del estreno: en vez de la cuenta atrás les sale el reproductor con la etiqueta 👑 PRE-ESTRENO (que desaparece sola el día del estreno). Los usuarios free ven la cuenta atrás con el aviso “👑 Ya disponible en Premium”.\nEl primer episodio (1x01) de toda serie es libre: se reproduce siempre, para cualquiera, sin esperar su fecha y aunque la serie sea premium — es el gancho para engancharse. El resto de capítulos siguen su calendario normal.\nEl bloqueo se valida también en el servidor (no basta con conocer la URL). Si hiciera falta desactivarlo de emergencia: RELEASE_GATE_DISABLED=1 en el .env y reiniciar (ver Fallos comunes).\n\n\n\n\n\n\n\nNote\n\n\n\nEl estreno es solo la fecha visible: no cambia el contenido, solo cuándo aparece como novedad y a quién se le avisa. Ver también la votación de estrenos, que deja a la comunidad elegir el próximo.",
     "crumbs": [
       "Administración",
       "Estrenos"
@@ -1012,7 +1023,7 @@
     "href": "premium.html#premium-gratis-por-puntos",
     "title": "Cuenta, Premium y puntos",
     "section": "Premium gratis (por puntos)",
-    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
+    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente.\nQué te da Premium, además del contenido exclusivo: pre-estreno — ves y descargas los títulos con fecha futura antes de su estreno público (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver Estrenos. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
     "crumbs": [
       "Para el usuario",
       "Cuenta y Premium"

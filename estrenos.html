@@ -456,6 +456,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#cómo-funciona" id="toc-cómo-funciona" class="nav-link active" data-scroll-target="#cómo-funciona">Cómo funciona</a></li>
+  <li><a href="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre" id="toc-premium-ve-antes-pre-estreno-y-el-piloto-es-libre" class="nav-link" data-scroll-target="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre">Premium ve antes (pre-estreno) y el piloto es libre</a></li>
   </ul>
 </nav>
     </div>
@@ -496,6 +497,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Un <strong>programador</strong> asigna la <strong>fecha de estreno</strong> (<code>release_date</code>) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las <strong>series</strong> se reparten por partes.</li>
 <li>El contenido “estrena” en su fecha: aparece en <strong>Próximos Estrenos</strong> de la portada, y el usuario puede darle <strong>“Avisarme”</strong> para que le notifiquen.</li>
 <li>Puedes ajustar la fecha de cada título a mano desde aquí.</li>
+</ul>
+</section>
+<section id="premium-ve-antes-pre-estreno-y-el-piloto-es-libre" class="level2">
+<h2 class="anchored" data-anchor-id="premium-ve-antes-pre-estreno-y-el-piloto-es-libre">Premium ve antes (pre-estreno) y el piloto es libre</h2>
+<ul>
+<li>Los usuarios <strong>Premium</strong> (y admins) pueden <strong>ver y descargar</strong> el contenido con fecha futura <strong>antes del estreno</strong>: en vez de la cuenta atrás les sale el reproductor con la etiqueta <strong>👑 PRE-ESTRENO</strong> (que desaparece sola el día del estreno). Los usuarios free ven la cuenta atrás con el aviso “👑 Ya disponible en Premium”.</li>
+<li><strong>El primer episodio (1x01) de toda serie es libre</strong>: se reproduce siempre, para cualquiera, sin esperar su fecha y aunque la serie sea premium — es el gancho para engancharse. El resto de capítulos siguen su calendario normal.</li>
+<li>El bloqueo se valida <strong>también en el servidor</strong> (no basta con conocer la URL). Si hiciera falta desactivarlo de emergencia: <code>RELEASE_GATE_DISABLED=1</code> en el <code>.env</code> y reiniciar (ver <strong><a href="./fallos-comunes.html">Fallos comunes</a></strong>).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

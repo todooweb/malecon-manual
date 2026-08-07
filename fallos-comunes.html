@@ -504,6 +504,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#gemini-deja-de-responder" id="toc-gemini-deja-de-responder" class="nav-link" data-scroll-target="#gemini-deja-de-responder">Gemini deja de responder</a></li>
   <li><a href="#opensubtitles-no-descarga-subtítulos" id="toc-opensubtitles-no-descarga-subtítulos" class="nav-link" data-scroll-target="#opensubtitles-no-descarga-subtítulos">OpenSubtitles no descarga subtítulos</a></li>
+  <li><a href="#un-vídeo-sin-estrenar-da-locked-403-al-reproducir" id="toc-un-vídeo-sin-estrenar-da-locked-403-al-reproducir" class="nav-link" data-scroll-target="#un-vídeo-sin-estrenar-da-locked-403-al-reproducir">Un vídeo sin estrenar da “locked” (403) al reproducir</a></li>
   </ul></li>
   <li><a href="#web-pwa-y-despliegue" id="toc-web-pwa-y-despliegue" class="nav-link" data-scroll-target="#web-pwa-y-despliegue">Web, PWA y despliegue</a>
   <ul class="collapse">
@@ -782,6 +783,10 @@ Warning
 <h3 class="anchored" data-anchor-id="opensubtitles-no-descarga-subtítulos">OpenSubtitles no descarga subtítulos</h3>
 <p><strong>Causa:</strong> <strong>100 descargas/día</strong>. Buscar es gratis; <strong>descargar</strong> gasta cuota.</p>
 <p><strong>Solución:</strong> espera al reinicio de cuota o pon una clave con margen. Revisa que la clave esté puesta en <strong><a href="./configuracion.html">Ajustes › Claves de API</a></strong>.</p>
+</section>
+<section id="un-vídeo-sin-estrenar-da-locked-403-al-reproducir" class="level3">
+<h3 class="anchored" data-anchor-id="un-vídeo-sin-estrenar-da-locked-403-al-reproducir">Un vídeo sin estrenar da “locked” (403) al reproducir</h3>
+<p>Es el <strong>muro de pre-estreno</strong> trabajando: los free no pueden resolver contenido con fecha futura ni premium (los Premium/admin sí; el 1x01 de una serie pasa siempre). Si algún día bloquease de más, el interruptor de emergencia es <code>RELEASE_GATE_DISABLED=1</code> en el <code>.env</code> + reiniciar — apaga solo la validación del servidor sin tocar código. El diseño es <strong>fail-open</strong>: ante cualquier error interno deja pasar, nunca tumba el catálogo.</p>
 </section>
 </section>
 <section id="web-pwa-y-despliegue" class="level2">
