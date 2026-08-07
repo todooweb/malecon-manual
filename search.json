@@ -264,7 +264,7 @@
     "href": "explorar.html",
     "title": "Explorar: inicio, buscar y canales",
     "section": "",
-    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — botón que elige algo al azar según tu gusto, para cuando no sabes qué ver.\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
+    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
     "crumbs": [
       "Para el usuario",
       "Explorar"
@@ -275,7 +275,18 @@
     "href": "explorar.html#inicio-browse",
     "title": "Explorar: inicio, buscar y canales",
     "section": "",
-    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — botón que elige algo al azar según tu gusto, para cuando no sabes qué ver.\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
+    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
+    "crumbs": [
+      "Para el usuario",
+      "Explorar"
+    ]
+  },
+  {
+    "objectID": "explorar.html#zapping",
+    "href": "explorar.html#zapping",
+    "title": "Explorar: inicio, buscar y canales",
+    "section": "Zapping",
+    "text": "Zapping\nEl Zapping es para cuando no sabes qué ver: en vez de buscar, la app te va poniendo títulos al momento y tú decides sobre la marcha, como hacer zapping en la tele.\n\n\n\nLa sintonía del Zapping: una carta de ajuste con el logo mientras “engancha la señal”.\n\n\n\nCómo se abre — con el botón flotante Zapping o desde el hero “Bienvenido a MalecónTV”.\nElige un ambiente — Sorpréndeme, En Vivo, Películas, Series o un género (Drama, Terror…). Si eliges un género, esos títulos salen primero y luego el resto del catálogo.\nSintonía — antes de cada título aparece una breve carta de ajuste (barras de colores tipo TV) con el logo mientras “engancha la señal”; al llegar la imagen hay un fogonazo y arranca el vídeo.\nProbadita — cada título se reproduce ya empezado (no desde el minuto 0, como al sintonizar un canal a mitad) durante unos segundos. La cuenta atrás empieza cuando aparece la imagen (no mientras sintoniza), así los segundos son de vídeo de verdad. Arriba ves el % de afinidad para ti.\nBotones — Otra (con cuenta atrás) pasa al siguiente; Mi lista lo guarda; Ver ahora deja el zapping y reproduce el título entero desde el principio, a pantalla completa.\nNunca se repite hasta agotar el catálogo, y de cada serie solo aparece un episodio (el siguiente que no hayas visto). Si un título falla, salta solo al siguiente sin mostrar error.\nDescanso — cada ~15 saltos (o al agotar un catálogo pequeño) aparece “¿No encuentras lo que buscas?” para seguir o salir.\nSalir — la ✕ de arriba, la tecla Atrás/Esc o el botón Atrás del mando de TV.\nLas probaditas no cuentan como vistas ni ensucian tus recomendaciones: solo cuenta si le das a Ver ahora.",
     "crumbs": [
       "Para el usuario",
       "Explorar"
