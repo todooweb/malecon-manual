@@ -357,6 +357,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./buscador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">El buscador</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./catalogo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Catálogo</span></a>
   </div>
@@ -371,6 +377,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./estrenos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estrenos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./votacion-admin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Crear una votación (con IA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -461,7 +473,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#qué-filtra-cada-fuente" id="toc-qué-filtra-cada-fuente" class="nav-link" data-scroll-target="#qué-filtra-cada-fuente">Qué filtra cada fuente</a></li>
   </ul></li>
   <li><a href="#el-cron-semanal" id="toc-el-cron-semanal" class="nav-link" data-scroll-target="#el-cron-semanal">El cron semanal</a></li>
-  <li><a href="#revisiones-aprobar-un-vídeo" id="toc-revisiones-aprobar-un-vídeo" class="nav-link" data-scroll-target="#revisiones-aprobar-un-vídeo">Revisiones: aprobar un vídeo</a></li>
+  <li><a href="#revisiones-aprobar-un-vídeo" id="toc-revisiones-aprobar-un-vídeo" class="nav-link" data-scroll-target="#revisiones-aprobar-un-vídeo">Revisiones: aprobar un vídeo</a>
+  <ul class="collapse">
+  <li><a href="#posible-duplicado-aviso-y-validar" id="toc-posible-duplicado-aviso-y-validar" class="nav-link" data-scroll-target="#posible-duplicado-aviso-y-validar">Posible duplicado (aviso y “Validar”)</a></li>
+  </ul></li>
   <li><a href="#importar-una-serie" id="toc-importar-una-serie" class="nav-link" data-scroll-target="#importar-una-serie">Importar una serie</a></li>
   </ul>
 </nav>
@@ -550,6 +565,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>En lote:</strong> marca varios → <strong>Aprobar</strong>, <strong>Edición masiva</strong> (categoría/año/tags…) o <strong>Eliminar</strong>.</li>
 </ul>
 <p>Filtros útiles: por <strong>disponibilidad</strong> — ✅ Disponible, ❌ No disponible, ⚠ Inconcluso, ⏳ Sin verificar. Si algo sale <strong>“No disponible (403/fantasma)”</strong>, mira <strong><a href="./fallos-comunes.html">Fallos comunes</a></strong>.</p>
+<section id="posible-duplicado-aviso-y-validar" class="level3">
+<h3 class="anchored" data-anchor-id="posible-duplicado-aviso-y-validar">Posible duplicado (aviso y “Validar”)</h3>
+<p>Si un item de Revisiones <strong>se parece a algo que ya está publicado</strong> (mismo <strong>TMDB</strong> o <strong>título muy parecido</strong>, aunque sea en otro idioma), sale un <strong>aviso ámbar</strong> <em>“Posible duplicado de «…»”</em> y <strong>se bloquea</strong>: se oculta “Revisar” y aparece <strong>“Validar”</strong>. Pulsa <strong>Validar</strong> solo si confirmas que es un <strong>título distinto</strong> — entonces se desbloquea y vuelve “Revisar”. Mientras no lo valides, tampoco se puede meter en una <strong><a href="./votacion-admin.html">votación</a></strong>.</p>
+</section>
 </section>
 <section id="importar-una-serie" class="level2">
 <h2 class="anchored" data-anchor-id="importar-una-serie">Importar una serie</h2>

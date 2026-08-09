@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subtítulos y traducciones – MalecónTV · Manual</title>
+<title>El buscador del panel – MalecónTV · Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configuracion.html">Configuración</a></li><li class="breadcrumb-item"><a href="./subtitulos.html">Subtítulos</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./buscador.html">El buscador</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -357,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./buscador.html" class="sidebar-item-text sidebar-link">
+  <a href="./buscador.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">El buscador</span></a>
   </div>
 </li>
@@ -428,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./subtitulos.html" class="sidebar-item-text sidebar-link active">
+  <a href="./subtitulos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subtítulos</span></a>
   </div>
 </li>
@@ -467,8 +467,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gestor-de-subtítulos-admin" id="toc-gestor-de-subtítulos-admin" class="nav-link active" data-scroll-target="#gestor-de-subtítulos-admin">Gestor de subtítulos (admin)</a></li>
-  <li><a href="#está-en-español-al-importar" id="toc-está-en-español-al-importar" class="nav-link" data-scroll-target="#está-en-español-al-importar">“¿Está en español?” al importar</a></li>
+  <li><a href="#filtrar" id="toc-filtrar" class="nav-link active" data-scroll-target="#filtrar">Filtrar</a></li>
+  <li><a href="#agrupar" id="toc-agrupar" class="nav-link" data-scroll-target="#agrupar">Agrupar</a></li>
+  <li><a href="#favoritos-búsquedas-guardadas" id="toc-favoritos-búsquedas-guardadas" class="nav-link" data-scroll-target="#favoritos-búsquedas-guardadas">Favoritos (búsquedas guardadas)</a></li>
+  <li><a href="#buscar-y-ordenar" id="toc-buscar-y-ordenar" class="nav-link" data-scroll-target="#buscar-y-ordenar">Buscar y ordenar</a></li>
   </ul>
 </nav>
     </div>
@@ -476,9 +478,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configuracion.html">Configuración</a></li><li class="breadcrumb-item"><a href="./subtitulos.html">Subtítulos</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./buscador.html">El buscador</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Subtítulos y traducciones</h1>
+<h1 class="title">El buscador del panel</h1>
 </div>
 
 
@@ -495,66 +497,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Hay <strong>dos fuentes</strong> de subtítulos, y conviene no confundirlas:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 38%">
-<col style="width: 47%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tipo</th>
-<th>De dónde salen</th>
-<th>Quién los controla</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Subtítulos del embed</strong></td>
-<td>Vienen dentro del propio reproductor de vidsrc</td>
-<td>Automáticos, sin control del admin</td>
-</tr>
-<tr class="even">
-<td><strong>Subtítulos en español</strong></td>
-<td>OpenSubtitles + subidas manuales del admin</td>
-<td><strong>Gestionados por el admin</strong></td>
-</tr>
-</tbody>
-</table>
-<section id="gestor-de-subtítulos-admin" class="level2">
-<h2 class="anchored" data-anchor-id="gestor-de-subtítulos-admin">Gestor de subtítulos (admin)</h2>
-<p>En la ficha de un vídeo <strong>embed</strong> (vidsrc/vidlink con id de TMDB) aparece el <strong>Gestor de subtítulos</strong> —plegado por defecto—. Desde ahí puedes:</p>
-<ol type="1">
-<li><strong>Buscar en OpenSubtitles</strong> — lista los candidatos en español del título (búsqueda <strong>gratis</strong>). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se <strong>descarga</strong> (cuesta 1 de cuota) y queda <strong>cacheado</strong>.</li>
-<li><strong>Subir <code>.srt</code>/<code>.vtt</code></strong> — subes tu propio fichero. Se convierte a VTT y se le <strong>quitan los anuncios</strong> (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).</li>
-<li><strong>Sincronía (±s)</strong> — ajusta todos los tiempos: <code>−1s</code>, <code>−0.5s</code>, <code>+0.5s</code>, <code>+1s</code>. Se <strong>acumula</strong> (“− adelanta, + atrasa”).</li>
-<li><strong>Quitar</strong> — borra el subtítulo guardado y vuelve al automático.</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Todas las páginas de administración (<strong>Videos, Canales, Fuentes, Revisiones, Reportes, Playlists, Estrenos, Usuarios, Referidos, Alertas</strong>) comparten la <strong>misma barra de búsqueda</strong>. Filtra, agrupa y pagina <strong>en el servidor</strong> (en la base de datos), así que rinde igual con 100 que con 100.000 registros.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/buscador.png" class="img-fluid figure-img"></p>
+<figcaption>El panel del buscador: columnas <strong>Filtros</strong>, <strong>Agrupar por</strong> y <strong>Favoritos</strong>.</figcaption>
+</figure>
+</div>
+<section id="filtrar" class="level2">
+<h2 class="anchored" data-anchor-id="filtrar">Filtrar</h2>
+<p>Pulsa la barra para abrir el panel. A la izquierda, <strong>Filtros</strong> rápidos por campo (p.&nbsp;ej. Estado, Tipo). Marcas los que quieras: dentro de un mismo grupo suman (OR), entre grupos se cruzan (AND).</p>
+<ul>
+<li>Los filtros activos salen como <strong>chips</strong> en la barra; los quitas con la <strong>✕</strong>.</li>
+<li><strong>+ Filtro personalizado…</strong> abre reglas más finas: eliges un <strong>campo</strong>, un <strong>operador</strong> (es igual a, contiene, mayor que, no está vacío…) y un valor. Puedes conciliar <strong>todas</strong> las reglas (AND) o <strong>cualquiera</strong> (OR).</li>
+</ul>
+</section>
+<section id="agrupar" class="level2">
+<h2 class="anchored" data-anchor-id="agrupar">Agrupar</h2>
+<p>En la columna <strong>Agrupar por</strong> eliges un campo y la lista se organiza en <strong>grupos plegables</strong> con su recuento (p.&nbsp;ej. vídeos por categoría). Puedes anidar varios niveles.</p>
+<ul>
+<li>Los campos más usados salen directos; el resto viven en <strong>Grupo personalizado…</strong> (un desplegable buscable), para no saturar.</li>
+<li>Cada grupo se <strong>despliega bajo demanda</strong> (no pide datos hasta que lo abres).</li>
+</ul>
+</section>
+<section id="favoritos-búsquedas-guardadas" class="level2">
+<h2 class="anchored" data-anchor-id="favoritos-búsquedas-guardadas">Favoritos (búsquedas guardadas)</h2>
+<p>A la derecha, <strong>Favoritos</strong>: guarda la búsqueda actual (filtros + agrupación + orden) con un nombre para reutilizarla. Puedes marcar <strong>una como predeterminada</strong>: se aplica sola al abrir la página.</p>
+</section>
+<section id="buscar-y-ordenar" class="level2">
+<h2 class="anchored" data-anchor-id="buscar-y-ordenar">Buscar y ordenar</h2>
+<ul>
+<li>El cuadro <strong>“Buscar…”</strong> busca por los campos de texto de esa entidad (título, nombre, email…).</li>
+<li>El desplegable de la derecha <strong>ordena</strong> (Reciente, Nombre A-Z, y órdenes propios de cada página, como “Última conexión” en Usuarios).</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los subtítulos ES <strong>solo aplican a embeds</strong> vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).</p>
+<p>Todo se calcula en la base de datos y se <strong>pagina</strong>: la barra muestra “1–25 / N” con flechas. Cambiar un filtro te devuelve a la página 1.</p>
 </div>
 </div>
-</section>
-<section id="está-en-español-al-importar" class="level2">
-<h2 class="anchored" data-anchor-id="está-en-español-al-importar">“¿Está en español?” al importar</h2>
-<p>Al importar, el sistema decide si un título es <strong>entendible en español</strong> con esta lógica:</p>
-<ol type="1">
-<li>El idioma original en TMDB es español → <strong>ok</strong>.</li>
-<li>TMDB dice que se habla español → <strong>ok</strong>.</li>
-<li>OpenSubtitles tiene subtítulos en español → <strong>ok</strong>.</li>
-<li>Si nada de eso → <strong>no se publica</strong> (salvo que no haya clave de OpenSubtitles configurada).</li>
-</ol>
-<p>Por eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.</p>
 
 
 </section>

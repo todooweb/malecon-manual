@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subtítulos y traducciones – MalecónTV · Manual</title>
+<title>Crear una votación (con IA) – MalecónTV · Manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configuracion.html">Configuración</a></li><li class="breadcrumb-item"><a href="./subtitulos.html">Subtítulos</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./votacion-admin.html">Crear una votación (con IA)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -381,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./votacion-admin.html" class="sidebar-item-text sidebar-link">
+  <a href="./votacion-admin.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Crear una votación (con IA)</span></a>
   </div>
 </li>
@@ -428,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./subtitulos.html" class="sidebar-item-text sidebar-link active">
+  <a href="./subtitulos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subtítulos</span></a>
   </div>
 </li>
@@ -467,8 +467,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gestor-de-subtítulos-admin" id="toc-gestor-de-subtítulos-admin" class="nav-link active" data-scroll-target="#gestor-de-subtítulos-admin">Gestor de subtítulos (admin)</a></li>
-  <li><a href="#está-en-español-al-importar" id="toc-está-en-español-al-importar" class="nav-link" data-scroll-target="#está-en-español-al-importar">“¿Está en español?” al importar</a></li>
+  <li><a href="#contenido-apto-recomendado-por-ia" id="toc-contenido-apto-recomendado-por-ia" class="nav-link active" data-scroll-target="#contenido-apto-recomendado-por-ia">Contenido apto · recomendado por IA</a></li>
+  <li><a href="#medidor-de-la-papeleta-óptima-mejorable" id="toc-medidor-de-la-papeleta-óptima-mejorable" class="nav-link" data-scroll-target="#medidor-de-la-papeleta-óptima-mejorable">Medidor de la papeleta (Óptima / Mejorable)</a></li>
+  <li><a href="#crear-cerrar-y-publicar" id="toc-crear-cerrar-y-publicar" class="nav-link" data-scroll-target="#crear-cerrar-y-publicar">Crear, cerrar y publicar</a></li>
   </ul>
 </nav>
     </div>
@@ -476,9 +477,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configuracion.html">Configuración</a></li><li class="breadcrumb-item"><a href="./subtitulos.html">Subtítulos</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funcionamiento.html">Administración</a></li><li class="breadcrumb-item"><a href="./votacion-admin.html">Crear una votación (con IA)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Subtítulos y traducciones</h1>
+<h1 class="title">Crear una votación (con IA)</h1>
 </div>
 
 
@@ -495,42 +496,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Hay <strong>dos fuentes</strong> de subtítulos, y conviene no confundirlas:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 38%">
-<col style="width: 47%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tipo</th>
-<th>De dónde salen</th>
-<th>Quién los controla</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Subtítulos del embed</strong></td>
-<td>Vienen dentro del propio reproductor de vidsrc</td>
-<td>Automáticos, sin control del admin</td>
-</tr>
-<tr class="even">
-<td><strong>Subtítulos en español</strong></td>
-<td>OpenSubtitles + subidas manuales del admin</td>
-<td><strong>Gestionados por el admin</strong></td>
-</tr>
-</tbody>
-</table>
-<section id="gestor-de-subtítulos-admin" class="level2">
-<h2 class="anchored" data-anchor-id="gestor-de-subtítulos-admin">Gestor de subtítulos (admin)</h2>
-<p>En la ficha de un vídeo <strong>embed</strong> (vidsrc/vidlink con id de TMDB) aparece el <strong>Gestor de subtítulos</strong> —plegado por defecto—. Desde ahí puedes:</p>
-<ol type="1">
-<li><strong>Buscar en OpenSubtitles</strong> — lista los candidatos en español del título (búsqueda <strong>gratis</strong>). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se <strong>descarga</strong> (cuesta 1 de cuota) y queda <strong>cacheado</strong>.</li>
-<li><strong>Subir <code>.srt</code>/<code>.vtt</code></strong> — subes tu propio fichero. Se convierte a VTT y se le <strong>quitan los anuncios</strong> (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).</li>
-<li><strong>Sincronía (±s)</strong> — ajusta todos los tiempos: <code>−1s</code>, <code>−0.5s</code>, <code>+0.5s</code>, <code>+1s</code>. Se <strong>acumula</strong> (“− adelanta, + atrasa”).</li>
-<li><strong>Quitar</strong> — borra el subtítulo guardado y vuelve al automático.</li>
-</ol>
+<p>En <strong>Admin › Votación</strong> creas la votación semanal que la comunidad ve en <strong><a href="./biblioteca.html">Biblioteca</a></strong> (lado usuario: <strong><a href="./votar.html">Votar el próximo estreno</a></strong>).</p>
+<section id="contenido-apto-recomendado-por-ia" class="level2">
+<h2 class="anchored" data-anchor-id="contenido-apto-recomendado-por-ia">Contenido apto · recomendado por IA</h2>
+<p>A la derecha, en vez de listarte todo, el sistema <strong>te recomienda candidatos ya validados</strong> (que se reproducen y tienen subtítulos en español). Vienen <strong>ordenados y con su “por qué”</strong>. Tú desmarcas los que no quieras y eliges otros de la lista.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/votacion-ia.png" class="img-fluid figure-img"></p>
+<figcaption>Admin › Votación: a la izquierda “Configurar” con <strong>“En qué se basa la IA”</strong>; a la derecha <strong>“Contenido apto · recomendado por IA”</strong> con la nota y plataforma de cada candidato.</figcaption>
+</figure>
+</div>
+<p><strong>En qué se basa la IA</strong> (panel izquierdo) — todo con datos reales de tu app:</p>
+<ul>
+<li><strong>Géneros más vistos</strong> por tu público (de las vistas + las etiquetas/<code>tags</code>).</li>
+<li><strong>Temporada</strong> actual (verano, Navidad, Halloween…), sacada de la fecha.</li>
+<li><strong>Huecos del catálogo</strong> (géneros poco cubiertos) — reserva 1-2 apuestas nuevas para que el catálogo no se estanque.</li>
+<li><strong>Votaciones anteriores</strong> (para no repetir y seguir lo que funcionó).</li>
+<li>Y solo lo <strong>apto</strong>: reproducible + subtítulos ES.</li>
+</ul>
+<p>Es <strong>una sola llamada</strong> a Gemini (hay que poner la <strong>API key en <a href="./apis.html">Ajustes</a></strong>). Si la IA no está disponible, la lista sale igual pero en orden por defecto, sin recomendación — la votación <strong>nunca se rompe</strong>.</p>
+<p>Además, cada candidato muestra su <strong>nota</strong> y en qué <strong>plataforma</strong> de la competencia está (Netflix, Disney+…), vía TMDB — como señal de “éxito probado”.</p>
+</section>
+<section id="medidor-de-la-papeleta-óptima-mejorable" class="level2">
+<h2 class="anchored" data-anchor-id="medidor-de-la-papeleta-óptima-mejorable">Medidor de la papeleta (Óptima / Mejorable)</h2>
+<p>Al marcar títulos, un medidor te dice <strong>al instante</strong> (sin gastar IA) si tu selección es <strong>Óptima</strong> o <strong>Mejorable</strong>, con el motivo: mira los <strong>géneros</strong> de lo marcado y valora que haya <strong>variedad</strong>, que <strong>toque un gusto fuerte</strong> del público y que la papeleta esté <strong>completa</strong>.</p>
+</section>
+<section id="crear-cerrar-y-publicar" class="level2">
+<h2 class="anchored" data-anchor-id="crear-cerrar-y-publicar">Crear, cerrar y publicar</h2>
+<ul>
+<li>Marca hasta el máximo de candidatos configurado y pulsa <strong>Crear votación</strong> (deshabilitado si no marcas al menos uno).</li>
+<li>Desde el panel <strong>cierras</strong> la votación y <strong>publicas al ganador</strong> como estreno. Los perdedores vuelven a Revisiones o se descartan según <strong><a href="./configuracion.html">Ajustes › Votación</a></strong>.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -541,20 +537,9 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los subtítulos ES <strong>solo aplican a embeds</strong> vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).</p>
+<p>No puedes poner a votar algo que <strong>ya está publicado</strong> en el catálogo: si un candidato coincide (mismo TMDB o título muy parecido) con un título ya publicado, queda <strong>bloqueado</strong> hasta que confirmes en Revisiones que son distintos. Ver <strong><a href="./importacion.html">Revisiones</a></strong>.</p>
 </div>
 </div>
-</section>
-<section id="está-en-español-al-importar" class="level2">
-<h2 class="anchored" data-anchor-id="está-en-español-al-importar">“¿Está en español?” al importar</h2>
-<p>Al importar, el sistema decide si un título es <strong>entendible en español</strong> con esta lógica:</p>
-<ol type="1">
-<li>El idioma original en TMDB es español → <strong>ok</strong>.</li>
-<li>TMDB dice que se habla español → <strong>ok</strong>.</li>
-<li>OpenSubtitles tiene subtítulos en español → <strong>ok</strong>.</li>
-<li>Si nada de eso → <strong>no se publica</strong> (salvo que no haya clave de OpenSubtitles configurada).</li>
-</ol>
-<p>Por eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.</p>
 
 
 </section>
