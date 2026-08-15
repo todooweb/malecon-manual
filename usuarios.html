@@ -46,8 +46,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6a326ef1d6b43aea3bd012f61fae7611.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ac9c2fc3c4e7df3ea5d00864d8e42a40.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d859e243ca2f797266be131ca1e1584a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-230939a3ebcea8fe792c83944039a851.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -468,6 +468,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#buscar-y-editar" id="toc-buscar-y-editar" class="nav-link active" data-scroll-target="#buscar-y-editar">Buscar y editar</a></li>
+  <li><a href="#ubicación-de-usuarios-mapa" id="toc-ubicación-de-usuarios-mapa" class="nav-link" data-scroll-target="#ubicación-de-usuarios-mapa">Ubicación de usuarios (mapa)</a>
+  <ul class="collapse">
+  <li><a href="#ubicación-en-la-ficha-y-en-las-sesiones" id="toc-ubicación-en-la-ficha-y-en-las-sesiones" class="nav-link" data-scroll-target="#ubicación-en-la-ficha-y-en-las-sesiones">Ubicación en la ficha y en las sesiones</a></li>
+  <li><a href="#es-fiable-cada-cuánto-se-actualiza" id="toc-es-fiable-cada-cuánto-se-actualiza" class="nav-link" data-scroll-target="#es-fiable-cada-cuánto-se-actualiza">¿Es fiable? ¿Cada cuánto se actualiza?</a></li>
+  </ul></li>
   <li><a href="#origen-de-usuarios-de-dónde-vienen" id="toc-origen-de-usuarios-de-dónde-vienen" class="nav-link" data-scroll-target="#origen-de-usuarios-de-dónde-vienen">Origen de usuarios (de dónde vienen)</a></li>
   <li><a href="#referidos-e-invitaciones" id="toc-referidos-e-invitaciones" class="nav-link" data-scroll-target="#referidos-e-invitaciones">Referidos e invitaciones</a></li>
   <li><a href="#borrar-un-usuario" id="toc-borrar-un-usuario" class="nav-link" data-scroll-target="#borrar-un-usuario">Borrar un usuario</a></li>
@@ -506,6 +511,33 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Editar en masa</strong> — selecciona varios y cambia a la vez rol, estado, membresía u origen.</li>
 <li>La ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos.</li>
 </ul>
+</section>
+<section id="ubicación-de-usuarios-mapa" class="level2">
+<h2 class="anchored" data-anchor-id="ubicación-de-usuarios-mapa">Ubicación de usuarios (mapa)</h2>
+<p>En el <strong>Panel</strong> (Admin › Panel), dentro de <em>Comunidad y Crecimiento</em>, hay un mapa <strong>“Ubicación de usuarios”</strong> que te dice de dónde es tu audiencia, deducido de la <strong>IP</strong> de sus accesos.</p>
+<ul>
+<li><strong>Mapa mundial</strong> con una burbuja por país; el número dentro es cuántos usuarios hay allí. Puedes <strong>acercar/alejar</strong> y arrastrar, o <strong>clicar un país del Top 5</strong> para volar hasta él.</li>
+<li><strong>País / Región</strong> — el interruptor de arriba a la izquierda cambia entre burbujas por país o por región.</li>
+<li><strong>Top 5 países</strong> a la derecha, con su porcentaje.</li>
+<li><strong>Usuarios activos ahora</strong> (indicador verde) — cuántos usuarios (no admins) han tenido actividad en los últimos minutos. Se actualiza solo mientras miras el panel.</li>
+<li><strong>N geolocalizados · N países</strong> — el total de usuarios con ubicación conocida.</li>
+</ul>
+<section id="ubicación-en-la-ficha-y-en-las-sesiones" class="level3">
+<h3 class="anchored" data-anchor-id="ubicación-en-la-ficha-y-en-las-sesiones">Ubicación en la ficha y en las sesiones</h3>
+<ul>
+<li>En la <strong>ficha</strong> de cada usuario (Editar), debajo del nombre, aparece su <strong>ubicación principal</strong> (país · región).</li>
+<li>En <strong>“Sesiones activas”</strong> de cada usuario, cada acceso muestra su país y, si viene por <strong>VPN o Apple Private Relay</strong>, se marca como <code>· VPN</code>.</li>
+<li>En el <strong>buscador</strong> de Usuarios puedes <strong>filtrar</strong> y <strong>Agrupar por</strong> <em>País</em> y <em>Región</em> (igual que por Membresía o Estado — ver <strong><a href="./buscador.html">El buscador</a></strong>).</li>
+</ul>
+</section>
+<section id="es-fiable-cada-cuánto-se-actualiza" class="level3">
+<h3 class="anchored" data-anchor-id="es-fiable-cada-cuánto-se-actualiza">¿Es fiable? ¿Cada cuánto se actualiza?</h3>
+<ul>
+<li><strong>País: muy fiable</strong> (~99%). <strong>Región: orientativa.</strong> La <strong>ciudad no se muestra</strong> porque por IP no es fiable (en móvil suele salir el nodo de la operadora, no el usuario).</li>
+<li>Se <strong>excluyen VPN y Apple Private Relay</strong> (ubicación no fiable) y <strong>no cuentan los admins</strong> en “activos ahora”.</li>
+<li>La ubicación de cada usuario se recalcula <strong>en cada acceso desde una IP fiable</strong>, así que refleja su último acceso bueno. La base IP→lugar es <strong>offline</strong> (no hace llamadas externas) y respeta la privacidad; úsala en agregado (mapa/conteos), no como dirección exacta.</li>
+</ul>
+</section>
 </section>
 <section id="origen-de-usuarios-de-dónde-vienen" class="level2">
 <h2 class="anchored" data-anchor-id="origen-de-usuarios-de-dónde-vienen">Origen de usuarios (de dónde vienen)</h2>
