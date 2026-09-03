@@ -469,6 +469,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#tu-perfil" id="toc-tu-perfil" class="nav-link active" data-scroll-target="#tu-perfil">Tu perfil</a></li>
   <li><a href="#premium-gratis-por-puntos" id="toc-premium-gratis-por-puntos" class="nav-link" data-scroll-target="#premium-gratis-por-puntos">Premium <strong>gratis</strong> (por puntos)</a></li>
+  <li><a href="#prueba-premium-al-registrarse-trial" id="toc-prueba-premium-al-registrarse-trial" class="nav-link" data-scroll-target="#prueba-premium-al-registrarse-trial">Prueba Premium al registrarse (trial)</a></li>
   <li><a href="#free-vs-premium" id="toc-free-vs-premium" class="nav-link" data-scroll-target="#free-vs-premium">Free vs Premium</a></li>
   <li><a href="#referidos-desde-el-lado-del-usuario" id="toc-referidos-desde-el-lado-del-usuario" class="nav-link" data-scroll-target="#referidos-desde-el-lado-del-usuario">Referidos, desde el lado del usuario</a></li>
   </ul>
@@ -522,6 +523,18 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Invitar</strong> (referidos) → una <strong>bonificación grande</strong> cuando alguien se registra con tu enlace.</li>
 </ul>
 <p>Al llegar a la <strong>meta</strong>, tu cuenta pasa a <strong>Premium automáticamente</strong>.</p>
+</section>
+<section id="prueba-premium-al-registrarse-trial" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-premium-al-registrarse-trial">Prueba Premium al registrarse (trial)</h2>
+<p>Si el admin la activa (<strong><a href="./configuracion.html">Ajustes › Recompensas Premium</a></strong>), cada usuario <strong>nuevo</strong> estrena <strong>Premium gratis unos días</strong> (7 por defecto) al registrarse:</p>
+<ul>
+<li>Al aterrizar por primera vez ve una <strong>celebración</strong>: “¡Estrenas Premium GRATIS!” con sus ventajas (se muestra una sola vez).</li>
+<li>El chip <strong>PREMIUM</strong> de la barra superior se convierte en <strong>cuenta atrás</strong> (“PREMIUM · X días”); en los <strong>3 últimos días late</strong> para avisar. Es clicable → lleva a la tarjeta <strong>Gana Premium Gratis</strong> del perfil, donde además aparece “Tienes Premium · quedan X días”.</li>
+<li>Al <strong>expirar</strong> vuelve a <strong>gratis</strong> automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le invita a <strong>compartir para desbloquearlo</strong>.</li>
+<li>Si durante la prueba alcanza la <strong>meta de puntos</strong>, se queda Premium por puntos (la prueba deja de importar).</li>
+<li><strong>Premium revocado</strong> (admin) anula también la prueba.</li>
+<li>Apagar el interruptor en Ajustes <strong>solo afecta a registros futuros</strong>: quien ya tiene días los disfruta hasta su fecha. El admin puede <strong>regalar/extender/quitar</strong> la prueba a cualquiera desde su ficha (campo <strong>Fin de prueba Premium</strong>) o en masa.</li>
+</ul>
 <p><strong>Qué te da Premium</strong>, además del contenido exclusivo: <strong>pre-estreno</strong> — ves y descargas los títulos con fecha futura <strong>antes de su estreno público</strong> (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver <strong><a href="./estrenos.html">Estrenos</a></strong>. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en <strong><a href="./configuracion.html">Ajustes › Gamificación</a></strong>.</p>
 </section>
 <section id="free-vs-premium" class="level2">
@@ -559,7 +572,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Descargas</td>
 <td>Limitadas</td>
-<td><strong>Más / ilimitadas</strong></td>
+<td><strong>Más (límite mayor)</strong></td>
 </tr>
 <tr class="odd">
 <td>Estrenos</td>

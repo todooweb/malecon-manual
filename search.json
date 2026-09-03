@@ -290,7 +290,7 @@
     "href": "votacion-admin.html#crear-cerrar-y-publicar",
     "title": "Crear una votación (con IA)",
     "section": "Crear, cerrar y publicar",
-    "text": "Crear, cerrar y publicar\n\nMarca hasta el máximo de candidatos configurado y pulsa Crear votación (deshabilitado si no marcas al menos uno).\nDesde el panel cierras la votación y publicas al ganador como estreno. Los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación.\n\n\n\n\n\n\n\nNote\n\n\n\nNo puedes poner a votar algo que ya está publicado en el catálogo: si un candidato coincide (mismo TMDB o título muy parecido) con un título ya publicado, queda bloqueado hasta que confirmes en Revisiones que son distintos. Ver Revisiones.",
+    "text": "Crear, cerrar y publicar\n\nMarca hasta el máximo de candidatos configurado y pulsa Crear votación (deshabilitado si no marcas al menos uno). Mientras la IA elige candidatos (10-20 s), el botón dice “La IA está eligiendo…” — espera a que termine; “Sin contenido apto” solo aparece si de verdad no hay nada.\nDesde el panel cierras la votación y publicas al ganador como estreno. Los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación. Si el ganador propuesto tiene 0 votos, un aviso ámbar te recuerda que publicarías sin el criterio de la comunidad (no bloquea: decides tú).\n\n\n\n\n\n\n\nNote\n\n\n\nNo puedes poner a votar algo que ya está publicado en el catálogo: si un candidato coincide (mismo TMDB o título muy parecido) con un título ya publicado, queda bloqueado hasta que confirmes en Revisiones que son distintos. Ver Revisiones.",
     "crumbs": [
       "Administración",
       "Crear una votación (con IA)"
@@ -356,7 +356,7 @@
     "href": "configuracion.html#marketing-comunidad",
     "title": "Configuración (Ajustes)",
     "section": "Marketing & Comunidad",
-    "text": "Marketing & Comunidad\n\nNewsletter por Email\nEnvío del boletín personalizado (ver Correos).\n\nPeriodicidad (días) — máximo entre correos a un mismo usuario (por defecto 7).\nTamaño del lote — cuántos correos por tanda (por defecto 10).\nIncluir usuarios bloqueados — normalmente no.\nBotones: Vista previa (con plantilla A/B/C), Prueba (a un email concreto), Enviar Newsletter, y Redactar informativo con IA (redacta un anuncio con Gemini).\n\n\n\nReglas de Gamificación\nCómo los usuarios ganan puntos hacia Premium (ver Cuenta y Premium).\n\nPuntos por compartir (5) · Puntos por referido (25) · Límite diario de shares (3) · Meta para Premium (100). Hay una caja de simulación que calcula cuántos shares o referidos hacen falta.\n\n\n\nRecompensas Premium\nUn interruptor Activas/Desactivadas con indicador verde/rojo.",
+    "text": "Marketing & Comunidad\n\nNewsletter por Email\nEnvío del boletín personalizado (ver Correos).\n\nPeriodicidad (días) — máximo entre correos a un mismo usuario (por defecto 7).\nTamaño del lote — cuántos correos por tanda (por defecto 10).\nIncluir usuarios bloqueados — normalmente no.\nBotones: Vista previa (con plantilla A/B/C), Prueba (a un email concreto), Enviar Newsletter, y Redactar informativo con IA (redacta un anuncio con Gemini).\n\n\n\nReglas de Gamificación\nCómo los usuarios ganan puntos hacia Premium (ver Cuenta y Premium).\n\nPuntos por compartir (5) · Puntos por referido (25) · Límite diario de shares (3) · Meta para Premium (100). La simulación (cuántos shares o referidos hacen falta) va integrada al pie de la misma tarjeta.\n\n\n\nRecompensas Premium\nUna tarjeta con dos interruptores e indicador verde/rojo:\n\nRecompensas Activas/Desactivadas — el sistema de puntos.\nPrueba Activa/Desactivada + Días de prueba (7) — la Prueba Premium de los registros nuevos (ver Cuenta y Premium). Sale desactivada por defecto; se enciende a mano. Apagarla no quita los días a quien ya los tiene: solo corta los registros futuros.",
     "crumbs": [
       "Configuración",
       "Ajustes"
@@ -565,7 +565,18 @@
     "href": "premium.html#premium-gratis-por-puntos",
     "title": "Cuenta, Premium y puntos",
     "section": "Premium gratis (por puntos)",
-    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente.\nQué te da Premium, además del contenido exclusivo: pre-estreno — ves y descargas los títulos con fecha futura antes de su estreno público (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver Estrenos. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
+    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente.",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "premium.html#prueba-premium-al-registrarse-trial",
+    "href": "premium.html#prueba-premium-al-registrarse-trial",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Prueba Premium al registrarse (trial)",
+    "text": "Prueba Premium al registrarse (trial)\nSi el admin la activa (Ajustes › Recompensas Premium), cada usuario nuevo estrena Premium gratis unos días (7 por defecto) al registrarse:\n\nAl aterrizar por primera vez ve una celebración: “¡Estrenas Premium GRATIS!” con sus ventajas (se muestra una sola vez).\nEl chip PREMIUM de la barra superior se convierte en cuenta atrás (“PREMIUM · X días”); en los 3 últimos días late para avisar. Es clicable → lleva a la tarjeta Gana Premium Gratis del perfil, donde además aparece “Tienes Premium · quedan X días”.\nAl expirar vuelve a gratis automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le invita a compartir para desbloquearlo.\nSi durante la prueba alcanza la meta de puntos, se queda Premium por puntos (la prueba deja de importar).\nPremium revocado (admin) anula también la prueba.\nApagar el interruptor en Ajustes solo afecta a registros futuros: quien ya tiene días los disfruta hasta su fecha. El admin puede regalar/extender/quitar la prueba a cualquiera desde su ficha (campo Fin de prueba Premium) o en masa.\n\nQué te da Premium, además del contenido exclusivo: pre-estreno — ves y descargas los títulos con fecha futura antes de su estreno público (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver Estrenos. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
     "crumbs": [
       "Para el usuario",
       "Cuenta y Premium"
@@ -576,7 +587,7 @@
     "href": "premium.html#free-vs-premium",
     "title": "Cuenta, Premium y puntos",
     "section": "Free vs Premium",
-    "text": "Free vs Premium\n\n\n\nComparativa Free vs Premium (pantalla de suscripción).\n\n\n\n\n\n\nFree\nPremium\n\n\n\n\nCatálogo\nBásico\nCompleto\n\n\nCanales\nSeleccionados\nTodos\n\n\nCalidad\nEstándar\nMejorada\n\n\nDescargas\nLimitadas\nMás / ilimitadas\n\n\nEstrenos\n—\nEn primicia\n\n\nRecomendaciones\n—\nPersonalizadas\n\n\n\nLa página “Cómo gano Premium” explica el sistema con los tres pasos (Comparte → Invita → Gana) y los niveles (Espectador → Colaborador/Embajador → Premium).",
+    "text": "Free vs Premium\n\n\n\nComparativa Free vs Premium (pantalla de suscripción).\n\n\n\n\n\n\nFree\nPremium\n\n\n\n\nCatálogo\nBásico\nCompleto\n\n\nCanales\nSeleccionados\nTodos\n\n\nCalidad\nEstándar\nMejorada\n\n\nDescargas\nLimitadas\nMás (límite mayor)\n\n\nEstrenos\n—\nEn primicia\n\n\nRecomendaciones\n—\nPersonalizadas\n\n\n\nLa página “Cómo gano Premium” explica el sistema con los tres pasos (Comparte → Invita → Gana) y los niveles (Espectador → Colaborador/Embajador → Premium).",
     "crumbs": [
       "Para el usuario",
       "Cuenta y Premium"
@@ -807,7 +818,7 @@
     "href": "usuarios.html#buscar-y-editar",
     "title": "Usuarios",
     "section": "Buscar y editar",
-    "text": "Buscar y editar\n\nBuscador del panel (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver El buscador). Por defecto muestra los usuarios Activos; quita el chip “Activos” para ver también pendientes, bloqueados y desactivados.\nOrdenar por Reciente, Nombre A-Z, Puntos, Referidos, Última conexión o ID.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía u origen.\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos.",
+    "text": "Buscar y editar\n\nBuscador del panel (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver El buscador). Por defecto muestra los usuarios Activos; quita el chip “Activos” para ver también pendientes, bloqueados y desactivados.\nOrdenar por Reciente, Nombre A-Z, Puntos, Referidos, Última conexión o ID.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía, origen o el Fin de prueba Premium (con calendario; dejarlo vacío quita la prueba a todos los seleccionados).\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos. Incluye el campo Fin de prueba Premium: Premium temporal hasta ese día (inclusive) — sirve para regalar o extender la prueba a mano; el botón Quitar la elimina.\nPrueba Premium en la lista: los usuarios en prueba llevan el badge “Prueba” (con su fecha al pasar el ratón). En el buscador puedes filtrar por Prueba Premium (En prueba / Expirada / Sin prueba), por fecha de Fin de prueba (antes/después de), y agrupar por estado de prueba.",
     "crumbs": [
       "Administración",
       "Usuarios"
@@ -1001,7 +1012,7 @@
     "href": "reproducir.html",
     "title": "Ver contenido: reproductor y series",
     "section": "",
-    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el triángulo avisa de que un vídeo no funciona (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
+    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
     "crumbs": [
       "Para el usuario",
       "Ver contenido"
@@ -1012,7 +1023,7 @@
     "href": "reproducir.html#el-reproductor",
     "title": "Ver contenido: reproductor y series",
     "section": "",
-    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el triángulo avisa de que un vídeo no funciona (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
+    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
     "crumbs": [
       "Para el usuario",
       "Ver contenido"
