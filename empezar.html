@@ -46,8 +46,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d859e243ca2f797266be131ca1e1584a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-230939a3ebcea8fe792c83944039a851.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b09e842cd0661324dba3b61557a9cf5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-496a63950f26e20e5718cc464d3330c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -539,10 +539,22 @@ Note
 </section>
 <section id="entrar-login" class="level2">
 <h2 class="anchored" data-anchor-id="entrar-login">Entrar (Login)</h2>
-<p><strong>Entrar</strong> → email + contraseña.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/entrar-codigo-recordarme.png" class="img-fluid figure-img"></p>
+<figcaption>La pantalla de acceso: casilla “Recordarme en este dispositivo” y enlace “Entrar con un código por email”.</figcaption>
+</figure>
+</div>
+<p>Dos formas de entrar, a elegir:</p>
 <ul>
+<li><strong>Con contraseña</strong> → email + contraseña.</li>
+<li><strong>Con un código por email</strong> (sin recordar la contraseña) → enlace <strong>“Entrar con un código por email”</strong>: escribes tu email, te llega un <strong>código de 6 dígitos</strong> (válido 10 min, de un solo uso) y entras. Si la cuenta no estaba verificada, ese mismo código la verifica.</li>
+</ul>
+<p>Además:</p>
+<ul>
+<li>Casilla <strong>“Recordarme en este dispositivo”</strong> (marcada por defecto): mantiene la sesión <strong>30 días</strong>. Desmárcala en un equipo compartido/prestado para que la sesión dure solo <strong>1 día</strong>.</li>
 <li>Enlace <strong>“¿Olvidaste tu contraseña?”</strong> para recuperarla.</li>
-<li><strong>5 intentos fallidos</strong> bloquean la cuenta temporalmente (protección anti-bots).</li>
+<li><strong>5 intentos con contraseña fallida</strong> activan un <strong>bloqueo temporal de 15 minutos</strong> (protección anti-bots). Sale un aviso claro <em>(“Tu cuenta está bloqueada temporalmente… vuelve a intentarlo en N min”)</em> y <strong>se desbloquea sola</strong> al pasar el tiempo; un admin puede quitarlo antes (ver <strong><a href="./usuarios.html">Usuarios</a></strong>). Si no recuerdas la contraseña, usa el <strong>código por email</strong> para entrar sin gastar intentos.</li>
 <li>Si tu cuenta estaba <strong>desactivada</strong>, al entrar te ofrece <strong>reactivarla</strong> con un código por correo.</li>
 </ul>
 </section>

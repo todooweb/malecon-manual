@@ -46,8 +46,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d859e243ca2f797266be131ca1e1584a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-230939a3ebcea8fe792c83944039a851.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b09e842cd0661324dba3b61557a9cf5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-496a63950f26e20e5718cc464d3330c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -468,6 +468,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#buscar-y-editar" id="toc-buscar-y-editar" class="nav-link active" data-scroll-target="#buscar-y-editar">Buscar y editar</a></li>
+  <li><a href="#estados-de-una-cuenta" id="toc-estados-de-una-cuenta" class="nav-link" data-scroll-target="#estados-de-una-cuenta">Estados de una cuenta</a></li>
   <li><a href="#ubicación-de-usuarios-mapa" id="toc-ubicación-de-usuarios-mapa" class="nav-link" data-scroll-target="#ubicación-de-usuarios-mapa">Ubicación de usuarios (mapa)</a>
   <ul class="collapse">
   <li><a href="#ubicación-en-la-ficha-y-en-las-sesiones" id="toc-ubicación-en-la-ficha-y-en-las-sesiones" class="nav-link" data-scroll-target="#ubicación-en-la-ficha-y-en-las-sesiones">Ubicación en la ficha y en las sesiones</a></li>
@@ -502,16 +503,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>En <strong>Admin › Usuarios</strong> gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.</p>
+<p>En <strong>Admin › Usuarios</strong> gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, <strong>bloqueo temporal</strong>, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.</p>
 <section id="buscar-y-editar" class="level2">
 <h2 class="anchored" data-anchor-id="buscar-y-editar">Buscar y editar</h2>
 <ul>
-<li><strong>Buscador del panel</strong> (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver <strong><a href="./buscador.html">El buscador</a></strong>). Por defecto muestra los usuarios <strong>Activos</strong>; quita el chip “Activos” para ver también pendientes, bloqueados y desactivados.</li>
+<li><strong>Buscador del panel</strong> (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver <strong><a href="./buscador.html">El buscador</a></strong>). Por defecto muestra los usuarios <strong>Activos</strong>; quita el chip “Activos” para ver también pendientes, bloqueados, en <strong>bloqueo temporal</strong> y desactivados.</li>
 <li><strong>Ordenar</strong> por Reciente, Nombre A-Z, Puntos, Referidos, <strong>Última conexión</strong> o ID.</li>
 <li><strong>Editar en masa</strong> — selecciona varios y cambia a la vez rol, estado, membresía, origen o el <strong>Fin de prueba Premium</strong> (con calendario; dejarlo vacío <strong>quita</strong> la prueba a todos los seleccionados).</li>
 <li>La ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos. Incluye el campo <strong>Fin de prueba Premium</strong>: Premium temporal hasta ese día (inclusive) — sirve para <strong>regalar o extender</strong> la prueba a mano; el botón <strong>Quitar</strong> la elimina.</li>
 <li><strong>Prueba Premium en la lista</strong>: los usuarios en prueba llevan el badge <strong>“Prueba”</strong> (con su fecha al pasar el ratón). En el buscador puedes <strong>filtrar</strong> por <em>Prueba Premium</em> (En prueba / Expirada / Sin prueba), por fecha de <strong>Fin de prueba</strong> (antes/después de), y <strong>agrupar</strong> por estado de prueba.</li>
 </ul>
+</section>
+<section id="estados-de-una-cuenta" class="level2">
+<h2 class="anchored" data-anchor-id="estados-de-una-cuenta">Estados de una cuenta</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/usuarios-bloqueo-temporal.png" class="img-fluid figure-img"></p>
+<figcaption>Un usuario en <strong>Bloqueo temporal</strong> en la lista, con su badge naranja y el botón verde para desbloquear.</figcaption>
+</figure>
+</div>
+<p>En la ficha (Editar), el desplegable <strong>Estado</strong> tiene:</p>
+<ul>
+<li><strong>Activo</strong> — funciona con normalidad.</li>
+<li><strong>Pendiente</strong> — registrada pero sin verificar el email.</li>
+<li><strong>Bloqueado</strong> — bloqueo <strong>permanente</strong> que pones tú a mano; la cuenta no entra hasta que la reactives. Úsalo para vetar una cuenta.</li>
+<li><strong>Bloqueo temporal</strong> — bloqueo <strong>automático</strong> de 15 minutos tras <strong>5 intentos de login con contraseña fallida</strong> (anti-fuerza bruta). No se pone a mano: aparece solo. Al entrar, el usuario ve un aviso claro con los minutos que faltan.</li>
+<li><strong>Desactivada</strong> — la dio de baja el propio usuario desde su perfil (se borra sola a los 60 días).</li>
+</ul>
+<p><strong>El bloqueo temporal se cura solo:</strong> cuando pasan los 15 minutos, la cuenta vuelve a <strong>Activo</strong> automáticamente (el panel lo refleja sin que hagas nada). Si quieres <strong>desbloquear antes</strong>, abre la ficha y cambia el Estado a <strong>Activo</strong> (no hay botón aparte; poner “Activo” limpia el bloqueo). En la lista lleva un <strong>badge naranja “Bloqueo temporal”</strong> y puedes <strong>filtrar</strong> por ese estado en el buscador.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/usuarios-estados.png" class="img-fluid figure-img"></p>
+<figcaption>El desplegable <strong>Estado</strong> de la ficha: Activo, Pendiente, Bloqueado y Bloqueo temporal.</figcaption>
+</figure>
+</div>
 </section>
 <section id="ubicación-de-usuarios-mapa" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-usuarios-mapa">Ubicación de usuarios (mapa)</h2>

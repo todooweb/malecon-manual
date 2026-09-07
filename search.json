@@ -1,101 +1,222 @@
 [
   {
-    "objectID": "fallos-comunes.html",
-    "href": "fallos-comunes.html",
-    "title": "Fallos comunes y soluciones",
+    "objectID": "explorar.html",
+    "href": "explorar.html",
+    "title": "Explorar: inicio, buscar y canales",
     "section": "",
-    "text": "Algo no va. Busca el síntoma por área. Cada caso trae síntoma → causa → solución. Muchos son de proveedores externos (vidsrc, CDN de canales) que combaten la extracción: no todo tiene arreglo gratis, y aquí se dice claramente cuándo.",
+    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Explorar"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#reproducción-películas-y-series",
-    "href": "fallos-comunes.html#reproducción-películas-y-series",
-    "title": "Fallos comunes y soluciones",
-    "section": "Reproducción (películas y series)",
-    "text": "Reproducción (películas y series)\n\n“FUENTE NO DISPONIBLE” en una película (embed)\nSíntoma: una peli no reproduce; sale “Fuente no disponible” con botón “Reintentar”. A veces pasa con casi todo el catálogo a la vez.\nCausa: el proveedor vidsrc metió Cloudflare Turnstile (un CAPTCHA) en su reproductor interno. Nuestro navegador headless carga el embed pero el player no arranca → nunca pide el stream → no hay nada que reproducir.\nQué NO es: no es la IP del VPS (el embed responde 200), ni el token, ni el despliegue. En dos días “eso no se aprieta”: si funcionaba y dejó de ir sin tocar nada, mira primero Turnstile o un bloqueo de IP (siguiente caso), no el código.\nSolución honesta: batir Turnstile headless y gratis no es viable. Las salidas reales son:\n\nIframe — reproducir en el navegador del usuario (que pasa Turnstile como humano). Gratis y funciona, pero trae los anuncios de vidsrc.\nAuto-hosting — alojar los ficheros propios. Sin anuncios y sin esta guerra, pero cuesta almacenamiento/ancho de banda y sube el riesgo legal.\nAceptar que esos títulos fallan hasta decidir rumbo.\n\n\n\nDe golpe fallan embeds y canales directos\nSíntoma: “Fuente no disponible” en TODO, incluidos vídeos directos que antes iban.\nCausa: vidsrc/los CDN caparon la IP del VPS (403). Suele pasar tras un pico de peticiones —por ejemplo, correr los calentadores desde una conexión saturada (¡nunca desde el portátil / un hotspot!)—.\nSolución:\n\nPausa calentadores y checks 24–48 h y vuelve a probar. En local, los warms van apagados con WARM_HLS_DISABLED=1; hay un fusible que aborta la pasada tras 5 fallos seguidos.\nComprueba el bloqueo con curl lado a lado (VPS vs. otra red): si el VPS da 403 y tu casa 200, es la IP.\nNo vuelvas a lanzar warms desde una conexión pobre.\n\n\n\nPantalla negra al abrir el reproductor\nSíntoma: el player carga pero se queda en negro.\nCausa: el proveedor de embed murió (la familia vidsrc cambia de dominios) o el resolver no sacó el stream.\nSolución: el player intenta fuentes de respaldo automáticamente. Si es un título suelto, repórtalo (o revisa su salud en Vídeos). Si es masivo, es lo de arriba (Turnstile / IP).\n\n\nUn canal de YouTube “en directo” no reproduce\nSíntoma: el canal parece sano pero muestra pantalla vacía.\nCausa: son URLs youtube.com/.../live sin ID de vídeo; YouTube bloquea el iframe (X-Frame-Options), así que no se pueden incrustar. El health da un falso positivo.\nSolución: hoy no hay solución activa (se probó scrapear el videoId→/embed/ pero se revirtió por carga sobre youtube.com). Trátalos como no reproducibles.\n\n\nLos subtítulos son de OTRA película\nSíntoma: al reproducir un embed por HLS, el CC muestra subtítulos de un vídeo visto antes.\nCausa: subtítulos automáticos “rancios” cacheados del título anterior.\nSolución: ya está corregido (se limpia el CC por reproducción). Si reaparece, fuerza recarga; en series los subtítulos van por episodio.",
+    "objectID": "explorar.html#inicio-browse",
+    "href": "explorar.html#inicio-browse",
+    "title": "Explorar: inicio, buscar y canales",
+    "section": "",
+    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Explorar"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#canales-en-vivo",
-    "href": "fallos-comunes.html#canales-en-vivo",
-    "title": "Fallos comunes y soluciones",
+    "objectID": "explorar.html#zapping",
+    "href": "explorar.html#zapping",
+    "title": "Explorar: inicio, buscar y canales",
+    "section": "Zapping",
+    "text": "Zapping\nEl Zapping es para cuando no sabes qué ver: en vez de buscar, la app te va poniendo títulos al momento y tú decides sobre la marcha, como hacer zapping en la tele.\n\n\n\nLa sintonía del Zapping: una carta de ajuste con el logo mientras “engancha la señal”.\n\n\n\nCómo se abre — con el botón flotante Zapping o desde el hero “Bienvenido a MalecónTV”.\nElige un ambiente — Sorpréndeme, En Vivo, Películas, Series o un género (Drama, Terror…). Si eliges un género, esos títulos salen primero y luego el resto del catálogo.\nSolo canales con señal — en el ambiente En Vivo, la ruleta omite los canales caídos (los que el chequeo de salud marca “sin señal”), para que no te toque un canal muerto. Los recién importados, aún sin chequear, sí entran.\nSintonía — antes de cada título aparece una breve carta de ajuste (barras de colores tipo TV) con el logo mientras “engancha la señal”; al llegar la imagen hay un fogonazo y arranca el vídeo.\nProbadita — cada título se reproduce ya empezado (no desde el minuto 0, como al sintonizar un canal a mitad) durante unos segundos. La cuenta atrás empieza cuando aparece la imagen (no mientras sintoniza), así los segundos son de vídeo de verdad. Arriba ves el % de afinidad para ti.\nBotones — Otra (con cuenta atrás) pasa al siguiente; Mi lista lo guarda; Ver ahora deja el zapping y reproduce el título entero desde el principio, a pantalla completa.\nNunca se repite hasta agotar el catálogo, y de cada serie solo aparece un episodio (el siguiente que no hayas visto). Si un título falla, salta solo al siguiente sin mostrar error.\nDescanso — cada ~15 saltos (o al agotar un catálogo pequeño) aparece “¿No encuentras lo que buscas?” para seguir o salir.\nSalir — la ✕ de arriba, la tecla Atrás/Esc o el botón Atrás del mando de TV.\nLas probaditas no cuentan como vistas ni ensucian tus recomendaciones: solo cuenta si le das a Ver ahora.",
+    "crumbs": [
+      "Para el usuario",
+      "Explorar"
+    ]
+  },
+  {
+    "objectID": "explorar.html#buscar",
+    "href": "explorar.html#buscar",
+    "title": "Explorar: inicio, buscar y canales",
+    "section": "Buscar",
+    "text": "Buscar\n\n\n\nEl buscador con etiquetas rápidas y resultados en rejilla.\n\n\nEn Buscar escribes película, serie, actor o género. Mientras vacío, muestra etiquetas rápidas (Acción, Comedia, Cuba, Béisbol, Documentales…) para tocar. Los resultados salen en rejilla con “Cargar más”; si no hay, sugiere buscar por actor o categoría. Sin búsqueda, enseña “Lo más buscado”.",
+    "crumbs": [
+      "Para el usuario",
+      "Explorar"
+    ]
+  },
+  {
+    "objectID": "explorar.html#canales-en-vivo",
+    "href": "explorar.html#canales-en-vivo",
+    "title": "Explorar: inicio, buscar y canales",
     "section": "Canales en vivo",
-    "text": "Canales en vivo\n\nUn canal sale “caído” pero a mí me funciona\nSíntoma: el punto está rojo y el canal se auto-desactivó, aunque tú lo ves bien.\nCausa: el health corre desde la IP del datacenter del VPS (OVH), y muchos CDN la capan (403). El canal va bien para tus usuarios y aun así el cron lo tumba.\nSolución:\n\nMarca “Excluir Health” en su ficha → deja de tumbarlo (pasa a gris ⊘, no a rojo).\nSi de verdad está roto, busca una URL alternativa que el VPS sí alcance y cámbiala (existe un script findalts.mjs que busca espejos en iptv-org; correrlo en el VPS, ojo a falsos positivos por nombre).\n\n\n\n\n\n\n\nNote\n\n\n\nVerificado en prod: TV5Monde pasó de channel(europe) (403 al VPS) a channel(fbs) y volvió a reproducir. El truco casi siempre es otra URL de la misma señal.\n\n\n\n\nLos canales cubanos no van (desde el servidor)\nSíntoma: canales cubanos (p. ej. de picta) caídos, aunque son del núcleo del catálogo.\nCausa: están geo-restringidos a Cuba; el VPS (en Bélgica) no los alcanza, pero un usuario en Cuba sí.\nSolución: no los ocultes a ciegas por el health (márcalos “Excluir Health”). No hay arreglo server-side; se ven desde una conexión cubana.\n\n\nReactivé canales rotos sin querer\nSíntoma: un cambio en el health “revivió” canales que no reproducen.\nCausa: un heurístico que trataba el 403 como “vivo” reactivaba canales de verdad muertos.\nSolución: el health no puede juzgar la reproducibilidad web (CORS/geo son del navegador del usuario). No uses reglas que reactiven por código de estado; apóyate en “Excluir Health” caso a caso.",
+    "text": "Canales en vivo\n\n\n\nCanales TV: filtros por categoría y región, en directo.\n\n\nEn Canales TV (etiqueta EN DIRECTO):\n\nBuscador de canal.\nFiltros por categoría (Deportes, Noticias, Cine, Música, Niños…) y por región (Cubanos, Latinoamérica, Europeos…).\nSin filtros, se agrupan por región con su cuenta.\n\n\n\n\n\n\n\nTip\n\n\n\nUn canal puede verse bien para el usuario aunque el sistema lo marque caído (es un tema de la IP del servidor). Ver Salud y Fallos comunes.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Explorar"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#importación-y-catálogo",
-    "href": "fallos-comunes.html#importación-y-catálogo",
-    "title": "Fallos comunes y soluciones",
-    "section": "Importación y catálogo",
-    "text": "Importación y catálogo\n\nUn import da “0 nuevos”\nSíntoma: lanzas una fuente y no entra nada.\nCausa habitual: la fuente está capando la IP del VPS (mismo bloqueo que los canales), o los nodos dan 500 intermitentes.\nSolución: reintenta; para archive.org, pide siempre cabecera Range (algunos nodos dan 500 sin ella). Si es TMDB/vidsrc, revisa bloqueo de IP.\n\n\nSe importó una película “fantasma” que no reproduce\nSíntoma: un título entra al catálogo pero está muerto.\nCausa: el filtro por fecha no basta (un fantasma puede tener fecha pasada).\nSolución: las series se validan con el resolver al importar (comprueban que hay stream). En producción hace falta chromium (el resolver headless) o esa validación no corre.\n\n\nEl importador elegía ficheros irreproducibles (AVI/MKV)\nSíntoma: clásicos de archive.org que no se ven.\nCausa: elegía “el más grande”, que solía ser un AVI.\nSolución: ya corregido — solo formatos reproducibles (mp4 &gt; webm &gt; ogv, nunca avi/mkv), ordenado por descargas y con duración/tags rellenados.\n\n\nEl filtro de español bloquea o confunde\nSíntoma: un título no se publica “por idioma”, o el toast confunde dos casos.\nCausa: hay dos situaciones distintas: “sin español confirmado” (ni idioma original, ni hablado, ni subtítulos ES en OpenSubtitles) y “OpenSubtitles no respondió” (no se pudo comprobar).\nSolución: míralo en Subtítulos. Si es lo segundo, revisa la cuota/clave de OpenSubtitles (ver APIs).\n\n\nLo importado no aparece publicado\nSíntoma: importas y no sale en la web.\nCausa: lo importado llega a Revisiones, no se publica solo.\nSolución: apruébalo en Admin › Revisiones. Los campos editables de Revisiones viven en el JSON data (no en columnas): si editas por API, fusiona en data o el PATCH falla en silencio.",
+    "objectID": "biblioteca.html",
+    "href": "biblioteca.html",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "",
+    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Biblioteca y descargas"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#correos",
-    "href": "fallos-comunes.html#correos",
-    "title": "Fallos comunes y soluciones",
-    "section": "Correos",
-    "text": "Correos\n\nNo se envían los correos\nSíntoma: newsletter o avisos que no llegan.\nCausa: faltan credenciales EMAIL_USER / EMAIL_PASS, o el usuario tiene menos de 6 cosas nuevas que enseñarle (el newsletter personalizado salta ese ciclo).\nSolución: revisa las credenciales del entorno; recuerda la ventana de 28 días anti-repetición y el tamaño de lote/periodicidad en Ajustes.\n\n\nA un usuario no le llega NINGÚN correo\nSíntoma: un usuario concreto no recibe nada (ni verificación, ni avisos, ni newsletter), aunque al resto sí les llega.\nCausa: su dirección está en la lista negra de correo — rebotó (buzón muerto) o marcó spam. Cuando eso pasa, se le corta todo el email para no dañar la reputación del dominio.\nSolución: compruébalo en Admin › Usuarios: verás el chip rojo “Blacklist” en su fila (o usa el filtro “En blacklist”), y al abrir su ficha, el ribbon “BLACKLIST”. Es solo lectura: no hay botón para sacarlo a mano (a propósito). Si de verdad su buzón ya funciona, habría que quitarlo por BD. El web push a ese usuario sí sigue funcionando. Ver Correos › Lista negra.\n\n\nEl webhook de rebotes no marca a nadie\nSíntoma: hay rebotes/quejas en Resend pero nadie aparece en la lista negra.\nCausa: falta configurar el webhook en Resend (eventos email.bounced / email.complained) o el secreto RESEND_WEBHOOK_SECRET en el entorno; sin firma válida, el endpoint responde 401.\nSolución: crea el webhook apuntando a https://malecontv.es/api/webhooks/resend, copia el signing secret a RESEND_WEBHOOK_SECRET y redespliega. Si falla la comprobación, el correo se envía igual (fail-open): nunca bloquea todo el correo por un fallo de la lista.\n\n\nEl correo con IA tarda o falla\nSíntoma: “Redactar informativo con IA” no responde.\nCausa: Gemini tarda ~10 s, o agotó la cuota del día.\nSolución: espera (pollea ~20 s); si es cuota, reintenta tras el reinicio. Ver APIs.\n\n\n\n\n\n\nWarning\n\n\n\nLos correos de mantenimiento y broadcast salen a usuarios reales (incluida tu cuenta). No dispares “Activar y avisar” ni el envío real en pruebas.",
+    "objectID": "biblioteca.html#explorar-catálogo-library",
+    "href": "biblioteca.html#explorar-catálogo-library",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "",
+    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Biblioteca y descargas"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#usuarios",
-    "href": "fallos-comunes.html#usuarios",
-    "title": "Fallos comunes y soluciones",
-    "section": "Usuarios",
-    "text": "Usuarios\n\n“Error al eliminar registro” al borrar un usuario\nSíntoma: el botón “Eliminar” falla.\nCausa: el usuario tiene filas en tablas de auditoría (reportes/enlaces rotos) que bloquean el borrado por clave foránea; y en algún entorno falta la tabla broken_links y el endpoint reventaba al tocarla.\nSolución: ya arreglado — el borrado comprueba si cada tabla existe y anonimiza (pone a NULL) las referencias de auditoría antes de borrar. Si aún falla, mira los logs del contenedor app.\n\n\nUn usuario borrado sigue apareciendo\nSíntoma: lo borras y lo sigues viendo en la lista.\nCausa: caché (Redis): el dato se borró, la lista tarda en refrescar.\nSolución: recarga tras unos segundos. (No es que “no se haya borrado”.)\n\n\nReferidos “desconocido” o fantasmas\nSíntoma: referidos que no cuadran, o un “desconocido” como raíz.\nCausa: captura de ?ref= antigua rota, o códigos que no pertenecen a un usuario real.\nSolución: ya se valida que el código sea de un usuario real (si no, no crea referido fantasma). El número del panel refleja relaciones reales, no un contador inflado.\n\n\nNo puedo iniciar sesión / “demasiadas sesiones”\nSíntoma: login rechazado por tope de sesiones.\nCausa: el máximo de sesiones activas por cuenta es 3 por defecto (útil también en pruebas E2E, que llenan el cupo).\nSolución: cierra sesión en otro dispositivo, sube el límite en Ajustes › Sesiones, o (en desarrollo) invalida sesiones en la BD. Las inactivas &gt;30 días se limpian solas.\n\n\nUn usuario no pasa a Premium\nSíntoma: llega a los puntos pero sigue free.\nCausa: las Recompensas Premium están desactivadas, o la meta de puntos es mayor.\nSolución: revisa Ajustes › Recompensas Premium y la meta de gamificación.",
+    "objectID": "biblioteca.html#mi-lista",
+    "href": "biblioteca.html#mi-lista",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "Mi Lista",
+    "text": "Mi Lista\n\n\n\nMi Lista: tus canales, películas y series guardados.\n\n\nEl corazón de cualquier tarjeta o del reproductor guarda el título en Mi Lista. Ahí se separan Canales y Vídeos y series. Se sincroniza entre tus dispositivos. Vacía muestra “Guarda tus películas, series y canales favoritos para tenerlos siempre a mano.”",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Biblioteca y descargas"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#descargas-offline",
-    "href": "fallos-comunes.html#descargas-offline",
-    "title": "Fallos comunes y soluciones",
-    "section": "Descargas (offline)",
-    "text": "Descargas (offline)\n\nSe perdieron las descargas\nSíntoma: un usuario tenía títulos descargados y desaparecieron.\nCausa: están en el almacenamiento del navegador (IndexedDB), no son ficheros sueltos. Borrar la caché del navegador los borra.\nSolución: avisar de no limpiar datos del sitio; volver a descargar (necesita internet).\n\n\nUna descarga dice “Descarga no disponible”\nSíntoma: al abrir una descarga en modo offline sale “Descarga no disponible — esta descarga ya no está en tu dispositivo”.\nCausa: el sistema del móvil (sobre todo iOS con poco espacio o batería) borró los datos de la descarga para liberar espacio, aunque la ficha siguiera apareciendo como descargada. Antes este caso se veía como “FUENTE NO DISPONIBLE” en negro (o pantalla en blanco), sin explicación.\nSolución: conectarse y volver a descargar el título. Además, cuando esto ocurre la app crea sola una alerta tipo Bug en Panel › Alertas con todo el contexto del dispositivo — usa Copiar detalle para pasárselo a la IA si el caso se repite. La app también pide almacenamiento persistente al sistema para reducir estas evicciones.\n\n\nUn usuario reporta pantalla en blanco o negra y no sé por qué\nSíntoma: a un usuario “se le puso la pantalla en blanco/negra” y en los logs del servidor no hay nada.\nCausa: los errores del navegador del usuario ocurren en su dispositivo y no llegan a los logs del servidor.\nSolución: mira Panel › Alertas filtrando por tipo Bug: los crashes, pantallas en blanco y descargas perdidas se auto-reportan desde la app del usuario con su contexto (dispositivo, almacenamiento, ruta). Copiar detalle te da el informe listo para diagnosticar.\n\n\nUna descarga de embed no avanza o da error\nSíntoma: se queda a 0% o en “Error”.\nCausa (histórica): el proxy de segmentos necesita cabeceras correctas (Referer/Cookie); un Cookie: undefined daba 500 y rompía descarga y reproducción.\nSolución: ya corregido (mismo resolver HLS que el player, sin tope de tamaño). Si reaparece, Reintentar; si es masivo, es bloqueo de IP (ver arriba).\n\n\n“Descarga en espera (viendo)”\nNo es un fallo. Mientras el usuario reproduce algo, la descarga se pausa para no competir por la conexión, y se reanuda sola al parar. Es el comportamiento esperado.",
+    "objectID": "biblioteca.html#descargas-ver-sin-internet",
+    "href": "biblioteca.html#descargas-ver-sin-internet",
+    "title": "Biblioteca, Mi Lista y Descargas",
+    "section": "Descargas (ver sin internet)",
+    "text": "Descargas (ver sin internet)\n\n\n\nMis Descargas: medidor de almacenamiento y estado de cada título.\n\n\nMis Descargas gestiona lo guardado en este dispositivo:\n\nMedidor de almacenamiento (usado/total) y aviso si te pasas del límite.\nEstados por título: Disponible (verde), Descargando % (amarillo), Error (rojo).\nAcciones: Reproducir (offline), Reintentar, o borrar (con confirmación).\nOtros dispositivos — lista lo descargado en tus otros equipos (solo lectura).\n\nLos límites de descargas dependen de la membresía (Free vs Premium) y se configuran en Ajustes.\n\n\n\n\n\n\nNote\n\n\n\nLas descargas se guardan en el almacenamiento seguro del navegador (no son ficheros .mp4 sueltos): no gastan datos al reproducir, pero si borras la caché del navegador, se pierden. No las confundas con archivos normales.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Biblioteca y descargas"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#apis-y-cuotas",
-    "href": "fallos-comunes.html#apis-y-cuotas",
-    "title": "Fallos comunes y soluciones",
-    "section": "APIs y cuotas",
-    "text": "APIs y cuotas\n\nGemini deja de responder\nCausa: cuota agotada del plan gratuito, o una clave nueva sin acceso a los modelos recientes (404).\nSolución: el sistema prueba varios modelos en cascada; si es cuota, espera al reinicio. Ver APIs.\n\n\nOpenSubtitles no descarga subtítulos\nCausa: 100 descargas/día. Buscar es gratis; descargar gasta cuota.\nSolución: espera al reinicio de cuota o pon una clave con margen. Revisa que la clave esté puesta en Ajustes › Claves de API.\n\n\nUn vídeo sin estrenar da “locked” (403) al reproducir\nEs el muro de pre-estreno trabajando: los free no pueden resolver contenido con fecha futura ni premium (los Premium/admin sí; el 1x01 de una serie pasa siempre). Si algún día bloquease de más, el interruptor de emergencia es RELEASE_GATE_DISABLED=1 en el .env + reiniciar — apaga solo la validación del servidor sin tocar código. El diseño es fail-open: ante cualquier error interno deja pasar, nunca tumba el catálogo.",
+    "objectID": "premium.html",
+    "href": "premium.html",
+    "title": "Cuenta, Premium y puntos",
+    "section": "",
+    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación.\nSi eres admin, aparece el acceso al Panel de administración.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Cuenta y Premium"
     ]
   },
   {
-    "objectID": "fallos-comunes.html#web-pwa-y-despliegue",
-    "href": "fallos-comunes.html#web-pwa-y-despliegue",
-    "title": "Fallos comunes y soluciones",
-    "section": "Web, PWA y despliegue",
-    "text": "Web, PWA y despliegue\n\nJusto tras subir cambios, algún vídeo tarda un rato\nCausa: al actualizar la web, las cachés quedan “frías” y el calentador tarda unos minutos en repoblarlas.\nSolución: es normal justo después de subir cambios; espera un poco y vuelve a probar.\n\n\nLa app no se actualiza (Service Worker viejo)\nSíntoma: los usuarios ven una versión antigua.\nCausa: el SW cacheado no refresca.\nSolución: ya se fuerza la recarga al detectar SW nuevo (controllerchange). En desarrollo, mata el proceso viejo del puerto y recarga fuerte.\n\n\nCompartir la votación daba 404 (/vota/:token/card)\nCausa (resuelta): el SW interceptaba esa ruta y servía la SPA en vez de la página OG del servidor.\nSolución: excluida del SW; se propaga según cada usuario actualiza su SW.\n\n\nError en consola ERR_BLOCKED_BY_CLIENT (adsbygoogle.js)\nNo es un bug. Es tu bloqueador de anuncios cancelando el script de AdSense. Solo lo ves tú; los usuarios sin adblocker cargan el anuncio con normalidad.",
+    "objectID": "premium.html#tu-perfil",
+    "href": "premium.html#tu-perfil",
+    "title": "Cuenta, Premium y puntos",
+    "section": "",
+    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación.\nSi eres admin, aparece el acceso al Panel de administración.",
     "crumbs": [
-      "Operación",
-      "Fallos comunes"
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "premium.html#premium-gratis-por-puntos",
+    "href": "premium.html#premium-gratis-por-puntos",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Premium gratis (por puntos)",
+    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente.",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "premium.html#prueba-premium-al-registrarse-trial",
+    "href": "premium.html#prueba-premium-al-registrarse-trial",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Prueba Premium al registrarse (trial)",
+    "text": "Prueba Premium al registrarse (trial)\nSi el admin la activa (Ajustes › Recompensas Premium), cada usuario nuevo estrena Premium gratis unos días (7 por defecto) al registrarse:\n\nAl aterrizar por primera vez ve una celebración: “¡Estrenas Premium GRATIS!” con sus ventajas (se muestra una sola vez).\nEl chip PREMIUM de la barra superior se convierte en cuenta atrás (“PREMIUM · X días”); en los 3 últimos días late para avisar. Es clicable → lleva a la tarjeta Gana Premium Gratis del perfil, donde además aparece “Tienes Premium · quedan X días”.\nAl expirar vuelve a gratis automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le invita a compartir para desbloquearlo.\nSi durante la prueba alcanza la meta de puntos, se queda Premium por puntos (la prueba deja de importar).\nPremium revocado (admin) anula también la prueba.\nApagar el interruptor en Ajustes solo afecta a registros futuros: quien ya tiene días los disfruta hasta su fecha. El admin puede regalar/extender/quitar la prueba a cualquiera desde su ficha (campo Fin de prueba Premium) o en masa.\n\nQué te da Premium, además del contenido exclusivo: pre-estreno — ves y descargas los títulos con fecha futura antes de su estreno público (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver Estrenos. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "premium.html#free-vs-premium",
+    "href": "premium.html#free-vs-premium",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Free vs Premium",
+    "text": "Free vs Premium\n\n\n\nComparativa Free vs Premium (pantalla de suscripción).\n\n\n\n\n\n\nFree\nPremium\n\n\n\n\nCatálogo\nBásico\nCompleto\n\n\nCanales\nSeleccionados\nTodos\n\n\nCalidad\nEstándar\nMejorada\n\n\nDescargas\nLimitadas\nMás (límite mayor)\n\n\nEstrenos\n—\nEn primicia\n\n\nRecomendaciones\n—\nPersonalizadas\n\n\n\nLa página “Cómo gano Premium” explica el sistema con los tres pasos (Comparte → Invita → Gana) y los niveles (Espectador → Colaborador/Embajador → Premium).",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "premium.html#referidos-desde-el-lado-del-usuario",
+    "href": "premium.html#referidos-desde-el-lado-del-usuario",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Referidos, desde el lado del usuario",
+    "text": "Referidos, desde el lado del usuario\nTu enlace de referido va en lo que compartes (portada y enlaces de vídeo). Cuando alguien se registra con él, se te atribuye y ganas la bonificación. El detalle de cómo se cuenta está en Usuarios.",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
+    "objectID": "buscador.html",
+    "href": "buscador.html",
+    "title": "El buscador del panel",
+    "section": "",
+    "text": "Todas las páginas de administración (Videos, Canales, Fuentes, Revisiones, Reportes, Playlists, Estrenos, Usuarios, Referidos, Alertas) comparten la misma barra de búsqueda. Filtra, agrupa y pagina en el servidor (en la base de datos), así que rinde igual con 100 que con 100.000 registros.",
+    "crumbs": [
+      "Administración",
+      "El buscador"
+    ]
+  },
+  {
+    "objectID": "buscador.html#filtrar",
+    "href": "buscador.html#filtrar",
+    "title": "El buscador del panel",
+    "section": "Filtrar",
+    "text": "Filtrar\nPulsa la barra para abrir el panel. A la izquierda, Filtros rápidos por campo (p. ej. Estado, Tipo). Marcas los que quieras: dentro de un mismo grupo suman (OR), entre grupos se cruzan (AND).\n\nLos filtros activos salen como chips en la barra; los quitas con la ✕.\n+ Filtro personalizado… abre reglas más finas: eliges un campo, un operador (es igual a, contiene, mayor que, no está vacío…) y un valor. Puedes conciliar todas las reglas (AND) o cualquiera (OR).",
+    "crumbs": [
+      "Administración",
+      "El buscador"
+    ]
+  },
+  {
+    "objectID": "buscador.html#agrupar",
+    "href": "buscador.html#agrupar",
+    "title": "El buscador del panel",
+    "section": "Agrupar",
+    "text": "Agrupar\nEn la columna Agrupar por eliges un campo y la lista se organiza en grupos plegables con su recuento (p. ej. vídeos por categoría). Puedes anidar varios niveles.\n\nLos campos más usados salen directos; el resto viven en Grupo personalizado… (un desplegable buscable), para no saturar.\nCada grupo se despliega bajo demanda (no pide datos hasta que lo abres).",
+    "crumbs": [
+      "Administración",
+      "El buscador"
+    ]
+  },
+  {
+    "objectID": "buscador.html#favoritos-búsquedas-guardadas",
+    "href": "buscador.html#favoritos-búsquedas-guardadas",
+    "title": "El buscador del panel",
+    "section": "Favoritos (búsquedas guardadas)",
+    "text": "Favoritos (búsquedas guardadas)\nA la derecha, Favoritos: guarda la búsqueda actual (filtros + agrupación + orden) con un nombre para reutilizarla. Puedes marcar una como predeterminada: se aplica sola al abrir la página.",
+    "crumbs": [
+      "Administración",
+      "El buscador"
+    ]
+  },
+  {
+    "objectID": "buscador.html#buscar-y-ordenar",
+    "href": "buscador.html#buscar-y-ordenar",
+    "title": "El buscador del panel",
+    "section": "Buscar y ordenar",
+    "text": "Buscar y ordenar\n\nEl cuadro “Buscar…” busca por los campos de texto de esa entidad (título, nombre, email…).\nEl desplegable de la derecha ordena (Reciente, Nombre A-Z, y órdenes propios de cada página, como “Última conexión” en Usuarios).\n\n\n\n\n\n\n\nTip\n\n\n\nTodo se calcula en la base de datos y se pagina: la barra muestra “1–25 / N” con flechas. Cambiar un filtro te devuelve a la página 1.",
+    "crumbs": [
+      "Administración",
+      "El buscador"
     ]
   },
   {
@@ -129,204 +250,6 @@
     "crumbs": [
       "Operación",
       "Salud"
-    ]
-  },
-  {
-    "objectID": "funcionamiento.html",
-    "href": "funcionamiento.html",
-    "title": "Funcionamiento",
-    "section": "",
-    "text": "MalecónTV es una web (React) con un backend (Node/Express + Postgres + Redis), desplegada con Docker Compose en un VPS. Dos servicios comparten el mismo código:\n\napp — sirve la web y las peticiones HTTP (login, catálogo, reproducción, admin).\nworker — tareas de fondo (crons): verificación de salud, importaciones y calentadores.",
-    "crumbs": [
-      "Administración",
-      "Funcionamiento"
-    ]
-  },
-  {
-    "objectID": "funcionamiento.html#arquitectura-en-una-frase",
-    "href": "funcionamiento.html#arquitectura-en-una-frase",
-    "title": "Funcionamiento",
-    "section": "",
-    "text": "MalecónTV es una web (React) con un backend (Node/Express + Postgres + Redis), desplegada con Docker Compose en un VPS. Dos servicios comparten el mismo código:\n\napp — sirve la web y las peticiones HTTP (login, catálogo, reproducción, admin).\nworker — tareas de fondo (crons): verificación de salud, importaciones y calentadores.",
-    "crumbs": [
-      "Administración",
-      "Funcionamiento"
-    ]
-  },
-  {
-    "objectID": "funcionamiento.html#cómo-llega-el-vídeo-al-usuario",
-    "href": "funcionamiento.html#cómo-llega-el-vídeo-al-usuario",
-    "title": "Funcionamiento",
-    "section": "Cómo llega el vídeo al usuario",
-    "text": "Cómo llega el vídeo al usuario\nHay dos tipos de contenido:\n\nCanales en vivo — señales HLS/M3U8, YouTube, etc. Se reproducen directamente.\nPelículas y series (“embeds”) — la mayoría del catálogo apunta a proveedores externos (familia vidsrc). El servidor resuelve el embed a una URL de stream con un navegador headless y luego lo proxya para reproducir en el player nativo (sin iframe, sin anuncios).\n\n\n\n\n\n\n\nImportant\n\n\n\nLa reproducción de embeds depende de un tercero (vidsrc) que combate activamente la extracción. Cuando cambian sus defensas (p. ej. añaden un CAPTCHA Cloudflare Turnstile), la reproducción puede fallar. Ver Fallos comunes.",
-    "crumbs": [
-      "Administración",
-      "Funcionamiento"
-    ]
-  },
-  {
-    "objectID": "funcionamiento.html#panel-de-administración",
-    "href": "funcionamiento.html#panel-de-administración",
-    "title": "Funcionamiento",
-    "section": "Panel de administración",
-    "text": "Panel de administración\nSe entra en /Admin (requiere cuenta admin). El Panel abre con un resumen de los últimos 30 días: alertas pendientes, número de vídeos/canales/vistas/reportes, y los rankings de contenido más visto.\n\n\n\nEl Panel de administración: alertas, métricas y top de contenido.\n\n\nLas secciones (pestañas) son:\n\nPanel — resumen y métricas, incluido el widget de health check.\nCanales — señales en vivo.\nVídeos — películas y series.\nRevisiones — contenido importado pendiente de aprobar antes de publicar.\nFuentes — orígenes de importación automática (archive.org, TMDB…).\nReportes — enlaces rotos y peticiones de los usuarios.\nPlaylists — colecciones (estacionales, etc.).\nEstrenos — calendario de estrenos programados.\nUsuarios — gestión de cuentas (rol, estado, origen, referidos…).\nAjustes — claves de API, límites, salud, y los enlaces de origen de usuarios.\n\nAlgunas páginas no están en la barra y se abren desde el Panel o desde un botón: Alertas, Referidos y Votación. Esas llevan migas de pan (p. ej. Panel › Alertas) para volver.\n\nCentro de Alertas\nEn Panel › Alertas se reúnen los avisos del sistema, cada uno con su tipo (Moderación, Reporte, Job, Votación, Importación, Newsletter, Mantenimiento y Bug). Se filtran por estado/tipo/prioridad y las de evento se cierran con ✓ cuando las atiendes.\nEl tipo Bug es especial: lo envía la propia app desde el dispositivo del usuario cuando algo falla en su navegador (un error de pantalla, una descarga que perdió sus datos…). Esos errores ocurren en el móvil del usuario y no aparecen en los logs del servidor — la alerta es el puente que los trae al panel. Cada alerta Bug incluye el contexto completo (usuario, dispositivo, almacenamiento, ruta) y dos acciones:\n\nRevisar — abre el vídeo afectado en modo normal (online) para comprobar en segundos si el título sigue bien en la web (si reproduce, el problema fue solo del dispositivo del usuario).\nCopiar detalle — copia el reporte completo para pegárselo a la IA y diagnosticar la causa.\n\nSe crea una alerta por usuario, tipo y día (no se acumulan duplicados).",
-    "crumbs": [
-      "Administración",
-      "Funcionamiento"
-    ]
-  },
-  {
-    "objectID": "explorar.html",
-    "href": "explorar.html",
-    "title": "Explorar: inicio, buscar y canales",
-    "section": "",
-    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
-    "crumbs": [
-      "Para el usuario",
-      "Explorar"
-    ]
-  },
-  {
-    "objectID": "explorar.html#inicio-browse",
-    "href": "explorar.html#inicio-browse",
-    "title": "Explorar: inicio, buscar y canales",
-    "section": "",
-    "text": "La pantalla de inicio: el hero de bienvenida y las filas de contenido (Estrenos, Top 10, Zapping…).\n\n\nLa pantalla principal es un mosaico de filas al estilo Netflix:\n\nHero — un destacado grande arriba.\nPróximos Estrenos — con cuenta atrás; puedes darle “Avisarme”.\nTop 10 Películas y Top 10 Series.\nRecomendado para ti — 12 títulos que sugiere la IA según tu historial.\nRecién llegadas, Lo más visto en Cuba, y filas “Porque has visto X”.\nContinuar viendo — retoma lo que dejaste a medias.\nCanales por región — cubanos, Latinoamérica, Europa, etc.\n\nExtras:\n\nZapping — modo “sorpréndeme” que reproduce títulos al momento (ver abajo).\nSuscribirme — banner que lleva a Premium.\nSin conexión — si no hay internet, ofrece ir a Descargas.",
-    "crumbs": [
-      "Para el usuario",
-      "Explorar"
-    ]
-  },
-  {
-    "objectID": "explorar.html#zapping",
-    "href": "explorar.html#zapping",
-    "title": "Explorar: inicio, buscar y canales",
-    "section": "Zapping",
-    "text": "Zapping\nEl Zapping es para cuando no sabes qué ver: en vez de buscar, la app te va poniendo títulos al momento y tú decides sobre la marcha, como hacer zapping en la tele.\n\n\n\nLa sintonía del Zapping: una carta de ajuste con el logo mientras “engancha la señal”.\n\n\n\nCómo se abre — con el botón flotante Zapping o desde el hero “Bienvenido a MalecónTV”.\nElige un ambiente — Sorpréndeme, En Vivo, Películas, Series o un género (Drama, Terror…). Si eliges un género, esos títulos salen primero y luego el resto del catálogo.\nSintonía — antes de cada título aparece una breve carta de ajuste (barras de colores tipo TV) con el logo mientras “engancha la señal”; al llegar la imagen hay un fogonazo y arranca el vídeo.\nProbadita — cada título se reproduce ya empezado (no desde el minuto 0, como al sintonizar un canal a mitad) durante unos segundos. La cuenta atrás empieza cuando aparece la imagen (no mientras sintoniza), así los segundos son de vídeo de verdad. Arriba ves el % de afinidad para ti.\nBotones — Otra (con cuenta atrás) pasa al siguiente; Mi lista lo guarda; Ver ahora deja el zapping y reproduce el título entero desde el principio, a pantalla completa.\nNunca se repite hasta agotar el catálogo, y de cada serie solo aparece un episodio (el siguiente que no hayas visto). Si un título falla, salta solo al siguiente sin mostrar error.\nDescanso — cada ~15 saltos (o al agotar un catálogo pequeño) aparece “¿No encuentras lo que buscas?” para seguir o salir.\nSalir — la ✕ de arriba, la tecla Atrás/Esc o el botón Atrás del mando de TV.\nLas probaditas no cuentan como vistas ni ensucian tus recomendaciones: solo cuenta si le das a Ver ahora.",
-    "crumbs": [
-      "Para el usuario",
-      "Explorar"
-    ]
-  },
-  {
-    "objectID": "explorar.html#buscar",
-    "href": "explorar.html#buscar",
-    "title": "Explorar: inicio, buscar y canales",
-    "section": "Buscar",
-    "text": "Buscar\n\n\n\nEl buscador con etiquetas rápidas y resultados en rejilla.\n\n\nEn Buscar escribes película, serie, actor o género. Mientras vacío, muestra etiquetas rápidas (Acción, Comedia, Cuba, Béisbol, Documentales…) para tocar. Los resultados salen en rejilla con “Cargar más”; si no hay, sugiere buscar por actor o categoría. Sin búsqueda, enseña “Lo más buscado”.",
-    "crumbs": [
-      "Para el usuario",
-      "Explorar"
-    ]
-  },
-  {
-    "objectID": "explorar.html#canales-en-vivo",
-    "href": "explorar.html#canales-en-vivo",
-    "title": "Explorar: inicio, buscar y canales",
-    "section": "Canales en vivo",
-    "text": "Canales en vivo\n\n\n\nCanales TV: filtros por categoría y región, en directo.\n\n\nEn Canales TV (etiqueta EN DIRECTO):\n\nBuscador de canal.\nFiltros por categoría (Deportes, Noticias, Cine, Música, Niños…) y por región (Cubanos, Latinoamérica, Europeos…).\nSin filtros, se agrupan por región con su cuenta.\n\n\n\n\n\n\n\nTip\n\n\n\nUn canal puede verse bien para el usuario aunque el sistema lo marque caído (es un tema de la IP del servidor). Ver Salud y Fallos comunes.",
-    "crumbs": [
-      "Para el usuario",
-      "Explorar"
-    ]
-  },
-  {
-    "objectID": "reportes.html",
-    "href": "reportes.html",
-    "title": "Reportes",
-    "section": "",
-    "text": "En Admin › Reportes (“Reportes de usuarios”) gestionas los enlaces rotos y problemas técnicos que reportan los usuarios (con el triángulo ⚠ del reproductor).\nCada reporte llega con el título afectado, la URL, el tipo de problema y las notas del usuario. Filtras por estado (Pendientes / Resueltos), tipo (vídeo/canal) y problema.",
-    "crumbs": [
-      "Administración",
-      "Reportes"
-    ]
-  },
-  {
-    "objectID": "reportes.html#cómo-resolver-un-reporte",
-    "href": "reportes.html#cómo-resolver-un-reporte",
-    "title": "Reportes",
-    "section": "Cómo resolver un reporte",
-    "text": "Cómo resolver un reporte\n\nLocaliza el reporte pendiente (badge rojo con reloj).\nArregla el problema real en el contenido — normalmente en Vídeos o Canales: cambia la URL, marca “Excluir Health” si es un falso caído, o busca una fuente alternativa (ver Fallos comunes y Salud).\nVuelve al reporte y pulsa “Resuelto” → pasa a resueltos (badge verde) y sale de pendientes.\n\n\n\n\n\n\n\nTip\n\n\n\nReportar da puntos al usuario, así que la gente avisa de verdad. Atender los reportes rápido mantiene el catálogo sano. Un reporte no borra nada por sí solo: tú decides qué hacer con el contenido.\n\n\n\n\n\n\n\n\nNote\n\n\n\nLos reportes quedan guardados (aunque los resuelvas) por auditoría; por eso, al borrar un usuario, sus reportes se anonimizan en vez de borrarse (ver Usuarios).",
-    "crumbs": [
-      "Administración",
-      "Reportes"
-    ]
-  },
-  {
-    "objectID": "votacion-admin.html",
-    "href": "votacion-admin.html",
-    "title": "Crear una votación (con IA)",
-    "section": "",
-    "text": "En Admin › Votación creas la votación semanal que la comunidad ve en Biblioteca (lado usuario: Votar el próximo estreno).",
-    "crumbs": [
-      "Administración",
-      "Crear una votación (con IA)"
-    ]
-  },
-  {
-    "objectID": "votacion-admin.html#contenido-apto-recomendado-por-ia",
-    "href": "votacion-admin.html#contenido-apto-recomendado-por-ia",
-    "title": "Crear una votación (con IA)",
-    "section": "Contenido apto · recomendado por IA",
-    "text": "Contenido apto · recomendado por IA\nA la derecha, en vez de listarte todo, el sistema te recomienda candidatos ya validados (que se reproducen y tienen subtítulos en español). Vienen ordenados y con su “por qué”. Tú desmarcas los que no quieras y eliges otros de la lista.\n\n\n\nAdmin › Votación: a la izquierda “Configurar” con “En qué se basa la IA”; a la derecha “Contenido apto · recomendado por IA” con la nota y plataforma de cada candidato.\n\n\nEn qué se basa la IA (panel izquierdo) — todo con datos reales de tu app:\n\nGéneros más vistos por tu público (de las vistas + las etiquetas/tags).\nTemporada actual (verano, Navidad, Halloween…), sacada de la fecha.\nHuecos del catálogo (géneros poco cubiertos) — reserva 1-2 apuestas nuevas para que el catálogo no se estanque.\nVotaciones anteriores (para no repetir y seguir lo que funcionó).\nY solo lo apto: reproducible + subtítulos ES.\n\nEs una sola llamada a Gemini (hay que poner la API key en Ajustes). Si la IA no está disponible, la lista sale igual pero en orden por defecto, sin recomendación — la votación nunca se rompe.\nAdemás, cada candidato muestra su nota y en qué plataforma de la competencia está (Netflix, Disney+…), vía TMDB — como señal de “éxito probado”.",
-    "crumbs": [
-      "Administración",
-      "Crear una votación (con IA)"
-    ]
-  },
-  {
-    "objectID": "votacion-admin.html#medidor-de-la-papeleta-óptima-mejorable",
-    "href": "votacion-admin.html#medidor-de-la-papeleta-óptima-mejorable",
-    "title": "Crear una votación (con IA)",
-    "section": "Medidor de la papeleta (Óptima / Mejorable)",
-    "text": "Medidor de la papeleta (Óptima / Mejorable)\nAl marcar títulos, un medidor te dice al instante (sin gastar IA) si tu selección es Óptima o Mejorable, con el motivo: mira los géneros de lo marcado y valora que haya variedad, que toque un gusto fuerte del público y que la papeleta esté completa.",
-    "crumbs": [
-      "Administración",
-      "Crear una votación (con IA)"
-    ]
-  },
-  {
-    "objectID": "votacion-admin.html#crear-cerrar-y-publicar",
-    "href": "votacion-admin.html#crear-cerrar-y-publicar",
-    "title": "Crear una votación (con IA)",
-    "section": "Crear, cerrar y publicar",
-    "text": "Crear, cerrar y publicar\n\nMarca hasta el máximo de candidatos configurado y pulsa Crear votación (deshabilitado si no marcas al menos uno). Mientras la IA elige candidatos (10-20 s), el botón dice “La IA está eligiendo…” — espera a que termine; “Sin contenido apto” solo aparece si de verdad no hay nada.\nDesde el panel cierras la votación y publicas al ganador como estreno. Los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación. Si el ganador propuesto tiene 0 votos, un aviso ámbar te recuerda que publicarías sin el criterio de la comunidad (no bloquea: decides tú).\n\n\n\n\n\n\n\nNote\n\n\n\nNo puedes poner a votar algo que ya está publicado en el catálogo: si un candidato coincide (mismo TMDB o título muy parecido) con un título ya publicado, queda bloqueado hasta que confirmes en Revisiones que son distintos. Ver Revisiones.",
-    "crumbs": [
-      "Administración",
-      "Crear una votación (con IA)"
-    ]
-  },
-  {
-    "objectID": "estrenos.html",
-    "href": "estrenos.html",
-    "title": "Estrenos",
-    "section": "",
-    "text": "En Admin › Estrenos (“Próximos Estrenos”) gestionas las fechas de estreno y las notificaciones automáticas a los usuarios.\nArriba, tres contadores: Total estrenos, Con notificación y Sin notificación. Debajo, la lista de títulos programados con su fecha, su categoría, y un botón “Notificando” (avisa a los usuarios en su fecha) + editar la fecha.",
-    "crumbs": [
-      "Administración",
-      "Estrenos"
-    ]
-  },
-  {
-    "objectID": "estrenos.html#cómo-funciona",
-    "href": "estrenos.html#cómo-funciona",
-    "title": "Estrenos",
-    "section": "Cómo funciona",
-    "text": "Cómo funciona\n\nUn programador asigna la fecha de estreno (release_date) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las series se reparten por partes.\nEl contenido “estrena” en su fecha: aparece en Próximos Estrenos de la portada, y el usuario puede darle “Avisarme” para que le notifiquen.\nPuedes ajustar la fecha de cada título a mano desde aquí.\nLa fecha es obligatoria: esta página solo lista contenido con fecha de estreno — sin fecha no es un estreno, así que no aparece aquí. Por defecto ves los activos.",
-    "crumbs": [
-      "Administración",
-      "Estrenos"
-    ]
-  },
-  {
-    "objectID": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
-    "href": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
-    "title": "Estrenos",
-    "section": "Premium ve antes (pre-estreno) y el piloto es libre",
-    "text": "Premium ve antes (pre-estreno) y el piloto es libre\n\nLos usuarios Premium (y admins) pueden ver y descargar el contenido con fecha futura antes del estreno: en vez de la cuenta atrás les sale el reproductor con la etiqueta 👑 PRE-ESTRENO (que desaparece sola el día del estreno). Los usuarios free ven la cuenta atrás con el aviso “👑 Ya disponible en Premium”.\nEl primer episodio (1x01) de toda serie es libre: se reproduce siempre, para cualquiera, sin esperar su fecha y aunque la serie sea premium — es el gancho para engancharse. El resto de capítulos siguen su calendario normal.\nEl bloqueo se valida también en el servidor (no basta con conocer la URL). Si hiciera falta desactivarlo de emergencia: RELEASE_GATE_DISABLED=1 en el .env y reiniciar (ver Fallos comunes).\n\n\n\n\n\n\n\nNote\n\n\n\nEl estreno es solo la fecha visible: no cambia el contenido, solo cuándo aparece como novedad y a quién se le avisa. Ver también la votación de estrenos, que deja a la comunidad elegir el próximo.",
-    "crumbs": [
-      "Administración",
-      "Estrenos"
     ]
   },
   {
@@ -382,50 +305,6 @@
     "crumbs": [
       "Configuración",
       "Ajustes"
-    ]
-  },
-  {
-    "objectID": "biblioteca.html",
-    "href": "biblioteca.html",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "",
-    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
-    "crumbs": [
-      "Para el usuario",
-      "Biblioteca y descargas"
-    ]
-  },
-  {
-    "objectID": "biblioteca.html#explorar-catálogo-library",
-    "href": "biblioteca.html#explorar-catálogo-library",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "",
-    "text": "Biblioteca: catálogo completo con orden, filtros y buscador.\n\n\nBiblioteca es el catálogo completo con filtros potentes:\n\nOrden: Más vistos, Más recientes, A–Z, Año.\nBotones Películas / Series.\nBuscador por título, actor o etiquetas.\nFiltros (panel lateral): categoría, país/origen y año, con “Limpiar filtros”.\nEtiquetas sugeridas cuando no buscas nada.\nSi hay una votación abierta, aparece aquí arriba (ver Votar).",
-    "crumbs": [
-      "Para el usuario",
-      "Biblioteca y descargas"
-    ]
-  },
-  {
-    "objectID": "biblioteca.html#mi-lista",
-    "href": "biblioteca.html#mi-lista",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "Mi Lista",
-    "text": "Mi Lista\n\n\n\nMi Lista: tus canales, películas y series guardados.\n\n\nEl corazón de cualquier tarjeta o del reproductor guarda el título en Mi Lista. Ahí se separan Canales y Vídeos y series. Se sincroniza entre tus dispositivos. Vacía muestra “Guarda tus películas, series y canales favoritos para tenerlos siempre a mano.”",
-    "crumbs": [
-      "Para el usuario",
-      "Biblioteca y descargas"
-    ]
-  },
-  {
-    "objectID": "biblioteca.html#descargas-ver-sin-internet",
-    "href": "biblioteca.html#descargas-ver-sin-internet",
-    "title": "Biblioteca, Mi Lista y Descargas",
-    "section": "Descargas (ver sin internet)",
-    "text": "Descargas (ver sin internet)\n\n\n\nMis Descargas: medidor de almacenamiento y estado de cada título.\n\n\nMis Descargas gestiona lo guardado en este dispositivo:\n\nMedidor de almacenamiento (usado/total) y aviso si te pasas del límite.\nEstados por título: Disponible (verde), Descargando % (amarillo), Error (rojo).\nAcciones: Reproducir (offline), Reintentar, o borrar (con confirmación).\nOtros dispositivos — lista lo descargado en tus otros equipos (solo lectura).\n\nLos límites de descargas dependen de la membresía (Free vs Premium) y se configuran en Ajustes.\n\n\n\n\n\n\nNote\n\n\n\nLas descargas se guardan en el almacenamiento seguro del navegador (no son ficheros .mp4 sueltos): no gastan datos al reproducir, pero si borras la caché del navegador, se pierden. No las confundas con archivos normales.",
-    "crumbs": [
-      "Para el usuario",
-      "Biblioteca y descargas"
     ]
   },
   {
@@ -539,69 +418,91 @@
     ]
   },
   {
-    "objectID": "premium.html",
-    "href": "premium.html",
-    "title": "Cuenta, Premium y puntos",
+    "objectID": "votacion-admin.html",
+    "href": "votacion-admin.html",
+    "title": "Crear una votación (con IA)",
     "section": "",
-    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación.\nSi eres admin, aparece el acceso al Panel de administración.",
+    "text": "En Admin › Votación creas la votación semanal que la comunidad ve en Biblioteca (lado usuario: Votar el próximo estreno).",
     "crumbs": [
-      "Para el usuario",
-      "Cuenta y Premium"
+      "Administración",
+      "Crear una votación (con IA)"
     ]
   },
   {
-    "objectID": "premium.html#tu-perfil",
-    "href": "premium.html#tu-perfil",
-    "title": "Cuenta, Premium y puntos",
+    "objectID": "votacion-admin.html#contenido-apto-recomendado-por-ia",
+    "href": "votacion-admin.html#contenido-apto-recomendado-por-ia",
+    "title": "Crear una votación (con IA)",
+    "section": "Contenido apto · recomendado por IA",
+    "text": "Contenido apto · recomendado por IA\nA la derecha, en vez de listarte todo, el sistema te recomienda candidatos ya validados (que se reproducen y tienen subtítulos en español). Vienen ordenados y con su “por qué”. Tú desmarcas los que no quieras y eliges otros de la lista.\n\n\n\nAdmin › Votación: a la izquierda “Configurar” con “En qué se basa la IA”; a la derecha “Contenido apto · recomendado por IA” con la nota y plataforma de cada candidato.\n\n\nEn qué se basa la IA (panel izquierdo) — todo con datos reales de tu app:\n\nGéneros más vistos por tu público (de las vistas + las etiquetas/tags).\nTemporada actual (verano, Navidad, Halloween…), sacada de la fecha.\nHuecos del catálogo (géneros poco cubiertos) — reserva 1-2 apuestas nuevas para que el catálogo no se estanque.\nVotaciones anteriores (para no repetir y seguir lo que funcionó).\nY solo lo apto: reproducible + subtítulos ES.\n\nEs una sola llamada a Gemini (hay que poner la API key en Ajustes). Si la IA no está disponible, la lista sale igual pero en orden por defecto, sin recomendación — la votación nunca se rompe.\nAdemás, cada candidato muestra su nota y en qué plataforma de la competencia está (Netflix, Disney+…), vía TMDB — como señal de “éxito probado”.",
+    "crumbs": [
+      "Administración",
+      "Crear una votación (con IA)"
+    ]
+  },
+  {
+    "objectID": "votacion-admin.html#medidor-de-la-papeleta-óptima-mejorable",
+    "href": "votacion-admin.html#medidor-de-la-papeleta-óptima-mejorable",
+    "title": "Crear una votación (con IA)",
+    "section": "Medidor de la papeleta (Óptima / Mejorable)",
+    "text": "Medidor de la papeleta (Óptima / Mejorable)\nAl marcar títulos, un medidor te dice al instante (sin gastar IA) si tu selección es Óptima o Mejorable, con el motivo: mira los géneros de lo marcado y valora que haya variedad, que toque un gusto fuerte del público y que la papeleta esté completa.",
+    "crumbs": [
+      "Administración",
+      "Crear una votación (con IA)"
+    ]
+  },
+  {
+    "objectID": "votacion-admin.html#crear-cerrar-y-publicar",
+    "href": "votacion-admin.html#crear-cerrar-y-publicar",
+    "title": "Crear una votación (con IA)",
+    "section": "Crear, cerrar y publicar",
+    "text": "Crear, cerrar y publicar\n\nMarca hasta el máximo de candidatos configurado y pulsa Crear votación (deshabilitado si no marcas al menos uno). Mientras la IA elige candidatos (10-20 s), el botón dice “La IA está eligiendo…” — espera a que termine; “Sin contenido apto” solo aparece si de verdad no hay nada.\nDesde el panel cierras la votación y publicas al ganador como estreno. Los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación. Si el ganador propuesto tiene 0 votos, un aviso ámbar te recuerda que publicarías sin el criterio de la comunidad (no bloquea: decides tú).\n\n\n\n\n\n\n\nNote\n\n\n\nNo puedes poner a votar algo que ya está publicado en el catálogo: si un candidato coincide (mismo TMDB o título muy parecido) con un título ya publicado, queda bloqueado hasta que confirmes en Revisiones que son distintos. Ver Revisiones.",
+    "crumbs": [
+      "Administración",
+      "Crear una votación (con IA)"
+    ]
+  },
+  {
+    "objectID": "votar.html",
+    "href": "votar.html",
+    "title": "Votar el próximo estreno",
     "section": "",
-    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación.\nSi eres admin, aparece el acceso al Panel de administración.",
+    "text": "MalecónTV deja que la comunidad elija el próximo estreno. Cuando hay votación abierta, aparece en Biblioteca y se puede compartir un enlace /vota/:token.",
     "crumbs": [
       "Para el usuario",
-      "Cuenta y Premium"
+      "Votar"
     ]
   },
   {
-    "objectID": "premium.html#premium-gratis-por-puntos",
-    "href": "premium.html#premium-gratis-por-puntos",
-    "title": "Cuenta, Premium y puntos",
-    "section": "Premium gratis (por puntos)",
-    "text": "Premium gratis (por puntos)\n\n\n\nCómo gano Premium: los pasos Comparte, Invita y Gana.\n\n\nMalecónTV no cobra: el Premium se desbloquea acumulando puntos y es de por vida.\nCómo ganar puntos:\n\nCompartir la app → sumas cuando alguien abre tu enlace (hay un tope diario).\nInvitar (referidos) → una bonificación grande cuando alguien se registra con tu enlace.\n\nAl llegar a la meta, tu cuenta pasa a Premium automáticamente.",
+    "objectID": "votar.html#cómo-se-vota",
+    "href": "votar.html#cómo-se-vota",
+    "title": "Votar el próximo estreno",
+    "section": "Cómo se vota",
+    "text": "Cómo se vota\n\n\n\nLa página de votación: las películas candidatas y el botón “Votar”.\n\n\n\nVes las películas candidatas en tarjetas, con su póster y un botón “Votar”.\n1 voto por persona. Arriba hay una cuenta atrás de cuánto queda.\nEl botón ⓘ de cada tarjeta abre el detalle (sinopsis, año, género).",
     "crumbs": [
       "Para el usuario",
-      "Cuenta y Premium"
+      "Votar"
     ]
   },
   {
-    "objectID": "premium.html#prueba-premium-al-registrarse-trial",
-    "href": "premium.html#prueba-premium-al-registrarse-trial",
-    "title": "Cuenta, Premium y puntos",
-    "section": "Prueba Premium al registrarse (trial)",
-    "text": "Prueba Premium al registrarse (trial)\nSi el admin la activa (Ajustes › Recompensas Premium), cada usuario nuevo estrena Premium gratis unos días (7 por defecto) al registrarse:\n\nAl aterrizar por primera vez ve una celebración: “¡Estrenas Premium GRATIS!” con sus ventajas (se muestra una sola vez).\nEl chip PREMIUM de la barra superior se convierte en cuenta atrás (“PREMIUM · X días”); en los 3 últimos días late para avisar. Es clicable → lleva a la tarjeta Gana Premium Gratis del perfil, donde además aparece “Tienes Premium · quedan X días”.\nAl expirar vuelve a gratis automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le invita a compartir para desbloquearlo.\nSi durante la prueba alcanza la meta de puntos, se queda Premium por puntos (la prueba deja de importar).\nPremium revocado (admin) anula también la prueba.\nApagar el interruptor en Ajustes solo afecta a registros futuros: quien ya tiene días los disfruta hasta su fecha. El admin puede regalar/extender/quitar la prueba a cualquiera desde su ficha (campo Fin de prueba Premium) o en masa.\n\nQué te da Premium, además del contenido exclusivo: pre-estreno — ves y descargas los títulos con fecha futura antes de su estreno público (etiqueta 👑 PRE-ESTRENO), sin esperar la cuenta atrás. Ver Estrenos. Los valores (puntos por compartir, por referido, tope diario, meta) se ajustan en Ajustes › Gamificación.",
+    "objectID": "votar.html#pedir-una-película",
+    "href": "votar.html#pedir-una-película",
+    "title": "Votar el próximo estreno",
+    "section": "Pedir una película",
+    "text": "Pedir una película\nDebajo, la sección “¿No es el estreno que buscas?” permite pedir un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra “Pedido recibido, lo revisaremos”.",
     "crumbs": [
       "Para el usuario",
-      "Cuenta y Premium"
+      "Votar"
     ]
   },
   {
-    "objectID": "premium.html#free-vs-premium",
-    "href": "premium.html#free-vs-premium",
-    "title": "Cuenta, Premium y puntos",
-    "section": "Free vs Premium",
-    "text": "Free vs Premium\n\n\n\nComparativa Free vs Premium (pantalla de suscripción).\n\n\n\n\n\n\nFree\nPremium\n\n\n\n\nCatálogo\nBásico\nCompleto\n\n\nCanales\nSeleccionados\nTodos\n\n\nCalidad\nEstándar\nMejorada\n\n\nDescargas\nLimitadas\nMás (límite mayor)\n\n\nEstrenos\n—\nEn primicia\n\n\nRecomendaciones\n—\nPersonalizadas\n\n\n\nLa página “Cómo gano Premium” explica el sistema con los tres pasos (Comparte → Invita → Gana) y los niveles (Espectador → Colaborador/Embajador → Premium).",
+    "objectID": "votar.html#resultados",
+    "href": "votar.html#resultados",
+    "title": "Votar el próximo estreno",
+    "section": "Resultados",
+    "text": "Resultados\nSi ya votaste o la votación cerró, ves los resultados:\n\nEl ganador grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.\nLa lista “Le persiguen” (2º, 3º…) con barras de votos.\nCompartir la votación y “Avísame del estreno” (recordatorio por correo).\n\nEl admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación.",
     "crumbs": [
       "Para el usuario",
-      "Cuenta y Premium"
-    ]
-  },
-  {
-    "objectID": "premium.html#referidos-desde-el-lado-del-usuario",
-    "href": "premium.html#referidos-desde-el-lado-del-usuario",
-    "title": "Cuenta, Premium y puntos",
-    "section": "Referidos, desde el lado del usuario",
-    "text": "Referidos, desde el lado del usuario\nTu enlace de referido va en lo que compartes (portada y enlaces de vídeo). Cuando alguien se registra con él, se te atribuye y ganas la bonificación. El detalle de cómo se cuenta está en Usuarios.",
-    "crumbs": [
-      "Para el usuario",
-      "Cuenta y Premium"
+      "Votar"
     ]
   },
   {
@@ -671,39 +572,6 @@
     ]
   },
   {
-    "objectID": "subtitulos.html",
-    "href": "subtitulos.html",
-    "title": "Subtítulos y traducciones",
-    "section": "",
-    "text": "Hay dos fuentes de subtítulos, y conviene no confundirlas:",
-    "crumbs": [
-      "Configuración",
-      "Subtítulos"
-    ]
-  },
-  {
-    "objectID": "subtitulos.html#gestor-de-subtítulos-admin",
-    "href": "subtitulos.html#gestor-de-subtítulos-admin",
-    "title": "Subtítulos y traducciones",
-    "section": "Gestor de subtítulos (admin)",
-    "text": "Gestor de subtítulos (admin)\nEn la ficha de un vídeo embed (vidsrc/vidlink con id de TMDB) aparece el Gestor de subtítulos —plegado por defecto—. Desde ahí puedes:\n\nBuscar en OpenSubtitles — lista los candidatos en español del título (búsqueda gratis). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se descarga (cuesta 1 de cuota) y queda cacheado.\nSubir .srt/.vtt — subes tu propio fichero. Se convierte a VTT y se le quitan los anuncios (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).\nSincronía (±s) — ajusta todos los tiempos: −1s, −0.5s, +0.5s, +1s. Se acumula (“− adelanta, + atrasa”).\nQuitar — borra el subtítulo guardado y vuelve al automático.\n\n\n\n\n\n\n\nNote\n\n\n\nLos subtítulos ES solo aplican a embeds vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).",
-    "crumbs": [
-      "Configuración",
-      "Subtítulos"
-    ]
-  },
-  {
-    "objectID": "subtitulos.html#está-en-español-al-importar",
-    "href": "subtitulos.html#está-en-español-al-importar",
-    "title": "Subtítulos y traducciones",
-    "section": "“¿Está en español?” al importar",
-    "text": "“¿Está en español?” al importar\nAl importar, el sistema decide si un título es entendible en español con esta lógica:\n\nEl idioma original en TMDB es español → ok.\nTMDB dice que se habla español → ok.\nOpenSubtitles tiene subtítulos en español → ok.\nSi nada de eso → no se publica (salvo que no haya clave de OpenSubtitles configurada).\n\nPor eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.",
-    "crumbs": [
-      "Configuración",
-      "Subtítulos"
-    ]
-  },
-  {
     "objectID": "apis.html",
     "href": "apis.html",
     "title": "APIs externas",
@@ -759,113 +627,36 @@
     ]
   },
   {
-    "objectID": "votar.html",
-    "href": "votar.html",
-    "title": "Votar el próximo estreno",
+    "objectID": "subtitulos.html",
+    "href": "subtitulos.html",
+    "title": "Subtítulos y traducciones",
     "section": "",
-    "text": "MalecónTV deja que la comunidad elija el próximo estreno. Cuando hay votación abierta, aparece en Biblioteca y se puede compartir un enlace /vota/:token.",
+    "text": "Hay dos fuentes de subtítulos, y conviene no confundirlas:",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {
-    "objectID": "votar.html#cómo-se-vota",
-    "href": "votar.html#cómo-se-vota",
-    "title": "Votar el próximo estreno",
-    "section": "Cómo se vota",
-    "text": "Cómo se vota\n\n\n\nLa página de votación: las películas candidatas y el botón “Votar”.\n\n\n\nVes las películas candidatas en tarjetas, con su póster y un botón “Votar”.\n1 voto por persona. Arriba hay una cuenta atrás de cuánto queda.\nEl botón ⓘ de cada tarjeta abre el detalle (sinopsis, año, género).",
+    "objectID": "subtitulos.html#gestor-de-subtítulos-admin",
+    "href": "subtitulos.html#gestor-de-subtítulos-admin",
+    "title": "Subtítulos y traducciones",
+    "section": "Gestor de subtítulos (admin)",
+    "text": "Gestor de subtítulos (admin)\nEn la ficha de un vídeo embed (vidsrc/vidlink con id de TMDB) aparece el Gestor de subtítulos —plegado por defecto—. Desde ahí puedes:\n\nBuscar en OpenSubtitles — lista los candidatos en español del título (búsqueda gratis). Muestra nombre, nº de descargas, FPS, si es para sordos, y temporada/episodio. Al elegir uno, se descarga (cuesta 1 de cuota) y queda cacheado.\nSubir .srt/.vtt — subes tu propio fichero. Se convierte a VTT y se le quitan los anuncios (la propaganda típica de OpenSubtitles: “Become VIP”, enlaces, etc.).\nSincronía (±s) — ajusta todos los tiempos: −1s, −0.5s, +0.5s, +1s. Se acumula (“− adelanta, + atrasa”).\nQuitar — borra el subtítulo guardado y vuelve al automático.\n\n\n\n\n\n\n\nNote\n\n\n\nLos subtítulos ES solo aplican a embeds vidsrc/vidlink con id de TMDB. En URLs directas (MP4/HLS) o YouTube no hay gestor (se avisa en la propia ficha).",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {
-    "objectID": "votar.html#pedir-una-película",
-    "href": "votar.html#pedir-una-película",
-    "title": "Votar el próximo estreno",
-    "section": "Pedir una película",
-    "text": "Pedir una película\nDebajo, la sección “¿No es el estreno que buscas?” permite pedir un título (nombre y, opcional, descripción). Hay que estar registrado; si ya pediste, muestra “Pedido recibido, lo revisaremos”.",
+    "objectID": "subtitulos.html#está-en-español-al-importar",
+    "href": "subtitulos.html#está-en-español-al-importar",
+    "title": "Subtítulos y traducciones",
+    "section": "“¿Está en español?” al importar",
+    "text": "“¿Está en español?” al importar\nAl importar, el sistema decide si un título es entendible en español con esta lógica:\n\nEl idioma original en TMDB es español → ok.\nTMDB dice que se habla español → ok.\nOpenSubtitles tiene subtítulos en español → ok.\nSi nada de eso → no se publica (salvo que no haya clave de OpenSubtitles configurada).\n\nPor eso el filtro de español puede decir “sin español confirmado” (ninguna de las tres) o bien “OpenSubtitles no respondió” (no se pudo comprobar), que son cosas distintas.",
     "crumbs": [
-      "Para el usuario",
-      "Votar"
-    ]
-  },
-  {
-    "objectID": "votar.html#resultados",
-    "href": "votar.html#resultados",
-    "title": "Votar el próximo estreno",
-    "section": "Resultados",
-    "text": "Resultados\nSi ya votaste o la votación cerró, ves los resultados:\n\nEl ganador grande (“GANADOR” si cerró, “VA GANANDO” si sigue abierta), con su % de votos.\nLa lista “Le persiguen” (2º, 3º…) con barras de votos.\nCompartir la votación y “Avísame del estreno” (recordatorio por correo).\n\nEl admin abre, cierra y publica las votaciones desde el panel; los perdedores vuelven a Revisiones o se descartan según Ajustes › Votación.",
-    "crumbs": [
-      "Para el usuario",
-      "Votar"
-    ]
-  },
-  {
-    "objectID": "usuarios.html",
-    "href": "usuarios.html",
-    "title": "Usuarios",
-    "section": "",
-    "text": "En Admin › Usuarios gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#buscar-y-editar",
-    "href": "usuarios.html#buscar-y-editar",
-    "title": "Usuarios",
-    "section": "Buscar y editar",
-    "text": "Buscar y editar\n\nBuscador del panel (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver El buscador). Por defecto muestra los usuarios Activos; quita el chip “Activos” para ver también pendientes, bloqueados y desactivados.\nOrdenar por Reciente, Nombre A-Z, Puntos, Referidos, Última conexión o ID.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía, origen o el Fin de prueba Premium (con calendario; dejarlo vacío quita la prueba a todos los seleccionados).\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos. Incluye el campo Fin de prueba Premium: Premium temporal hasta ese día (inclusive) — sirve para regalar o extender la prueba a mano; el botón Quitar la elimina.\nPrueba Premium en la lista: los usuarios en prueba llevan el badge “Prueba” (con su fecha al pasar el ratón). En el buscador puedes filtrar por Prueba Premium (En prueba / Expirada / Sin prueba), por fecha de Fin de prueba (antes/después de), y agrupar por estado de prueba.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#ubicación-de-usuarios-mapa",
-    "href": "usuarios.html#ubicación-de-usuarios-mapa",
-    "title": "Usuarios",
-    "section": "Ubicación de usuarios (mapa)",
-    "text": "Ubicación de usuarios (mapa)\nEn el Panel (Admin › Panel), dentro de Comunidad y Crecimiento, hay un mapa “Ubicación de usuarios” que te dice de dónde es tu audiencia, deducido de la IP de sus accesos.\n\nMapa mundial con una burbuja por país; el número dentro es cuántos usuarios hay allí. Puedes acercar/alejar y arrastrar, o clicar un país del Top 5 para volar hasta él.\nPaís / Región — el interruptor de arriba a la izquierda cambia entre burbujas por país o por región.\nTop 5 países a la derecha, con su porcentaje.\nUsuarios activos ahora (indicador verde) — cuántos usuarios (no admins) han tenido actividad en los últimos minutos. Se actualiza solo mientras miras el panel.\nN geolocalizados · N países — el total de usuarios con ubicación conocida.\n\n\nUbicación en la ficha y en las sesiones\n\nEn la ficha de cada usuario (Editar), debajo del nombre, aparece su ubicación principal (país · región).\nEn “Sesiones activas” de cada usuario, cada acceso muestra su país y, si viene por VPN o Apple Private Relay, se marca como · VPN.\nEn el buscador de Usuarios puedes filtrar y Agrupar por País y Región (igual que por Membresía o Estado — ver El buscador).\n\n\n\n¿Es fiable? ¿Cada cuánto se actualiza?\n\nPaís: muy fiable (~99%). Región: orientativa. La ciudad no se muestra porque por IP no es fiable (en móvil suele salir el nodo de la operadora, no el usuario).\nSe excluyen VPN y Apple Private Relay (ubicación no fiable) y no cuentan los admins en “activos ahora”.\nLa ubicación de cada usuario se recalcula en cada acceso desde una IP fiable, así que refleja su último acceso bueno. La base IP→lugar es offline (no hace llamadas externas) y respeta la privacidad; úsala en agregado (mapa/conteos), no como dirección exacta.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
-    "href": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
-    "title": "Usuarios",
-    "section": "Origen de usuarios (de dónde vienen)",
-    "text": "Origen de usuarios (de dónde vienen)\n¿Quieres saber si tus registros vienen de Facebook, de TikTok o de la web directa? En Ajustes › Sistema & Integraciones hay una tarjeta “Origen de usuarios” con un enlace por canal: Facebook, Instagram, TikTok, Otro. Cada enlace lleva ?origen=&lt;canal&gt;&k=&lt;token&gt;.\n\n\n\nTarjeta “Origen de usuarios” en Ajustes: un enlace por red, con botón de copiar y de regenerar.\n\n\n\nComparte cada enlace en su red. Quien se registre entrando por él queda marcado con ese Origen.\nEl origen se ve en la ficha del usuario (junto a “Referido por”), y en la lista puedes filtrar por origen y editar en masa el de varios usuarios a la vez.\nSi alguien se registra sin enlace (entró directo a malecontv.es), su origen es Web. Ese es el caso normal y no necesita enlace propio.\nCopiar (icono de copiar) → “Enlace copiado”. Regenerar (icono circular) rota el token de ese canal e invalida el enlace anterior → “Enlace generado”.\nEl enlace usa la URL donde estás (en local localhost:4173, en producción tu dominio real). Así nunca copias por error un enlace que apunta al sitio equivocado.\n\n\n\n\n\n\n\nNote\n\n\n\nEl token (&k=...) evita que alguien se invente un origen a mano. Si el token no coincide con el del canal, el registro cae a Web en vez de atribuirse a una red falsa.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#referidos-e-invitaciones",
-    "href": "usuarios.html#referidos-e-invitaciones",
-    "title": "Usuarios",
-    "section": "Referidos e invitaciones",
-    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
-    ]
-  },
-  {
-    "objectID": "usuarios.html#borrar-un-usuario",
-    "href": "usuarios.html#borrar-un-usuario",
-    "title": "Usuarios",
-    "section": "Borrar un usuario",
-    "text": "Borrar un usuario\nEl botón “Eliminar” anonimiza las referencias de auditoría (reportes, enlaces rotos) poniéndolas a NULL —para conservar el historial operativo— y luego borra la cuenta. El resto de datos personales (favoritos, historial, sesiones) se borra en cascada. Ver Fallos comunes si el borrado da error.",
-    "crumbs": [
-      "Administración",
-      "Usuarios"
+      "Configuración",
+      "Subtítulos"
     ]
   },
   {
@@ -906,50 +697,6 @@
     "text": "Crin 218, tu asistente\nDentro del panel verás abajo a la derecha un botón flotante: Crin 218. Ábrelo y tendrás preguntas frecuentes y un buscador que responde con secciones de este mismo manual y te lleva a ellas.\n\n\n\nCrin 218 abierto: escribes un término y te muestra la respuesta del manual con enlace.\n\n\n\n\n\n\n\n\nNote\n\n\n\nEste manual se mantiene al día con la plataforma: cuando se añade o cambia una función, su sección se actualiza para que lo que lees refleje siempre cómo funciona MalecónTV.",
     "crumbs": [
       "MalecónTV · Manual"
-    ]
-  },
-  {
-    "objectID": "catalogo.html",
-    "href": "catalogo.html",
-    "title": "Catálogo",
-    "section": "",
-    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.\nEdición masiva — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y Tags (escríbelos separados por coma; lo escrito reemplaza los tags de los seleccionados).\n\n\n\n\n\n\n\nNote\n\n\n\nSeries en los “Top 10” de la portada. Cada serie sale como una sola tarjeta con su nombre (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay 3 o más series en el catálogo.",
-    "crumbs": [
-      "Administración",
-      "Catálogo"
-    ]
-  },
-  {
-    "objectID": "catalogo.html#vídeos-películas-y-series",
-    "href": "catalogo.html#vídeos-películas-y-series",
-    "title": "Catálogo",
-    "section": "",
-    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.\nEdición masiva — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y Tags (escríbelos separados por coma; lo escrito reemplaza los tags de los seleccionados).\n\n\n\n\n\n\n\nNote\n\n\n\nSeries en los “Top 10” de la portada. Cada serie sale como una sola tarjeta con su nombre (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay 3 o más series en el catálogo.",
-    "crumbs": [
-      "Administración",
-      "Catálogo"
-    ]
-  },
-  {
-    "objectID": "catalogo.html#canales-en-vivo",
-    "href": "catalogo.html#canales-en-vivo",
-    "title": "Catálogo",
-    "section": "Canales en vivo",
-    "text": "Canales en vivo\nEn Admin › Canales. Señales HLS/M3U8, YouTube, OK.ru, Dailymotion, MP4 directo, etc. Se pueden importar en bloque desde TDTChannels (España e Internacional; entran inactivos para revisarlos).\n\n\n\nSección Canales: el punto de color junto a cada fila indica su estado de salud.\n\n\n\n\n\n\n\n\nTip\n\n\n\nSi un canal sale como caído pero sabes que funciona para tus usuarios, márcalo “Excluir Health” en su ficha: el cron dejará de tumbarlo. Ver Fallos comunes.",
-    "crumbs": [
-      "Administración",
-      "Catálogo"
-    ]
-  },
-  {
-    "objectID": "catalogo.html#estrenos-y-votaciones",
-    "href": "catalogo.html#estrenos-y-votaciones",
-    "title": "Catálogo",
-    "section": "Estrenos y votaciones",
-    "text": "Estrenos y votaciones\n\nEstrenos — calendario que programa release_date (con margen y cadencia). El contenido “estrena” en su fecha.\nVotación — abres una campaña con candidatos (de Revisiones); los usuarios votan en /vota/:token; publicas el ganador como estreno. La votación abierta aparece también en /library (sección con los candidatos y “Tu voto decide”).\n\n\n\n\nGestión de votaciones (admin): enlace público, resultados en vivo y publicar ganador.",
-    "crumbs": [
-      "Administración",
-      "Catálogo"
     ]
   },
   {
@@ -1008,47 +755,201 @@
     ]
   },
   {
-    "objectID": "reproducir.html",
-    "href": "reproducir.html",
-    "title": "Ver contenido: reproductor y series",
+    "objectID": "estrenos.html",
+    "href": "estrenos.html",
+    "title": "Estrenos",
     "section": "",
-    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
+    "text": "En Admin › Estrenos (“Próximos Estrenos”) gestionas las fechas de estreno y las notificaciones automáticas a los usuarios.\nArriba, tres contadores: Total estrenos, Con notificación y Sin notificación. Debajo, la lista de títulos programados con su fecha, su categoría, y un botón “Notificando” (avisa a los usuarios en su fecha) + editar la fecha.",
     "crumbs": [
-      "Para el usuario",
-      "Ver contenido"
+      "Administración",
+      "Estrenos"
     ]
   },
   {
-    "objectID": "reproducir.html#el-reproductor",
-    "href": "reproducir.html#el-reproductor",
-    "title": "Ver contenido: reproductor y series",
+    "objectID": "estrenos.html#cómo-funciona",
+    "href": "estrenos.html#cómo-funciona",
+    "title": "Estrenos",
+    "section": "Cómo funciona",
+    "text": "Cómo funciona\n\nUn programador asigna la fecha de estreno (release_date) del contenido, con un margen y una cadencia (para no amontonar estrenos el mismo día). Las series se reparten por partes.\nEl contenido “estrena” en su fecha: aparece en Próximos Estrenos de la portada, y el usuario puede darle “Avisarme” para que le notifiquen.\nPuedes ajustar la fecha de cada título a mano desde aquí.\nLa fecha es obligatoria: esta página solo lista contenido con fecha de estreno — sin fecha no es un estreno, así que no aparece aquí. Por defecto ves los activos.",
+    "crumbs": [
+      "Administración",
+      "Estrenos"
+    ]
+  },
+  {
+    "objectID": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
+    "href": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
+    "title": "Estrenos",
+    "section": "Premium ve antes (pre-estreno) y el piloto es libre",
+    "text": "Premium ve antes (pre-estreno) y el piloto es libre\n\nLos usuarios Premium (y admins) pueden ver y descargar el contenido con fecha futura antes del estreno: en vez de la cuenta atrás les sale el reproductor con la etiqueta 👑 PRE-ESTRENO (que desaparece sola el día del estreno). Los usuarios free ven la cuenta atrás con el aviso “👑 Ya disponible en Premium”.\nEl primer episodio (1x01) de toda serie es libre: se reproduce siempre, para cualquiera, sin esperar su fecha y aunque la serie sea premium — es el gancho para engancharse. El resto de capítulos siguen su calendario normal.\nEl bloqueo se valida también en el servidor (no basta con conocer la URL). Si hiciera falta desactivarlo de emergencia: RELEASE_GATE_DISABLED=1 en el .env y reiniciar (ver Fallos comunes).\n\n\n\n\n\n\n\nNote\n\n\n\nEl estreno es solo la fecha visible: no cambia el contenido, solo cuándo aparece como novedad y a quién se le avisa. Ver también la votación de estrenos, que deja a la comunidad elegir el próximo.",
+    "crumbs": [
+      "Administración",
+      "Estrenos"
+    ]
+  },
+  {
+    "objectID": "reportes.html",
+    "href": "reportes.html",
+    "title": "Reportes",
     "section": "",
-    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
+    "text": "En Admin › Reportes (“Reportes de usuarios”) gestionas los enlaces rotos y problemas técnicos que reportan los usuarios (con el triángulo ⚠ del reproductor).\nCada reporte llega con el título afectado, la URL, el tipo de problema y las notas del usuario. Filtras por estado (Pendientes / Resueltos), tipo (vídeo/canal) y problema.",
     "crumbs": [
-      "Para el usuario",
-      "Ver contenido"
+      "Administración",
+      "Reportes"
     ]
   },
   {
-    "objectID": "reproducir.html#series-y-episodios",
-    "href": "reproducir.html#series-y-episodios",
-    "title": "Ver contenido: reproductor y series",
-    "section": "Series y episodios",
-    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.\n\nDentro del reproductor, la lista de episodios sale desplegada y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:\n\nReproduciendo — resaltado coral con “· reproduciendo”.\nVisto (completado) — fila atenuada.\nA medias — barrita de progreso en la miniatura (por dónde vas).\nSin estrenar — candado 🔒 con su fecha corta (ej. “1 SEP”); con Premium se ven ya con la etiqueta PRE-ESTRENO (ver Premium).",
+    "objectID": "reportes.html#cómo-resolver-un-reporte",
+    "href": "reportes.html#cómo-resolver-un-reporte",
+    "title": "Reportes",
+    "section": "Cómo resolver un reporte",
+    "text": "Cómo resolver un reporte\n\nLocaliza el reporte pendiente (badge rojo con reloj).\nArregla el problema real en el contenido — normalmente en Vídeos o Canales: cambia la URL, marca “Excluir Health” si es un falso caído, o busca una fuente alternativa (ver Fallos comunes y Salud).\nVuelve al reporte y pulsa “Resuelto” → pasa a resueltos (badge verde) y sale de pendientes.\n\n\n\n\n\n\n\nTip\n\n\n\nReportar da puntos al usuario, así que la gente avisa de verdad. Atender los reportes rápido mantiene el catálogo sano. Un reporte no borra nada por sí solo: tú decides qué hacer con el contenido.\n\n\n\n\n\n\n\n\nNote\n\n\n\nLos reportes quedan guardados (aunque los resuelvas) por auditoría; por eso, al borrar un usuario, sus reportes se anonimizan en vez de borrarse (ver Usuarios).",
     "crumbs": [
-      "Para el usuario",
-      "Ver contenido"
+      "Administración",
+      "Reportes"
     ]
   },
   {
-    "objectID": "reproducir.html#descargar-para-ver-sin-internet",
-    "href": "reproducir.html#descargar-para-ver-sin-internet",
-    "title": "Ver contenido: reproductor y series",
-    "section": "Descargar para ver sin internet",
-    "text": "Descargar para ver sin internet\nDesde el reproductor, el botón de descarga guarda el título en el dispositivo. Mientras ves algo, la descarga se pausa (para no competir por la conexión) y el botón lo indica (“En espera (viendo)”). Ver Biblioteca y descargas.",
+    "objectID": "catalogo.html",
+    "href": "catalogo.html",
+    "title": "Catálogo",
+    "section": "",
+    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.\nEdición masiva — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y Tags (escríbelos separados por coma; lo escrito reemplaza los tags de los seleccionados).\n\n\n\n\n\n\n\nNote\n\n\n\nSeries en los “Top 10” de la portada. Cada serie sale como una sola tarjeta con su nombre (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay 3 o más series en el catálogo.",
     "crumbs": [
-      "Para el usuario",
-      "Ver contenido"
+      "Administración",
+      "Catálogo"
+    ]
+  },
+  {
+    "objectID": "catalogo.html#vídeos-películas-y-series",
+    "href": "catalogo.html#vídeos-películas-y-series",
+    "title": "Catálogo",
+    "section": "",
+    "text": "En Admin › Vídeos gestionas el catálogo. Cada vídeo tiene categoría, año, duración, imágenes (póster vertical + backdrop horizontal para el hero), etiquetas y su URL. El punto de color junto al ID indica su estado de salud (ver Salud).\n\nImportación — llega desde Fuentes (archive.org, TMDB) a Revisiones, donde lo apruebas antes de publicar. También hay importación manual.\nPremium — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.\nDescargas — el contenido descargable se guarda para ver offline (PWA). Los embeds no son descargables por diseño salvo cuando el resolver lo permite.\nEdición masiva — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y Tags (escríbelos separados por coma; lo escrito reemplaza los tags de los seleccionados).\n\n\n\n\n\n\n\nNote\n\n\n\nSeries en los “Top 10” de la portada. Cada serie sale como una sola tarjeta con su nombre (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay 3 o más series en el catálogo.",
+    "crumbs": [
+      "Administración",
+      "Catálogo"
+    ]
+  },
+  {
+    "objectID": "catalogo.html#canales-en-vivo",
+    "href": "catalogo.html#canales-en-vivo",
+    "title": "Catálogo",
+    "section": "Canales en vivo",
+    "text": "Canales en vivo\nEn Admin › Canales. Señales HLS/M3U8, YouTube, OK.ru, Dailymotion, MP4 directo, etc. Se pueden importar en bloque desde TDTChannels (España e Internacional; entran inactivos para revisarlos).\n\n\n\nSección Canales: el punto de color junto a cada fila indica su estado de salud.\n\n\n\n\n\n\n\n\nTip\n\n\n\nSi un canal sale como caído pero sabes que funciona para tus usuarios, márcalo “Excluir Health” en su ficha: el cron dejará de tumbarlo. Ver Fallos comunes.",
+    "crumbs": [
+      "Administración",
+      "Catálogo"
+    ]
+  },
+  {
+    "objectID": "catalogo.html#estrenos-y-votaciones",
+    "href": "catalogo.html#estrenos-y-votaciones",
+    "title": "Catálogo",
+    "section": "Estrenos y votaciones",
+    "text": "Estrenos y votaciones\n\nEstrenos — calendario que programa release_date (con margen y cadencia). El contenido “estrena” en su fecha.\nVotación — abres una campaña con candidatos (de Revisiones); los usuarios votan en /vota/:token; publicas el ganador como estreno. La votación abierta aparece también en /library (sección con los candidatos y “Tu voto decide”).\n\n\n\n\nGestión de votaciones (admin): enlace público, resultados en vivo y publicar ganador.",
+    "crumbs": [
+      "Administración",
+      "Catálogo"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html",
+    "href": "fallos-comunes.html",
+    "title": "Fallos comunes y soluciones",
+    "section": "",
+    "text": "Algo no va. Busca el síntoma por área. Cada caso trae síntoma → causa → solución. Muchos son de proveedores externos (vidsrc, CDN de canales) que combaten la extracción: no todo tiene arreglo gratis, y aquí se dice claramente cuándo.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#reproducción-películas-y-series",
+    "href": "fallos-comunes.html#reproducción-películas-y-series",
+    "title": "Fallos comunes y soluciones",
+    "section": "Reproducción (películas y series)",
+    "text": "Reproducción (películas y series)\n\n“FUENTE NO DISPONIBLE” en una película (embed)\nSíntoma: una peli no reproduce; sale “Fuente no disponible” con botón “Reintentar”. A veces pasa con casi todo el catálogo a la vez.\nCausa: el proveedor vidsrc metió Cloudflare Turnstile (un CAPTCHA) en su reproductor interno. Nuestro navegador headless carga el embed pero el player no arranca → nunca pide el stream → no hay nada que reproducir.\nQué NO es: no es la IP del VPS (el embed responde 200), ni el token, ni el despliegue. En dos días “eso no se aprieta”: si funcionaba y dejó de ir sin tocar nada, mira primero Turnstile o un bloqueo de IP (siguiente caso), no el código.\nSolución honesta: batir Turnstile headless y gratis no es viable. Las salidas reales son:\n\nIframe — reproducir en el navegador del usuario (que pasa Turnstile como humano). Gratis y funciona, pero trae los anuncios de vidsrc.\nAuto-hosting — alojar los ficheros propios. Sin anuncios y sin esta guerra, pero cuesta almacenamiento/ancho de banda y sube el riesgo legal.\nAceptar que esos títulos fallan hasta decidir rumbo.\n\n\n\nDe golpe fallan embeds y canales directos\nSíntoma: “Fuente no disponible” en TODO, incluidos vídeos directos que antes iban.\nCausa: vidsrc/los CDN caparon la IP del VPS (403). Suele pasar tras un pico de peticiones —por ejemplo, correr los calentadores desde una conexión saturada (¡nunca desde el portátil / un hotspot!)—.\nSolución:\n\nPausa calentadores y checks 24–48 h y vuelve a probar. En local, los warms van apagados con WARM_HLS_DISABLED=1; hay un fusible que aborta la pasada tras 5 fallos seguidos.\nComprueba el bloqueo con curl lado a lado (VPS vs. otra red): si el VPS da 403 y tu casa 200, es la IP.\nNo vuelvas a lanzar warms desde una conexión pobre.\n\n\n\nPantalla negra al abrir el reproductor\nSíntoma: el player carga pero se queda en negro.\nCausa: el proveedor de embed murió (la familia vidsrc cambia de dominios) o el resolver no sacó el stream.\nSolución: el player intenta fuentes de respaldo automáticamente. Si es un título suelto, repórtalo (o revisa su salud en Vídeos). Si es masivo, es lo de arriba (Turnstile / IP).\n\n\nUn canal de YouTube “en directo” no reproduce\nSíntoma: el canal parece sano pero muestra pantalla vacía.\nCausa: son URLs youtube.com/.../live sin ID de vídeo; YouTube bloquea el iframe (X-Frame-Options), así que no se pueden incrustar. El health da un falso positivo.\nSolución: hoy no hay solución activa (se probó scrapear el videoId→/embed/ pero se revirtió por carga sobre youtube.com). Trátalos como no reproducibles.\n\n\nLos subtítulos son de OTRA película\nSíntoma: al reproducir un embed por HLS, el CC muestra subtítulos de un vídeo visto antes.\nCausa: subtítulos automáticos “rancios” cacheados del título anterior.\nSolución: ya está corregido (se limpia el CC por reproducción). Si reaparece, fuerza recarga; en series los subtítulos van por episodio.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#canales-en-vivo",
+    "href": "fallos-comunes.html#canales-en-vivo",
+    "title": "Fallos comunes y soluciones",
+    "section": "Canales en vivo",
+    "text": "Canales en vivo\n\nUn canal sale “caído” pero a mí me funciona\nSíntoma: el punto está rojo y el canal se auto-desactivó, aunque tú lo ves bien.\nCausa: el health corre desde la IP del datacenter del VPS (OVH), y muchos CDN la capan (403). El canal va bien para tus usuarios y aun así el cron lo tumba.\nSolución:\n\nMarca “Excluir Health” en su ficha → deja de tumbarlo (pasa a gris ⊘, no a rojo).\nSi de verdad está roto, busca una URL alternativa que el VPS sí alcance y cámbiala (existe un script findalts.mjs que busca espejos en iptv-org; correrlo en el VPS, ojo a falsos positivos por nombre).\n\n\n\n\n\n\n\nNote\n\n\n\nVerificado en prod: TV5Monde pasó de channel(europe) (403 al VPS) a channel(fbs) y volvió a reproducir. El truco casi siempre es otra URL de la misma señal.\n\n\n\n\nLos canales cubanos no van (desde el servidor)\nSíntoma: canales cubanos (p. ej. de picta) caídos, aunque son del núcleo del catálogo.\nCausa: están geo-restringidos a Cuba; el VPS (en Bélgica) no los alcanza, pero un usuario en Cuba sí.\nSolución: no los ocultes a ciegas por el health (márcalos “Excluir Health”). No hay arreglo server-side; se ven desde una conexión cubana.\n\n\nReactivé canales rotos sin querer\nSíntoma: un cambio en el health “revivió” canales que no reproducen.\nCausa: un heurístico que trataba el 403 como “vivo” reactivaba canales de verdad muertos.\nSolución: el health no puede juzgar la reproducibilidad web (CORS/geo son del navegador del usuario). No uses reglas que reactiven por código de estado; apóyate en “Excluir Health” caso a caso.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#importación-y-catálogo",
+    "href": "fallos-comunes.html#importación-y-catálogo",
+    "title": "Fallos comunes y soluciones",
+    "section": "Importación y catálogo",
+    "text": "Importación y catálogo\n\nUn import da “0 nuevos”\nSíntoma: lanzas una fuente y no entra nada.\nCausa habitual: la fuente está capando la IP del VPS (mismo bloqueo que los canales), o los nodos dan 500 intermitentes.\nSolución: reintenta; para archive.org, pide siempre cabecera Range (algunos nodos dan 500 sin ella). Si es TMDB/vidsrc, revisa bloqueo de IP.\n\n\nSe importó una película “fantasma” que no reproduce\nSíntoma: un título entra al catálogo pero está muerto.\nCausa: el filtro por fecha no basta (un fantasma puede tener fecha pasada).\nSolución: las series se validan con el resolver al importar (comprueban que hay stream). En producción hace falta chromium (el resolver headless) o esa validación no corre.\n\n\nEl importador elegía ficheros irreproducibles (AVI/MKV)\nSíntoma: clásicos de archive.org que no se ven.\nCausa: elegía “el más grande”, que solía ser un AVI.\nSolución: ya corregido — solo formatos reproducibles (mp4 &gt; webm &gt; ogv, nunca avi/mkv), ordenado por descargas y con duración/tags rellenados.\n\n\nEl filtro de español bloquea o confunde\nSíntoma: un título no se publica “por idioma”, o el toast confunde dos casos.\nCausa: hay dos situaciones distintas: “sin español confirmado” (ni idioma original, ni hablado, ni subtítulos ES en OpenSubtitles) y “OpenSubtitles no respondió” (no se pudo comprobar).\nSolución: míralo en Subtítulos. Si es lo segundo, revisa la cuota/clave de OpenSubtitles (ver APIs).\n\n\nLo importado no aparece publicado\nSíntoma: importas y no sale en la web.\nCausa: lo importado llega a Revisiones, no se publica solo.\nSolución: apruébalo en Admin › Revisiones. Los campos editables de Revisiones viven en el JSON data (no en columnas): si editas por API, fusiona en data o el PATCH falla en silencio.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#correos",
+    "href": "fallos-comunes.html#correos",
+    "title": "Fallos comunes y soluciones",
+    "section": "Correos",
+    "text": "Correos\n\nNo se envían los correos\nSíntoma: newsletter o avisos que no llegan.\nCausa: faltan credenciales EMAIL_USER / EMAIL_PASS, o el usuario tiene menos de 6 cosas nuevas que enseñarle (el newsletter personalizado salta ese ciclo).\nSolución: revisa las credenciales del entorno; recuerda la ventana de 28 días anti-repetición y el tamaño de lote/periodicidad en Ajustes.\n\n\nA un usuario no le llega NINGÚN correo\nSíntoma: un usuario concreto no recibe nada (ni verificación, ni avisos, ni newsletter), aunque al resto sí les llega.\nCausa: su dirección está en la lista negra de correo — rebotó (buzón muerto) o marcó spam. Cuando eso pasa, se le corta todo el email para no dañar la reputación del dominio.\nSolución: compruébalo en Admin › Usuarios: verás el chip rojo “Blacklist” en su fila (o usa el filtro “En blacklist”), y al abrir su ficha, el ribbon “BLACKLIST”. Es solo lectura: no hay botón para sacarlo a mano (a propósito). Si de verdad su buzón ya funciona, habría que quitarlo por BD. El web push a ese usuario sí sigue funcionando. Ver Correos › Lista negra.\n\n\nEl webhook de rebotes no marca a nadie\nSíntoma: hay rebotes/quejas en Resend pero nadie aparece en la lista negra.\nCausa: falta configurar el webhook en Resend (eventos email.bounced / email.complained) o el secreto RESEND_WEBHOOK_SECRET en el entorno; sin firma válida, el endpoint responde 401.\nSolución: crea el webhook apuntando a https://malecontv.es/api/webhooks/resend, copia el signing secret a RESEND_WEBHOOK_SECRET y redespliega. Si falla la comprobación, el correo se envía igual (fail-open): nunca bloquea todo el correo por un fallo de la lista.\n\n\nEl correo con IA tarda o falla\nSíntoma: “Redactar informativo con IA” no responde.\nCausa: Gemini tarda ~10 s, o agotó la cuota del día.\nSolución: espera (pollea ~20 s); si es cuota, reintenta tras el reinicio. Ver APIs.\n\n\n\n\n\n\nWarning\n\n\n\nLos correos de mantenimiento y broadcast salen a usuarios reales (incluida tu cuenta). No dispares “Activar y avisar” ni el envío real en pruebas.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#usuarios",
+    "href": "fallos-comunes.html#usuarios",
+    "title": "Fallos comunes y soluciones",
+    "section": "Usuarios",
+    "text": "Usuarios\n\n“Error al eliminar registro” al borrar un usuario\nSíntoma: el botón “Eliminar” falla.\nCausa: el usuario tiene filas en tablas de auditoría (reportes/enlaces rotos) que bloquean el borrado por clave foránea; y en algún entorno falta la tabla broken_links y el endpoint reventaba al tocarla.\nSolución: ya arreglado — el borrado comprueba si cada tabla existe y anonimiza (pone a NULL) las referencias de auditoría antes de borrar. Si aún falla, mira los logs del contenedor app.\n\n\nUn usuario borrado sigue apareciendo\nSíntoma: lo borras y lo sigues viendo en la lista.\nCausa: caché (Redis): el dato se borró, la lista tarda en refrescar.\nSolución: recarga tras unos segundos. (No es que “no se haya borrado”.)\n\n\nReferidos “desconocido” o fantasmas\nSíntoma: referidos que no cuadran, o un “desconocido” como raíz.\nCausa: captura de ?ref= antigua rota, o códigos que no pertenecen a un usuario real.\nSolución: ya se valida que el código sea de un usuario real (si no, no crea referido fantasma). El número del panel refleja relaciones reales, no un contador inflado.\n\n\nNo puedo iniciar sesión / “demasiadas sesiones”\nSíntoma: login rechazado por tope de sesiones.\nCausa: el máximo de sesiones activas por cuenta es 3 por defecto (útil también en pruebas E2E, que llenan el cupo).\nSolución: cierra sesión en otro dispositivo, sube el límite en Ajustes › Sesiones, o (en desarrollo) invalida sesiones en la BD. Las inactivas &gt;30 días se limpian solas.\n\n\nUn usuario no pasa a Premium\nSíntoma: llega a los puntos pero sigue free.\nCausa: las Recompensas Premium están desactivadas, o la meta de puntos es mayor.\nSolución: revisa Ajustes › Recompensas Premium y la meta de gamificación.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#descargas-offline",
+    "href": "fallos-comunes.html#descargas-offline",
+    "title": "Fallos comunes y soluciones",
+    "section": "Descargas (offline)",
+    "text": "Descargas (offline)\n\nSe perdieron las descargas\nSíntoma: un usuario tenía títulos descargados y desaparecieron.\nCausa: están en el almacenamiento del navegador (IndexedDB), no son ficheros sueltos. Borrar la caché del navegador los borra.\nSolución: avisar de no limpiar datos del sitio; volver a descargar (necesita internet).\n\n\nUna descarga dice “Descarga no disponible”\nSíntoma: al abrir una descarga en modo offline sale “Descarga no disponible — esta descarga ya no está en tu dispositivo”.\nCausa: el sistema del móvil (sobre todo iOS con poco espacio o batería) borró los datos de la descarga para liberar espacio, aunque la ficha siguiera apareciendo como descargada. Antes este caso se veía como “FUENTE NO DISPONIBLE” en negro (o pantalla en blanco), sin explicación.\nSolución: conectarse y volver a descargar el título. Además, cuando esto ocurre la app crea sola una alerta tipo Bug en Panel › Alertas con todo el contexto del dispositivo — usa Copiar detalle para pasárselo a la IA si el caso se repite. La app también pide almacenamiento persistente al sistema para reducir estas evicciones.\n\n\nUn usuario reporta pantalla en blanco o negra y no sé por qué\nSíntoma: a un usuario “se le puso la pantalla en blanco/negra” y en los logs del servidor no hay nada.\nCausa: los errores del navegador del usuario ocurren en su dispositivo y no llegan a los logs del servidor.\nSolución: mira Panel › Alertas filtrando por tipo Bug: los crashes, pantallas en blanco y descargas perdidas se auto-reportan desde la app del usuario con su contexto (dispositivo, almacenamiento, ruta). Copiar detalle te da el informe listo para diagnosticar.\n\n\nUna descarga de embed no avanza o da error\nSíntoma: se queda a 0% o en “Error”.\nCausa (histórica): el proxy de segmentos necesita cabeceras correctas (Referer/Cookie); un Cookie: undefined daba 500 y rompía descarga y reproducción.\nSolución: ya corregido (mismo resolver HLS que el player, sin tope de tamaño). Si reaparece, Reintentar; si es masivo, es bloqueo de IP (ver arriba).\n\n\n“Descarga en espera (viendo)”\nNo es un fallo. Mientras el usuario reproduce algo, la descarga se pausa para no competir por la conexión, y se reanuda sola al parar. Es el comportamiento esperado.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#apis-y-cuotas",
+    "href": "fallos-comunes.html#apis-y-cuotas",
+    "title": "Fallos comunes y soluciones",
+    "section": "APIs y cuotas",
+    "text": "APIs y cuotas\n\nGemini deja de responder\nCausa: cuota agotada del plan gratuito, o una clave nueva sin acceso a los modelos recientes (404).\nSolución: el sistema prueba varios modelos en cascada; si es cuota, espera al reinicio. Ver APIs.\n\n\nOpenSubtitles no descarga subtítulos\nCausa: 100 descargas/día. Buscar es gratis; descargar gasta cuota.\nSolución: espera al reinicio de cuota o pon una clave con margen. Revisa que la clave esté puesta en Ajustes › Claves de API.\n\n\nUn vídeo sin estrenar da “locked” (403) al reproducir\nEs el muro de pre-estreno trabajando: los free no pueden resolver contenido con fecha futura ni premium (los Premium/admin sí; el 1x01 de una serie pasa siempre). Si algún día bloquease de más, el interruptor de emergencia es RELEASE_GATE_DISABLED=1 en el .env + reiniciar — apaga solo la validación del servidor sin tocar código. El diseño es fail-open: ante cualquier error interno deja pasar, nunca tumba el catálogo.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
+    ]
+  },
+  {
+    "objectID": "fallos-comunes.html#web-pwa-y-despliegue",
+    "href": "fallos-comunes.html#web-pwa-y-despliegue",
+    "title": "Fallos comunes y soluciones",
+    "section": "Web, PWA y despliegue",
+    "text": "Web, PWA y despliegue\n\nJusto tras subir cambios, algún vídeo tarda un rato\nCausa: al actualizar la web, las cachés quedan “frías” y el calentador tarda unos minutos en repoblarlas.\nSolución: es normal justo después de subir cambios; espera un poco y vuelve a probar.\n\n\nLa app no se actualiza (Service Worker viejo)\nSíntoma: los usuarios ven una versión antigua.\nCausa: el SW cacheado no refresca.\nSolución: ya se fuerza la recarga al detectar SW nuevo (controllerchange). En desarrollo, mata el proceso viejo del puerto y recarga fuerte.\n\n\nCompartir la votación daba 404 (/vota/:token/card)\nCausa (resuelta): el SW interceptaba esa ruta y servía la SPA en vez de la página OG del servidor.\nSolución: excluida del SW; se propaga según cada usuario actualiza su SW.\n\n\nError en consola ERR_BLOCKED_BY_CLIENT (adsbygoogle.js)\nNo es un bug. Es tu bloqueador de anuncios cancelando el script de AdSense. Solo lo ves tú; los usuarios sin adblocker cargan el anuncio con normalidad.",
+    "crumbs": [
+      "Operación",
+      "Fallos comunes"
     ]
   },
   {
@@ -1100,7 +1001,7 @@
     "href": "empezar.html#entrar-login",
     "title": "Empezar: crear cuenta y entrar",
     "section": "Entrar (Login)",
-    "text": "Entrar (Login)\nEntrar → email + contraseña.\n\nEnlace “¿Olvidaste tu contraseña?” para recuperarla.\n5 intentos fallidos bloquean la cuenta temporalmente (protección anti-bots).\nSi tu cuenta estaba desactivada, al entrar te ofrece reactivarla con un código por correo.",
+    "text": "Entrar (Login)\n\n\n\nLa pantalla de acceso: casilla “Recordarme en este dispositivo” y enlace “Entrar con un código por email”.\n\n\nDos formas de entrar, a elegir:\n\nCon contraseña → email + contraseña.\nCon un código por email (sin recordar la contraseña) → enlace “Entrar con un código por email”: escribes tu email, te llega un código de 6 dígitos (válido 10 min, de un solo uso) y entras. Si la cuenta no estaba verificada, ese mismo código la verifica.\n\nAdemás:\n\nCasilla “Recordarme en este dispositivo” (marcada por defecto): mantiene la sesión 30 días. Desmárcala en un equipo compartido/prestado para que la sesión dure solo 1 día.\nEnlace “¿Olvidaste tu contraseña?” para recuperarla.\n5 intentos con contraseña fallida activan un bloqueo temporal de 15 minutos (protección anti-bots). Sale un aviso claro (“Tu cuenta está bloqueada temporalmente… vuelve a intentarlo en N min”) y se desbloquea sola al pasar el tiempo; un admin puede quitarlo antes (ver Usuarios). Si no recuerdas la contraseña, usa el código por email para entrar sin gastar intentos.\nSi tu cuenta estaba desactivada, al entrar te ofrece reactivarla con un código por correo.",
     "crumbs": [
       "Para el usuario",
       "Empezar"
@@ -1195,58 +1096,168 @@
     ]
   },
   {
-    "objectID": "buscador.html",
-    "href": "buscador.html",
-    "title": "El buscador del panel",
+    "objectID": "reproducir.html",
+    "href": "reproducir.html",
+    "title": "Ver contenido: reproductor y series",
     "section": "",
-    "text": "Todas las páginas de administración (Videos, Canales, Fuentes, Revisiones, Reportes, Playlists, Estrenos, Usuarios, Referidos, Alertas) comparten la misma barra de búsqueda. Filtra, agrupa y pagina en el servidor (en la base de datos), así que rinde igual con 100 que con 100.000 registros.",
+    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
     "crumbs": [
-      "Administración",
-      "El buscador"
+      "Para el usuario",
+      "Ver contenido"
     ]
   },
   {
-    "objectID": "buscador.html#filtrar",
-    "href": "buscador.html#filtrar",
-    "title": "El buscador del panel",
-    "section": "Filtrar",
-    "text": "Filtrar\nPulsa la barra para abrir el panel. A la izquierda, Filtros rápidos por campo (p. ej. Estado, Tipo). Marcas los que quieras: dentro de un mismo grupo suman (OR), entre grupos se cruzan (AND).\n\nLos filtros activos salen como chips en la barra; los quitas con la ✕.\n+ Filtro personalizado… abre reglas más finas: eliges un campo, un operador (es igual a, contiene, mayor que, no está vacío…) y un valor. Puedes conciliar todas las reglas (AND) o cualquiera (OR).",
+    "objectID": "reproducir.html#el-reproductor",
+    "href": "reproducir.html#el-reproductor",
+    "title": "Ver contenido: reproductor y series",
+    "section": "",
+    "text": "Al abrir una película arranca el reproductor. Primero se ve una intro (el logo con la ola); un toque la salta y el vídeo empieza cuando está listo. Debajo tienes título, categoría, año, duración y clasificación (p. ej. “Para todos”, “Mayor de 18”), con “Más info” / “Menos info”.\nControles y acciones:\n\nReproducción — play/pausa, barra de avance, volumen, pantalla completa.\nSubtítulos (CC) — se cargan los del propio embed y, en español, los que gestiona el admin. El menú de idiomas está bajo el engranaje ⚙️ Ajustes. Ver Subtítulos.\nMe gusta / Reacciones — reacciona al vídeo.\nMi Lista — el corazón guarda el título en tu lista.\nCompartir — genera un enlace con tu referido (?ref=); si alguien lo abre, ganas puntos.\nReportar — el botón “¿Algo mal con este contenido?” (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).\nRecomendados — títulos parecidos al final.\n\nEl progreso se guarda solo cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en “Continuar viendo”.",
     "crumbs": [
-      "Administración",
-      "El buscador"
+      "Para el usuario",
+      "Ver contenido"
     ]
   },
   {
-    "objectID": "buscador.html#agrupar",
-    "href": "buscador.html#agrupar",
-    "title": "El buscador del panel",
-    "section": "Agrupar",
-    "text": "Agrupar\nEn la columna Agrupar por eliges un campo y la lista se organiza en grupos plegables con su recuento (p. ej. vídeos por categoría). Puedes anidar varios niveles.\n\nLos campos más usados salen directos; el resto viven en Grupo personalizado… (un desplegable buscable), para no saturar.\nCada grupo se despliega bajo demanda (no pide datos hasta que lo abres).",
+    "objectID": "reproducir.html#series-y-episodios",
+    "href": "reproducir.html#series-y-episodios",
+    "title": "Ver contenido: reproductor y series",
+    "section": "Series y episodios",
+    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.\n\nDentro del reproductor, la lista de episodios sale desplegada y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:\n\nReproduciendo — resaltado coral con “· reproduciendo”.\nVisto (completado) — fila atenuada.\nA medias — barrita de progreso en la miniatura (por dónde vas).\nSin estrenar — candado 🔒 con su fecha corta (ej. “1 SEP”); con Premium se ven ya con la etiqueta PRE-ESTRENO (ver Premium).",
     "crumbs": [
-      "Administración",
-      "El buscador"
+      "Para el usuario",
+      "Ver contenido"
     ]
   },
   {
-    "objectID": "buscador.html#favoritos-búsquedas-guardadas",
-    "href": "buscador.html#favoritos-búsquedas-guardadas",
-    "title": "El buscador del panel",
-    "section": "Favoritos (búsquedas guardadas)",
-    "text": "Favoritos (búsquedas guardadas)\nA la derecha, Favoritos: guarda la búsqueda actual (filtros + agrupación + orden) con un nombre para reutilizarla. Puedes marcar una como predeterminada: se aplica sola al abrir la página.",
+    "objectID": "reproducir.html#descargar-para-ver-sin-internet",
+    "href": "reproducir.html#descargar-para-ver-sin-internet",
+    "title": "Ver contenido: reproductor y series",
+    "section": "Descargar para ver sin internet",
+    "text": "Descargar para ver sin internet\nDesde el reproductor, el botón de descarga guarda el título en el dispositivo. Mientras ves algo, la descarga se pausa (para no competir por la conexión) y el botón lo indica (“En espera (viendo)”). Ver Biblioteca y descargas.",
     "crumbs": [
-      "Administración",
-      "El buscador"
+      "Para el usuario",
+      "Ver contenido"
     ]
   },
   {
-    "objectID": "buscador.html#buscar-y-ordenar",
-    "href": "buscador.html#buscar-y-ordenar",
-    "title": "El buscador del panel",
-    "section": "Buscar y ordenar",
-    "text": "Buscar y ordenar\n\nEl cuadro “Buscar…” busca por los campos de texto de esa entidad (título, nombre, email…).\nEl desplegable de la derecha ordena (Reciente, Nombre A-Z, y órdenes propios de cada página, como “Última conexión” en Usuarios).\n\n\n\n\n\n\n\nTip\n\n\n\nTodo se calcula en la base de datos y se pagina: la barra muestra “1–25 / N” con flechas. Cambiar un filtro te devuelve a la página 1.",
+    "objectID": "funcionamiento.html",
+    "href": "funcionamiento.html",
+    "title": "Funcionamiento",
+    "section": "",
+    "text": "MalecónTV es una web (React) con un backend (Node/Express + Postgres + Redis), desplegada con Docker Compose en un VPS. Dos servicios comparten el mismo código:\n\napp — sirve la web y las peticiones HTTP (login, catálogo, reproducción, admin).\nworker — tareas de fondo (crons): verificación de salud, importaciones y calentadores.",
     "crumbs": [
       "Administración",
-      "El buscador"
+      "Funcionamiento"
+    ]
+  },
+  {
+    "objectID": "funcionamiento.html#arquitectura-en-una-frase",
+    "href": "funcionamiento.html#arquitectura-en-una-frase",
+    "title": "Funcionamiento",
+    "section": "",
+    "text": "MalecónTV es una web (React) con un backend (Node/Express + Postgres + Redis), desplegada con Docker Compose en un VPS. Dos servicios comparten el mismo código:\n\napp — sirve la web y las peticiones HTTP (login, catálogo, reproducción, admin).\nworker — tareas de fondo (crons): verificación de salud, importaciones y calentadores.",
+    "crumbs": [
+      "Administración",
+      "Funcionamiento"
+    ]
+  },
+  {
+    "objectID": "funcionamiento.html#cómo-llega-el-vídeo-al-usuario",
+    "href": "funcionamiento.html#cómo-llega-el-vídeo-al-usuario",
+    "title": "Funcionamiento",
+    "section": "Cómo llega el vídeo al usuario",
+    "text": "Cómo llega el vídeo al usuario\nHay dos tipos de contenido:\n\nCanales en vivo — señales HLS/M3U8, YouTube, etc. Se reproducen directamente.\nPelículas y series (“embeds”) — la mayoría del catálogo apunta a proveedores externos (familia vidsrc). El servidor resuelve el embed a una URL de stream con un navegador headless y luego lo proxya para reproducir en el player nativo (sin iframe, sin anuncios).\n\n\n\n\n\n\n\nImportant\n\n\n\nLa reproducción de embeds depende de un tercero (vidsrc) que combate activamente la extracción. Cuando cambian sus defensas (p. ej. añaden un CAPTCHA Cloudflare Turnstile), la reproducción puede fallar. Ver Fallos comunes.",
+    "crumbs": [
+      "Administración",
+      "Funcionamiento"
+    ]
+  },
+  {
+    "objectID": "funcionamiento.html#panel-de-administración",
+    "href": "funcionamiento.html#panel-de-administración",
+    "title": "Funcionamiento",
+    "section": "Panel de administración",
+    "text": "Panel de administración\nSe entra en /Admin (requiere cuenta admin). El Panel abre con un resumen de los últimos 30 días: alertas pendientes, número de vídeos/canales/vistas/reportes, y los rankings de contenido más visto.\n\n\n\nEl Panel de administración: alertas, métricas y top de contenido.\n\n\nLas secciones (pestañas) son:\n\nPanel — resumen y métricas, incluido el widget de health check.\nCanales — señales en vivo.\nVídeos — películas y series.\nRevisiones — contenido importado pendiente de aprobar antes de publicar.\nFuentes — orígenes de importación automática (archive.org, TMDB…).\nReportes — enlaces rotos y peticiones de los usuarios.\nPlaylists — colecciones (estacionales, etc.).\nEstrenos — calendario de estrenos programados.\nUsuarios — gestión de cuentas (rol, estado, origen, referidos…).\nAjustes — claves de API, límites, salud, y los enlaces de origen de usuarios.\n\nAlgunas páginas no están en la barra y se abren desde el Panel o desde un botón: Alertas, Referidos y Votación. Esas llevan migas de pan (p. ej. Panel › Alertas) para volver.\n\nCentro de Alertas\nEn Panel › Alertas se reúnen los avisos del sistema, cada uno con su tipo (Moderación, Reporte, Job, Votación, Importación, Newsletter, Mantenimiento y Bug). Se filtran por estado/tipo/prioridad y las de evento se cierran con ✓ cuando las atiendes.\nEl tipo Bug es especial: lo envía la propia app desde el dispositivo del usuario cuando algo falla en su navegador (un error de pantalla, una descarga que perdió sus datos…). Esos errores ocurren en el móvil del usuario y no aparecen en los logs del servidor — la alerta es el puente que los trae al panel. Cada alerta Bug incluye el contexto completo (usuario, dispositivo, almacenamiento, ruta) y dos acciones:\n\nRevisar — abre el vídeo afectado en modo normal (online) para comprobar en segundos si el título sigue bien en la web (si reproduce, el problema fue solo del dispositivo del usuario).\nCopiar detalle — copia el reporte completo para pegárselo a la IA y diagnosticar la causa.\n\nSe crea una alerta por usuario, tipo y día (no se acumulan duplicados).",
+    "crumbs": [
+      "Administración",
+      "Funcionamiento"
+    ]
+  },
+  {
+    "objectID": "usuarios.html",
+    "href": "usuarios.html",
+    "title": "Usuarios",
+    "section": "",
+    "text": "En Admin › Usuarios gestionas las cuentas: rol (admin/usuario), estado (activo, pendiente, bloqueado, bloqueo temporal, desactivado), membresía (free/premium), límite de descargas, verificación, y notas.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#buscar-y-editar",
+    "href": "usuarios.html#buscar-y-editar",
+    "title": "Usuarios",
+    "section": "Buscar y editar",
+    "text": "Buscar y editar\n\nBuscador del panel (el mismo de todas las páginas admin: filtrar, agrupar y favoritos — ver El buscador). Por defecto muestra los usuarios Activos; quita el chip “Activos” para ver también pendientes, bloqueados, en bloqueo temporal y desactivados.\nOrdenar por Reciente, Nombre A-Z, Puntos, Referidos, Última conexión o ID.\nEditar en masa — selecciona varios y cambia a la vez rol, estado, membresía, origen o el Fin de prueba Premium (con calendario; dejarlo vacío quita la prueba a todos los seleccionados).\nLa ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos. Incluye el campo Fin de prueba Premium: Premium temporal hasta ese día (inclusive) — sirve para regalar o extender la prueba a mano; el botón Quitar la elimina.\nPrueba Premium en la lista: los usuarios en prueba llevan el badge “Prueba” (con su fecha al pasar el ratón). En el buscador puedes filtrar por Prueba Premium (En prueba / Expirada / Sin prueba), por fecha de Fin de prueba (antes/después de), y agrupar por estado de prueba.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#estados-de-una-cuenta",
+    "href": "usuarios.html#estados-de-una-cuenta",
+    "title": "Usuarios",
+    "section": "Estados de una cuenta",
+    "text": "Estados de una cuenta\n\n\n\nUn usuario en Bloqueo temporal en la lista, con su badge naranja y el botón verde para desbloquear.\n\n\nEn la ficha (Editar), el desplegable Estado tiene:\n\nActivo — funciona con normalidad.\nPendiente — registrada pero sin verificar el email.\nBloqueado — bloqueo permanente que pones tú a mano; la cuenta no entra hasta que la reactives. Úsalo para vetar una cuenta.\nBloqueo temporal — bloqueo automático de 15 minutos tras 5 intentos de login con contraseña fallida (anti-fuerza bruta). No se pone a mano: aparece solo. Al entrar, el usuario ve un aviso claro con los minutos que faltan.\nDesactivada — la dio de baja el propio usuario desde su perfil (se borra sola a los 60 días).\n\nEl bloqueo temporal se cura solo: cuando pasan los 15 minutos, la cuenta vuelve a Activo automáticamente (el panel lo refleja sin que hagas nada). Si quieres desbloquear antes, abre la ficha y cambia el Estado a Activo (no hay botón aparte; poner “Activo” limpia el bloqueo). En la lista lleva un badge naranja “Bloqueo temporal” y puedes filtrar por ese estado en el buscador.\n\n\n\nEl desplegable Estado de la ficha: Activo, Pendiente, Bloqueado y Bloqueo temporal.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#ubicación-de-usuarios-mapa",
+    "href": "usuarios.html#ubicación-de-usuarios-mapa",
+    "title": "Usuarios",
+    "section": "Ubicación de usuarios (mapa)",
+    "text": "Ubicación de usuarios (mapa)\nEn el Panel (Admin › Panel), dentro de Comunidad y Crecimiento, hay un mapa “Ubicación de usuarios” que te dice de dónde es tu audiencia, deducido de la IP de sus accesos.\n\nMapa mundial con una burbuja por país; el número dentro es cuántos usuarios hay allí. Puedes acercar/alejar y arrastrar, o clicar un país del Top 5 para volar hasta él.\nPaís / Región — el interruptor de arriba a la izquierda cambia entre burbujas por país o por región.\nTop 5 países a la derecha, con su porcentaje.\nUsuarios activos ahora (indicador verde) — cuántos usuarios (no admins) han tenido actividad en los últimos minutos. Se actualiza solo mientras miras el panel.\nN geolocalizados · N países — el total de usuarios con ubicación conocida.\n\n\nUbicación en la ficha y en las sesiones\n\nEn la ficha de cada usuario (Editar), debajo del nombre, aparece su ubicación principal (país · región).\nEn “Sesiones activas” de cada usuario, cada acceso muestra su país y, si viene por VPN o Apple Private Relay, se marca como · VPN.\nEn el buscador de Usuarios puedes filtrar y Agrupar por País y Región (igual que por Membresía o Estado — ver El buscador).\n\n\n\n¿Es fiable? ¿Cada cuánto se actualiza?\n\nPaís: muy fiable (~99%). Región: orientativa. La ciudad no se muestra porque por IP no es fiable (en móvil suele salir el nodo de la operadora, no el usuario).\nSe excluyen VPN y Apple Private Relay (ubicación no fiable) y no cuentan los admins en “activos ahora”.\nLa ubicación de cada usuario se recalcula en cada acceso desde una IP fiable, así que refleja su último acceso bueno. La base IP→lugar es offline (no hace llamadas externas) y respeta la privacidad; úsala en agregado (mapa/conteos), no como dirección exacta.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
+    "href": "usuarios.html#origen-de-usuarios-de-dónde-vienen",
+    "title": "Usuarios",
+    "section": "Origen de usuarios (de dónde vienen)",
+    "text": "Origen de usuarios (de dónde vienen)\n¿Quieres saber si tus registros vienen de Facebook, de TikTok o de la web directa? En Ajustes › Sistema & Integraciones hay una tarjeta “Origen de usuarios” con un enlace por canal: Facebook, Instagram, TikTok, Otro. Cada enlace lleva ?origen=&lt;canal&gt;&k=&lt;token&gt;.\n\n\n\nTarjeta “Origen de usuarios” en Ajustes: un enlace por red, con botón de copiar y de regenerar.\n\n\n\nComparte cada enlace en su red. Quien se registre entrando por él queda marcado con ese Origen.\nEl origen se ve en la ficha del usuario (junto a “Referido por”), y en la lista puedes filtrar por origen y editar en masa el de varios usuarios a la vez.\nSi alguien se registra sin enlace (entró directo a malecontv.es), su origen es Web. Ese es el caso normal y no necesita enlace propio.\nCopiar (icono de copiar) → “Enlace copiado”. Regenerar (icono circular) rota el token de ese canal e invalida el enlace anterior → “Enlace generado”.\nEl enlace usa la URL donde estás (en local localhost:4173, en producción tu dominio real). Así nunca copias por error un enlace que apunta al sitio equivocado.\n\n\n\n\n\n\n\nNote\n\n\n\nEl token (&k=...) evita que alguien se invente un origen a mano. Si el token no coincide con el del canal, el registro cae a Web en vez de atribuirse a una red falsa.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#referidos-e-invitaciones",
+    "href": "usuarios.html#referidos-e-invitaciones",
+    "title": "Usuarios",
+    "section": "Referidos e invitaciones",
+    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
+    ]
+  },
+  {
+    "objectID": "usuarios.html#borrar-un-usuario",
+    "href": "usuarios.html#borrar-un-usuario",
+    "title": "Usuarios",
+    "section": "Borrar un usuario",
+    "text": "Borrar un usuario\nEl botón “Eliminar” anonimiza las referencias de auditoría (reportes, enlaces rotos) poniéndolas a NULL —para conservar el historial operativo— y luego borra la cuenta. El resto de datos personales (favoritos, historial, sesiones) se borra en cascada. Ver Fallos comunes si el borrado da error.",
+    "crumbs": [
+      "Administración",
+      "Usuarios"
     ]
   }
 ]
