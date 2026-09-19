@@ -468,6 +468,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#vídeos-películas-y-series" id="toc-vídeos-películas-y-series" class="nav-link active" data-scroll-target="#vídeos-películas-y-series">Vídeos (películas y series)</a></li>
+  <li><a href="#tipos-de-fuente-de-vídeo" id="toc-tipos-de-fuente-de-vídeo" class="nav-link" data-scroll-target="#tipos-de-fuente-de-vídeo">Tipos de fuente de vídeo</a></li>
   <li><a href="#canales-en-vivo" id="toc-canales-en-vivo" class="nav-link" data-scroll-target="#canales-en-vivo">Canales en vivo</a></li>
   <li><a href="#estrenos-y-votaciones" id="toc-estrenos-y-votaciones" class="nav-link" data-scroll-target="#estrenos-y-votaciones">Estrenos y votaciones</a></li>
   </ul>
@@ -503,8 +504,9 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Importación</strong> — llega desde <strong>Fuentes</strong> (archive.org, TMDB) a <strong>Revisiones</strong>, donde lo apruebas antes de publicar. También hay importación manual.</li>
 <li><strong>Premium</strong> — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.</li>
 <li><strong>Descargas</strong> — el contenido descargable se guarda para ver offline (PWA). Los <em>embeds</em> no son descargables por diseño salvo cuando el resolver lo permite.</li>
-<li><strong>Edición masiva</strong> — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y <strong>Tags</strong> (escríbelos <strong>separados por coma</strong>; lo escrito <strong>reemplaza</strong> los tags de los seleccionados).</li>
+<li><strong>Publicar en redes</strong> — icono de compartir en cada fila y junto al título de la ficha. Abre un asistente con el <strong>enlace corto</strong> por red (<code>malecontv.es/f/ID</code>, <code>/i/ID</code>, <code>/t/ID</code>, <code>/o/ID</code>) y un texto sugerido; se copia con un clic. Al pegarlo en la red sale la tarjeta con la imagen y el título (los episodios con el nombre de la serie). Quien entre por él cuenta como venido de esa red (ver <strong><a href="./usuarios.html">Usuarios › Origen</a></strong>). Los canales tienen el mismo botón (<code>/f/c/ID</code>).</li>
 </ul>
+<p><img src="images/publicar-redes.png" class="img-fluid" alt="El asistente “Publicar en redes”: un enlace corto por red, texto sugerido y Copiar en cada uno."> - <strong>Edición masiva</strong> — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y <strong>Tags</strong> (escríbelos <strong>separados por coma</strong>; lo escrito <strong>reemplaza</strong> los tags de los seleccionados).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -518,6 +520,73 @@ Note
 <p><strong>Series en los “Top 10” de la portada.</strong> Cada serie sale como <strong>una sola tarjeta con su nombre</strong> (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay <strong>3 o más series</strong> en el catálogo.</p>
 </div>
 </div>
+</section>
+<section id="tipos-de-fuente-de-vídeo" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-fuente-de-vídeo">Tipos de fuente de vídeo</h2>
+<p>Cada película o episodio tiene una <strong>URL de vídeo</strong>. Según de dónde sea, la app la trata de una forma distinta. Esta es la lista completa de lo que hay hoy y cómo se trabaja con cada una:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fuente</th>
+<th>Cómo entra</th>
+<th>Cómo se ve</th>
+<th>Descarga</th>
+<th>Subtítulos</th>
+<th>Qué vigilar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>archive.org</strong> (cine cubano y clásicos, MP4)</td>
+<td>Importación automática desde <strong>Fuentes</strong> (colección, solo populares) o pegando la URL del fichero</td>
+<td>Directo, pasando por nuestro proxy</td>
+<td>Sí</td>
+<td>Solo si subes un <code>.srt</code>/<code>.vtt</code> en la ficha</td>
+<td>Va <strong>lento a saltos</strong> (1,5 s por trozo); los cortes en la tele suelen ser esto. Ver <a href="./fallos-comunes.html">Fallos comunes</a></td>
+</tr>
+<tr class="even">
+<td><strong>MP4 / HLS directo</strong> (<code>.mp4</code>, <code>.m3u8</code>)</td>
+<td>URL pegada en la ficha</td>
+<td>Directo (HLS con calidades automáticas)</td>
+<td>MP4 sí</td>
+<td>Igual que archive.org</td>
+<td>Que el servidor de origen no cape la IP del VPS</td>
+</tr>
+<tr class="odd">
+<td><strong>VIDEASY</strong> (películas y series por id de TMDB: <code>/embed/movie/ID</code>, <code>/embed/tv/ID/T/E</code>)</td>
+<td>Importación <strong>TMDB</strong> desde Fuentes (solo con audio o subtítulos en español y con stream) o a mano</td>
+<td>El servidor lo <strong>resuelve</strong> a un stream HLS y lo sirve por el proxy; calidad automática</td>
+<td>Sí por defecto (el admin puede quitarlo)</td>
+<td>Los del propio embed + <strong>español gestionado</strong> por el admin (OpenSubtitles)</td>
+<td>“FUENTE NO DISPONIBLE” = el proveedor cambió o capó la IP. Salud con <strong>Verificar Videos Embed</strong> (pesado)</td>
+</tr>
+<tr class="even">
+<td><strong>ok.ru</strong> (<code>ok.ru/video/ID</code>)</td>
+<td><strong>Solo a mano</strong>, pegando la URL; no hay importación (ok.ru no deja buscar sin cuenta)</td>
+<td>Igual que VIDEASY: resuelto a HLS con calidades</td>
+<td>Sí</td>
+<td>Los que publica el propio vídeo (en los “[vose]”, español y portugués); sin gestor</td>
+<td>Que ok.ru no bloquee la IP del VPS (403/429 en el log del proxy)</td>
+</tr>
+<tr class="odd">
+<td><strong>YouTube / Dailymotion / Vimeo</strong></td>
+<td>URL pegada</td>
+<td>Reproductor incrustado de ellos (iframe)</td>
+<td>No</td>
+<td>No</td>
+<td>YouTube <code>/live</code> sin id de vídeo <strong>no reproduce</strong>; se comprueba sin clave</td>
+</tr>
+<tr class="even">
+<td><strong>vidsrc / vidlink</strong> (familia antigua)</td>
+<td>Ya no se importa</td>
+<td>Igual que VIDEASY cuando aún responden</td>
+<td>Sí por defecto</td>
+<td>Como VIDEASY</td>
+<td>Murieron por Turnstile; lo que quede se cambia a VIDEASY</td>
+</tr>
+</tbody>
+</table>
+<p>Reglas que valen para todas: el <strong>muro Premium</strong> y el <strong>pre-estreno</strong> dependen de la ficha (premium, fecha de estreno), no de la fuente; el punto de color de <strong>salud</strong> junto al ID sale para todas; y las <strong>descargas</strong> solo existen donde la tabla dice “Sí” (un embed sin id de TMDB y que no sea ok.ru nunca es descargable, lo marques como lo marques).</p>
 </section>
 <section id="canales-en-vivo" class="level2">
 <h2 class="anchored" data-anchor-id="canales-en-vivo">Canales en vivo</h2>
