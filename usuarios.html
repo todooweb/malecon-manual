@@ -528,8 +528,20 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Pendiente</strong> — registrada pero sin verificar el email.</li>
 <li><strong>Bloqueado</strong> — bloqueo <strong>permanente</strong> que pones tú a mano; la cuenta no entra hasta que la reactives. Úsalo para vetar una cuenta.</li>
 <li><strong>Bloqueo temporal</strong> — bloqueo <strong>automático</strong> de 15 minutos tras <strong>5 intentos de login con contraseña fallida</strong> (anti-fuerza bruta). No se pone a mano: aparece solo. Al entrar, el usuario ve un aviso claro con los minutos que faltan.</li>
-<li><strong>Desactivada</strong> — la dio de baja el propio usuario desde su perfil (se borra sola a los 60 días).</li>
+<li><strong>Desactivada</strong> — la dio de baja el propio usuario desde su perfil (se borra sola a los 60 días). Al darse de baja se le pide un <strong>motivo</strong> (no encontró lo que buscaba / los vídeos no cargan o se cortan / gasta muchos datos / no lo va a usar / otro) y, si quiere, una nota. En la lista sale en <strong>una línea</strong> bajo el nombre (“Motivo de baja: …”, recortada) y en la ficha, completa: <strong>ribbon “Desactivada”</strong> en la esquina y un aviso con la fecha, el motivo y la nota. Es solo lectura. Al reactivar la cuenta el motivo se borra.</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/usuarios-desactivada-lista.png" class="img-fluid figure-img"></p>
+<figcaption>Usuario desactivado en la lista: la línea “Motivo de baja” recortada bajo el nombre.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/usuarios-desactivada.png" class="img-fluid figure-img"></p>
+<figcaption>Su ficha: ribbon “Desactivada” y el aviso con fecha, motivo y nota.</figcaption>
+</figure>
+</div>
 <p><strong>El bloqueo temporal se cura solo:</strong> cuando pasan los 15 minutos, la cuenta vuelve a <strong>Activo</strong> automáticamente (el panel lo refleja sin que hagas nada). Si quieres <strong>desbloquear antes</strong>, abre la ficha y cambia el Estado a <strong>Activo</strong> (no hay botón aparte; poner “Activo” limpia el bloqueo). En la lista lleva un <strong>badge naranja “Bloqueo temporal”</strong> y puedes <strong>filtrar</strong> por ese estado en el buscador.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
