@@ -46,8 +46,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b09e842cd0661324dba3b61557a9cf5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-496a63950f26e20e5718cc464d3330c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8ae4e0d89eaf16883b9b213c468d64e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e48c39de23a2a16afbaa93ac3e8f6cb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -474,12 +474,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pantalla-negra-al-abrir-el-reproductor" id="toc-pantalla-negra-al-abrir-el-reproductor" class="nav-link" data-scroll-target="#pantalla-negra-al-abrir-el-reproductor">Pantalla negra al abrir el reproductor</a></li>
   <li><a href="#un-canal-de-youtube-en-directo-no-reproduce" id="toc-un-canal-de-youtube-en-directo-no-reproduce" class="nav-link" data-scroll-target="#un-canal-de-youtube-en-directo-no-reproduce">Un canal de YouTube “en directo” no reproduce</a></li>
   <li><a href="#los-subtítulos-son-de-otra-película" id="toc-los-subtítulos-son-de-otra-película" class="nav-link" data-scroll-target="#los-subtítulos-son-de-otra-película">Los subtítulos son de OTRA película</a></li>
+  <li><a href="#quité-algo-de-continuar-viendo-y-vuelve-a-salir" id="toc-quité-algo-de-continuar-viendo-y-vuelve-a-salir" class="nav-link" data-scroll-target="#quité-algo-de-continuar-viendo-y-vuelve-a-salir">Quité algo de “Continuar viendo” y vuelve a salir</a></li>
   </ul></li>
   <li><a href="#canales-en-vivo" id="toc-canales-en-vivo" class="nav-link" data-scroll-target="#canales-en-vivo">Canales en vivo</a>
   <ul class="collapse">
   <li><a href="#un-canal-sale-caído-pero-a-mí-me-funciona" id="toc-un-canal-sale-caído-pero-a-mí-me-funciona" class="nav-link" data-scroll-target="#un-canal-sale-caído-pero-a-mí-me-funciona">Un canal sale “caído” pero a mí me funciona</a></li>
   <li><a href="#los-canales-cubanos-no-van-desde-el-servidor" id="toc-los-canales-cubanos-no-van-desde-el-servidor" class="nav-link" data-scroll-target="#los-canales-cubanos-no-van-desde-el-servidor">Los canales cubanos no van (desde el servidor)</a></li>
   <li><a href="#reactivé-canales-rotos-sin-querer" id="toc-reactivé-canales-rotos-sin-querer" class="nav-link" data-scroll-target="#reactivé-canales-rotos-sin-querer">Reactivé canales rotos sin querer</a></li>
+  <li><a href="#moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse" id="toc-moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse" class="nav-link" data-scroll-target="#moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse">Moví un canal en la cartelera y no sale donde lo puse</a></li>
   </ul></li>
   <li><a href="#importación-y-catálogo" id="toc-importación-y-catálogo" class="nav-link" data-scroll-target="#importación-y-catálogo">Importación y catálogo</a>
   <ul class="collapse">
@@ -608,6 +610,12 @@ Tip
 <p><strong>Causa:</strong> subtítulos automáticos “rancios” cacheados del título anterior.</p>
 <p><strong>Solución:</strong> ya está corregido (se limpia el CC por reproducción). Si reaparece, fuerza recarga; en series los subtítulos van <strong>por episodio</strong>.</p>
 </section>
+<section id="quité-algo-de-continuar-viendo-y-vuelve-a-salir" class="level3">
+<h3 class="anchored" data-anchor-id="quité-algo-de-continuar-viendo-y-vuelve-a-salir">Quité algo de “Continuar viendo” y vuelve a salir</h3>
+<p><strong>Síntoma:</strong> pulsas <strong>Quitar de continuar viendo</strong> en una serie y al rato la serie sigue en el carril, con otro capítulo a medias. O el botón sale apagado y no deja pulsarlo.</p>
+<p><strong>Causa:</strong> el carril enseña <strong>un capítulo por serie</strong>, pero si empezaste varios (viste algo del 1x01 y luego saltaste al 1x05) quedan <strong>varias marcas a medias</strong>. Antes se borraba solo la del capítulo que se veía en la tarjeta y el resto volvía a sacar la serie.</p>
+<p><strong>Solución:</strong> ya está corregido: quitar la serie cierra <strong>todos</strong> sus capítulos a medias de una vez. Si el botón sigue apagado, esa tarjeta no tiene ninguna marca de reproducción detrás (por ejemplo un título que sale por recomendación, no por historial).</p>
+</section>
 </section>
 <section id="canales-en-vivo" class="level2">
 <h2 class="anchored" data-anchor-id="canales-en-vivo">Canales en vivo</h2>
@@ -645,6 +653,12 @@ Note
 <p><strong>Síntoma:</strong> un cambio en el health “revivió” canales que no reproducen.</p>
 <p><strong>Causa:</strong> un heurístico que trataba el 403 como “vivo” reactivaba canales de verdad muertos.</p>
 <p><strong>Solución:</strong> el health <strong>no puede juzgar la reproducibilidad web</strong> (CORS/geo son del navegador del usuario). No uses reglas que reactiven por código de estado; apóyate en “Excluir Health” caso a caso.</p>
+</section>
+<section id="moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse" class="level3">
+<h3 class="anchored" data-anchor-id="moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse">Moví un canal en la cartelera y no sale donde lo puse</h3>
+<p><strong>Síntoma:</strong> subes un canal con las flechas ▲▼ de <strong>Cartelera · guía de canales</strong> y en la <strong>Cartelera</strong> que ve el público sigue saliendo abajo, o en otro sitio.</p>
+<p><strong>Causa:</strong> la Cartelera ordenaba primero por si el canal <strong>tiene parrilla</strong> y después por visitas. Un canal de <strong>reproducción continua</strong> (sin programación: música, cine seguido) caía siempre al final aunque lo hubieras subido a mano.</p>
+<p><strong>Solución:</strong> ya está corregido: <strong>el orden manual manda</strong>. Los canales que hayas colocado a mano salen primero y en el orden que les pusiste, tengan parrilla o no. Los que no has tocado se colocan detrás: antes los que tienen programación, luego los continuos, y dentro de cada grupo por visitas.</p>
 </section>
 </section>
 <section id="importación-y-catálogo" class="level2">
