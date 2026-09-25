@@ -482,6 +482,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#los-canales-cubanos-no-van-desde-el-servidor" id="toc-los-canales-cubanos-no-van-desde-el-servidor" class="nav-link" data-scroll-target="#los-canales-cubanos-no-van-desde-el-servidor">Los canales cubanos no van (desde el servidor)</a></li>
   <li><a href="#reactivé-canales-rotos-sin-querer" id="toc-reactivé-canales-rotos-sin-querer" class="nav-link" data-scroll-target="#reactivé-canales-rotos-sin-querer">Reactivé canales rotos sin querer</a></li>
   <li><a href="#moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse" id="toc-moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse" class="nav-link" data-scroll-target="#moví-un-canal-en-la-cartelera-y-no-sale-donde-lo-puse">Moví un canal en la cartelera y no sale donde lo puse</a></li>
+  <li><a href="#similares-sale-vacío-en-una-ficha" id="toc-similares-sale-vacío-en-una-ficha" class="nav-link" data-scroll-target="#similares-sale-vacío-en-una-ficha">“Similares” sale vacío en una ficha</a></li>
   </ul></li>
   <li><a href="#importación-y-catálogo" id="toc-importación-y-catálogo" class="nav-link" data-scroll-target="#importación-y-catálogo">Importación y catálogo</a>
   <ul class="collapse">
@@ -659,6 +660,12 @@ Note
 <p><strong>Síntoma:</strong> subes un canal con las flechas ▲▼ de <strong>Cartelera · guía de canales</strong> y en la <strong>Cartelera</strong> que ve el público sigue saliendo abajo, o en otro sitio.</p>
 <p><strong>Causa:</strong> la Cartelera ordenaba primero por si el canal <strong>tiene parrilla</strong> y después por visitas. Un canal de <strong>reproducción continua</strong> (sin programación: música, cine seguido) caía siempre al final aunque lo hubieras subido a mano.</p>
 <p><strong>Solución:</strong> ya está corregido: <strong>el orden manual manda</strong>. Los canales que hayas colocado a mano salen primero y en el orden que les pusiste, tengan parrilla o no. Los que no has tocado se colocan detrás: antes los que tienen programación, luego los continuos, y dentro de cada grupo por visitas.</p>
+</section>
+<section id="similares-sale-vacío-en-una-ficha" class="level3">
+<h3 class="anchored" data-anchor-id="similares-sale-vacío-en-una-ficha">“Similares” sale vacío en una ficha</h3>
+<p><strong>Síntoma:</strong> abres un título y la columna <strong>Similares</strong> aparece vacía, aunque haya más títulos de esa misma categoría.</p>
+<p><strong>Causa:</strong> se pedían los vídeos <strong>más recientes</strong> de la categoría y después se descartaban los que tienen <strong>fecha de estreno futura</strong> (aún no se pueden ver). Como los estrenos programados son, por definición, los más recientes, se descartaban todos. En prod pasaba en <code>infantil</code> (40 de 46 con fecha futura) y en <code>series</code> (109 de 132).</p>
+<p><strong>Solución:</strong> ya está corregido. Si la primera búsqueda se queda corta, se pide una segunda por <strong>lo más visto</strong>, que no arrastra ese sesgo. Si aun así ves pocos, mira cuántos títulos <strong>disponibles</strong> tiene esa categoría: puede que de verdad no haya más.</p>
 </section>
 </section>
 <section id="importación-y-catálogo" class="level2">
