@@ -891,7 +891,7 @@
     "href": "premium.html",
     "title": "Cuenta, Premium y puntos",
     "section": "",
-    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación. Antes de confirmar hay que elegir por qué te vas (cinco opciones y una nota opcional); sin motivo el botón no se activa. El admin lo ve en tu ficha.\nSi eres admin, aparece el acceso al Panel de administración.",
+    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — sin animaciones, carátulas solo si ya están guardadas y vídeo en calidad mínima; para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación. Antes de confirmar hay que elegir por qué te vas (cinco opciones y una nota opcional); sin motivo el botón no se activa. El admin lo ve en tu ficha.\nSi eres admin, aparece el acceso al Panel de administración.",
     "crumbs": [
       "Para el usuario",
       "Cuenta y Premium"
@@ -902,7 +902,7 @@
     "href": "premium.html#tu-perfil",
     "title": "Cuenta, Premium y puntos",
     "section": "",
-    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — reduce lo visual y ahorra ~70% de datos de navegación; ideal para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación. Antes de confirmar hay que elegir por qué te vas (cinco opciones y una nota opcional); sin motivo el botón no se activa. El admin lo ve en tu ficha.\nSi eres admin, aparece el acceso al Panel de administración.",
+    "text": "En Perfil ves tu avatar, nombre, email, rol y membresía (free/premium), más tus puntos y tus descargas usadas / límite. Desde aquí:\n\nCambiar contraseña (pide la actual y una nueva; misma regla de siempre).\nModo Ultra Ligero — sin animaciones, carátulas solo si ya están guardadas y vídeo en calidad mínima; para 3G.\nDesactivar cuenta — queda inactiva; a los 60 días se borra sola. Solo se puede desactivar una vez cada 7 días; para volver, entras y pides un código de reactivación. Antes de confirmar hay que elegir por qué te vas (cinco opciones y una nota opcional); sin motivo el botón no se activa. El admin lo ve en tu ficha.\nSi eres admin, aparece el acceso al Panel de administración.",
     "crumbs": [
       "Para el usuario",
       "Cuenta y Premium"
@@ -1276,7 +1276,7 @@
     "href": "app-offline.html#ahorrar-datos",
     "title": "App, offline y conexiones lentas",
     "section": "Ahorrar datos",
-    "text": "Ahorrar datos\n\nModo Ultra Ligero (en Perfil) recorta lo visual y ahorra ~70% de datos de navegación. Recomendado para 3G.\nEl vídeo arranca a 240p y sube si la conexión aguanta.\nSi un servidor de vídeo falla, la app cambia de fuente automáticamente.",
+    "text": "Ahorrar datos\n\nModo Ultra Ligero (en Perfil) quita animaciones, solo enseña las carátulas que ya tiene guardadas y el vídeo arranca en la calidad más baja. Pensado para 3G.\nEl vídeo arranca a 240p y sube si la conexión aguanta.\nSi un servidor de vídeo falla, la app cambia de fuente automáticamente.",
     "crumbs": [
       "Para el usuario",
       "App y offline"
