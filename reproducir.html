@@ -468,6 +468,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#el-reproductor" id="toc-el-reproductor" class="nav-link active" data-scroll-target="#el-reproductor">El reproductor</a></li>
+  <li><a href="#al-terminar-a-continuación" id="toc-al-terminar-a-continuación" class="nav-link" data-scroll-target="#al-terminar-a-continuación">Al terminar: “A continuación”</a></li>
   <li><a href="#series-y-episodios" id="toc-series-y-episodios" class="nav-link" data-scroll-target="#series-y-episodios">Series y episodios</a></li>
   <li><a href="#descargar-para-ver-sin-internet" id="toc-descargar-para-ver-sin-internet" class="nav-link" data-scroll-target="#descargar-para-ver-sin-internet">Descargar para ver sin internet</a></li>
   </ul>
@@ -511,6 +512,18 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>El <strong>progreso se guarda solo</strong> cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en <strong>“Continuar viendo”</strong>.</p>
 </section>
+<section id="al-terminar-a-continuación" class="level2">
+<h2 class="anchored" data-anchor-id="al-terminar-a-continuación">Al terminar: “A continuación”</h2>
+<p>Cuando una <strong>película</strong> entra en los créditos (según los minutos de la ficha; el admin los ajusta por título), sale un <strong>velo</strong> a pantalla entera, como el de Zapping:</p>
+<ul>
+<li>Arriba, <strong>“¿Te gustó …?”</strong> con los tres botones de reacción (<strong>No es para mí / Me gusta / Me encanta</strong>). Son los mismos de la ficha y alimentan las recomendaciones.</li>
+<li>Debajo, <strong>tres títulos parecidos</strong> (los tres primeros de Similares) con carátula, sinopsis, <strong>Ver</strong> y el marcador de <strong>Mi Lista</strong>.</li>
+<li>La <strong>×</strong> lo cierra y siguen los créditos; no vuelve a salir en ese título. Si rebobinas fuera de los créditos, se recoge. <strong>Nada se reproduce solo</strong> y no hay cuenta atrás.</li>
+<li>En <strong>pantalla completa</strong> el velo cubre el zoom; con Esc sales del zoom y el velo sigue hasta la ×.</li>
+<li>En <strong>móvil</strong> los tres títulos van apilados; con el móvil girado, en fila.</li>
+</ul>
+<p>En las <strong>series</strong> no sale al acabar un capítulo normal (ahí está la tarjeta de siguiente episodio, abajo): solo en el <strong>último capítulo de la serie</strong>, preguntando por la serie y sin títulos de la propia serie.</p>
+</section>
 <section id="series-y-episodios" class="level2">
 <h2 class="anchored" data-anchor-id="series-y-episodios">Series y episodios</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -524,6 +537,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Pestañas de temporada</strong> si hay más de una.</li>
 <li><strong>Lista de episodios</strong> con número, miniatura, duración, insignia <strong>Premium</strong> si toca, y descripción. Cada episodio abre en el reproductor.</li>
 <li>Los subtítulos y el progreso van <strong>por episodio</strong>.</li>
+<li><strong>Siguiente episodio</strong> — en los últimos segundos de un capítulo sale la tarjeta con el siguiente (<strong>Ver ahora</strong> salta ya; al terminar, cuenta atrás de 5 s y avanza solo; <strong>Cancelar</strong> te deja en la serie). Al acabar una <strong>temporada</strong> apunta al primer capítulo de la <strong>siguiente</strong> (“T2 · Ep. 1”). En el <strong>último capítulo de la serie</strong> no hay siguiente: sale el velo “A continuación” (arriba).</li>
 </ul>
 <p>Dentro del <strong>reproductor</strong>, la lista de episodios sale <strong>desplegada</strong> y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:</p>
 <ul>

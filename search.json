@@ -810,11 +810,22 @@
     ]
   },
   {
+    "objectID": "reproducir.html#al-terminar-a-continuación",
+    "href": "reproducir.html#al-terminar-a-continuación",
+    "title": "Ver contenido: reproductor y series",
+    "section": "Al terminar: “A continuación”",
+    "text": "Al terminar: “A continuación”\nCuando una película entra en los créditos (según los minutos de la ficha; el admin los ajusta por título), sale un velo a pantalla entera, como el de Zapping:\n\nArriba, “¿Te gustó …?” con los tres botones de reacción (No es para mí / Me gusta / Me encanta). Son los mismos de la ficha y alimentan las recomendaciones.\nDebajo, tres títulos parecidos (los tres primeros de Similares) con carátula, sinopsis, Ver y el marcador de Mi Lista.\nLa × lo cierra y siguen los créditos; no vuelve a salir en ese título. Si rebobinas fuera de los créditos, se recoge. Nada se reproduce solo y no hay cuenta atrás.\nEn pantalla completa el velo cubre el zoom; con Esc sales del zoom y el velo sigue hasta la ×.\nEn móvil los tres títulos van apilados; con el móvil girado, en fila.\n\nEn las series no sale al acabar un capítulo normal (ahí está la tarjeta de siguiente episodio, abajo): solo en el último capítulo de la serie, preguntando por la serie y sin títulos de la propia serie.",
+    "crumbs": [
+      "Para el usuario",
+      "Ver contenido"
+    ]
+  },
+  {
     "objectID": "reproducir.html#series-y-episodios",
     "href": "reproducir.html#series-y-episodios",
     "title": "Ver contenido: reproductor y series",
     "section": "Series y episodios",
-    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.\n\nDentro del reproductor, la lista de episodios sale desplegada y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:\n\nReproduciendo — resaltado coral con “· reproduciendo”.\nVisto (completado) — fila atenuada.\nA medias — barrita de progreso en la miniatura (por dónde vas).\nSin estrenar — candado 🔒 con su fecha corta (ej. “1 SEP”); con Premium se ven ya con la etiqueta PRE-ESTRENO (ver Premium).",
+    "text": "Series y episodios\n\n\n\nLa ficha de una serie: temporadas, episodios con duración y “Ver T1·E1”.\n\n\nEn una serie ves la portada, el número de temporadas y episodios, y un botón “Ver T1·E1”.\n\nPestañas de temporada si hay más de una.\nLista de episodios con número, miniatura, duración, insignia Premium si toca, y descripción. Cada episodio abre en el reproductor.\nLos subtítulos y el progreso van por episodio.\nSiguiente episodio — en los últimos segundos de un capítulo sale la tarjeta con el siguiente (Ver ahora salta ya; al terminar, cuenta atrás de 5 s y avanza solo; Cancelar te deja en la serie). Al acabar una temporada apunta al primer capítulo de la siguiente (“T2 · Ep. 1”). En el último capítulo de la serie no hay siguiente: sale el velo “A continuación” (arriba).\n\nDentro del reproductor, la lista de episodios sale desplegada y agrupada por temporada (plegable; abierta la del episodio actual). Cada fila cuenta su estado:\n\nReproduciendo — resaltado coral con “· reproduciendo”.\nVisto (completado) — fila atenuada.\nA medias — barrita de progreso en la miniatura (por dónde vas).\nSin estrenar — candado 🔒 con su fecha corta (ej. “1 SEP”); con Premium se ven ya con la etiqueta PRE-ESTRENO (ver Premium).",
     "crumbs": [
       "Para el usuario",
       "Ver contenido"
