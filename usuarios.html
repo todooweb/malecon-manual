@@ -616,6 +616,7 @@ Note
 <ul>
 <li><strong>Referidos</strong> — un usuario invita con su <code>?ref=CÓDIGO</code>; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario <strong>real</strong> (si no, no crea “referido fantasma”). El listado vive en <strong>Admin › Referidos</strong> (oculto del nav, se abre desde el Panel o la ficha de usuario).</li>
 <li><strong>Ponerlo a mano</strong> — si editas “Referido por” en la ficha de un usuario, ahora cuenta igual que un alta real: al dueño del código se le suman sus puntos y le sube el contador de referidos. Si luego lo cambias a otro código, al anterior se le descuenta; si lo vacías, también. Guardar la ficha dos veces no suma dos veces. Un código que no existe se guarda igual, pero no reparte puntos (en el listado sale como “desconocido”), y nadie puede figurar como referido de sí mismo.</li>
+<li><strong>Si el código se pierde por el camino</strong> — pasa al abrir el enlace dentro de la app de Facebook o Instagram en iPhone. El servidor apunta cada enlace abierto; si el alta llega sin código y desde esa misma conexión se abrió <strong>un solo</strong> código en los 30 minutos anteriores, se atribuye ese. Si se abrieron dos o más (conexión compartida), no se atribuye nada.</li>
 <li><strong>Invitar por email</strong> — en <strong>Admin › Usuarios</strong>, “Invitar” <strong>envía un correo</strong> (diseño newsletter) con enlace de registro. Si el email <strong>ya existe</strong>, avisa y no envía.</li>
 </ul>
 </section>
