@@ -1122,7 +1122,7 @@
     "href": "usuarios.html#referidos-e-invitaciones",
     "title": "Usuarios",
     "section": "Referidos e invitaciones",
-    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
+    "text": "Referidos e invitaciones\n\nReferidos — un usuario invita con su ?ref=CÓDIGO; al registrarse alguien por él, se le atribuye. Solo cuenta si el código pertenece a un usuario real (si no, no crea “referido fantasma”). El listado vive en Admin › Referidos (oculto del nav, se abre desde el Panel o la ficha de usuario).\nPonerlo a mano — si editas “Referido por” en la ficha de un usuario, ahora cuenta igual que un alta real: al dueño del código se le suman sus puntos y le sube el contador de referidos. Si luego lo cambias a otro código, al anterior se le descuenta; si lo vacías, también. Guardar la ficha dos veces no suma dos veces. Un código que no existe se guarda igual, pero no reparte puntos (en el listado sale como “desconocido”), y nadie puede figurar como referido de sí mismo.\nInvitar por email — en Admin › Usuarios, “Invitar” envía un correo (diseño newsletter) con enlace de registro. Si el email ya existe, avisa y no envía.",
     "crumbs": [
       "Administración",
       "Usuarios"
