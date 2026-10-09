@@ -693,6 +693,17 @@
     ]
   },
   {
+    "objectID": "estrenos.html#cómo-se-reparten-las-fechas",
+    "href": "estrenos.html#cómo-se-reparten-las-fechas",
+    "title": "Estrenos",
+    "section": "Cómo se reparten las fechas",
+    "text": "Cómo se reparten las fechas\nEn Ajustes › Contenido & Estrenos › Calendario de Estrenos decides cómo pone las fechas el sistema cuando aprueba o importa contenido nuevo (lo ya programado no se mueve al cambiar estos ajustes):\n\nDías entre películas y días entre series — cuánto separar dos estrenos (0 = pueden coincidir). Entre series solo cuenta el estreno de cada temporada, no cada episodio.\nCómo sale cada temporada — por defecto; cada serie puede cambiarlo en su 1x01: en dos mitades (con N días entre una y otra) o un episodio cada N días (0 = toda la temporada el mismo día).\nDías entre temporadas — desde el último episodio de una temporada hasta el estreno de la siguiente.\n\nCada serie puede tener su propia regla. En Admin › Videos, al editar (o dar de alta) el episodio 1 de la temporada 1, sale “Cómo sale esta serie”: Como en Ajustes, Dos mitades, Cada X días o Cada semana (y eliges el día: por ejemplo, los viernes). Vale para toda la serie; en los demás episodios solo se ve («Esta serie sale cada viernes. Se cambia en su 1x01.»), y si no tiene regla propia no sale nada. Si al cambiarla la serie ya tiene episodios con fecha futura, pregunta “¿Reprogramar los episodios pendientes?”:\n\nSí, reprogramar — cada temporada mantiene su primera fecha pendiente y el resto de sus episodios se reparten con la regla nueva. Lo ya emitido no se toca.\nNo, solo para los nuevos — lo programado se queda como está; la regla vale para lo que entre después.\n\nAl dar de alta a mano un episodio nuevo, la fecha propuesta sigue la regla de la serie; si no tiene, el ritmo que ya lleva la temporada (por ejemplo, cada viernes) y, si no lleva ninguno, los Ajustes.",
+    "crumbs": [
+      "Administración",
+      "Estrenos"
+    ]
+  },
+  {
     "objectID": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
     "href": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
     "title": "Estrenos",

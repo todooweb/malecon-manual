@@ -468,6 +468,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#cómo-funciona" id="toc-cómo-funciona" class="nav-link active" data-scroll-target="#cómo-funciona">Cómo funciona</a></li>
+  <li><a href="#cómo-se-reparten-las-fechas" id="toc-cómo-se-reparten-las-fechas" class="nav-link" data-scroll-target="#cómo-se-reparten-las-fechas">Cómo se reparten las fechas</a></li>
   <li><a href="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre" id="toc-premium-ve-antes-pre-estreno-y-el-piloto-es-libre" class="nav-link" data-scroll-target="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre">Premium ve antes (pre-estreno) y el piloto es libre</a></li>
   </ul>
 </nav>
@@ -511,6 +512,21 @@ ul.task-list li input[type="checkbox"] {
 <li>Puedes ajustar la fecha de cada título a mano desde aquí.</li>
 <li><strong>La fecha es obligatoria:</strong> esta página <strong>solo</strong> lista contenido <strong>con</strong> fecha de estreno — sin fecha no es un estreno, así que no aparece aquí. Por defecto ves los <strong>activos</strong>.</li>
 </ul>
+</section>
+<section id="cómo-se-reparten-las-fechas" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-se-reparten-las-fechas">Cómo se reparten las fechas</h2>
+<p>En <strong>Ajustes › Contenido &amp; Estrenos › Calendario de Estrenos</strong> decides cómo pone las fechas el sistema cuando aprueba o importa contenido nuevo (lo ya programado <strong>no se mueve</strong> al cambiar estos ajustes):</p>
+<ul>
+<li><strong>Días entre películas</strong> y <strong>días entre series</strong> — cuánto separar dos estrenos (0 = pueden coincidir). Entre series solo cuenta el <strong>estreno</strong> de cada temporada, no cada episodio.</li>
+<li><strong>Cómo sale cada temporada</strong> — por defecto; cada serie puede cambiarlo en su 1x01: <strong>en dos mitades</strong> (con N días entre una y otra) o <strong>un episodio cada N días</strong> (0 = toda la temporada el mismo día).</li>
+<li><strong>Días entre temporadas</strong> — desde el último episodio de una temporada hasta el estreno de la siguiente.</li>
+</ul>
+<p><strong>Cada serie puede tener su propia regla.</strong> En <strong>Admin › Videos</strong>, al editar (o dar de alta) el <strong>episodio 1 de la temporada 1</strong>, sale <strong>“Cómo sale esta serie”</strong>: <em>Como en Ajustes</em>, <em>Dos mitades</em>, <em>Cada X días</em> o <em>Cada semana</em> (y eliges el día: por ejemplo, los viernes). Vale para toda la serie; en los demás episodios solo se ve («Esta serie sale cada viernes. Se cambia en su 1x01.»), y si no tiene regla propia no sale nada. Si al cambiarla la serie ya tiene episodios con fecha futura, pregunta <strong>“¿Reprogramar los episodios pendientes?”</strong>:</p>
+<ul>
+<li><strong>Sí, reprogramar</strong> — cada temporada mantiene su primera fecha pendiente y el resto de sus episodios se reparten con la regla nueva. Lo ya emitido no se toca.</li>
+<li><strong>No, solo para los nuevos</strong> — lo programado se queda como está; la regla vale para lo que entre después.</li>
+</ul>
+<p>Al dar de alta a mano un episodio nuevo, la fecha propuesta sigue la regla de la serie; si no tiene, el ritmo que ya lleva la temporada (por ejemplo, cada viernes) y, si no lleva ninguno, los Ajustes.</p>
 </section>
 <section id="premium-ve-antes-pre-estreno-y-el-piloto-es-libre" class="level2">
 <h2 class="anchored" data-anchor-id="premium-ve-antes-pre-estreno-y-el-piloto-es-libre">Premium ve antes (pre-estreno) y el piloto es libre</h2>
