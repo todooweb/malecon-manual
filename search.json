@@ -704,6 +704,17 @@
     ]
   },
   {
+    "objectID": "estrenos.html#conflicto-de-calendario-al-poner-una-fecha-a-mano",
+    "href": "estrenos.html#conflicto-de-calendario-al-poner-una-fecha-a-mano",
+    "title": "Estrenos",
+    "section": "«Conflicto de calendario» al poner una fecha a mano",
+    "text": "«Conflicto de calendario» al poner una fecha a mano\nCuando cambias una fecha a mano —en el formulario de Videos, con el lápiz de Estrenos o en una edición en bloque— y queda algo que no cuadra, antes de guardar sale «Conflicto de calendario» con lo que pasa:\n\nEstrenos (películas y el primer episodio de cada temporada): si quedan más juntos de lo que dicen los Ajustes («días entre películas» / «días entre series»).\nEpisodios (series, novelas…): si un episodio queda antes que uno anterior (o después que uno posterior) de su temporada, o si rompe el ritmo de la serie: su regla propia (por ejemplo, cada viernes) o, si no tiene, el ritmo que llevan sus fechas (otro episodio el mismo día o un hueco distinto).\n\nCancelar no guarda nada; Mantener fecha guarda. En una edición en bloque sale una sola pregunta con el resumen. Solo pregunta por lo que cambia de fecha: editar otro campo no vuelve a preguntar.",
+    "crumbs": [
+      "Administración",
+      "Estrenos"
+    ]
+  },
+  {
     "objectID": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
     "href": "estrenos.html#premium-ve-antes-pre-estreno-y-el-piloto-es-libre",
     "title": "Estrenos",
