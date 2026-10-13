@@ -467,7 +467,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vídeos-películas-y-series" id="toc-vídeos-películas-y-series" class="nav-link active" data-scroll-target="#vídeos-películas-y-series">Vídeos (películas y series)</a></li>
+  <li><a href="#vídeos-películas-y-series" id="toc-vídeos-películas-y-series" class="nav-link active" data-scroll-target="#vídeos-películas-y-series">Vídeos (películas y series)</a>
+  <ul class="collapse">
+  <li><a href="#serie-al-crear-un-vídeo" id="toc-serie-al-crear-un-vídeo" class="nav-link" data-scroll-target="#serie-al-crear-un-vídeo">Serie al crear un vídeo</a></li>
+  <li><a href="#colección-sagas-de-películas" id="toc-colección-sagas-de-películas" class="nav-link" data-scroll-target="#colección-sagas-de-películas">Colección (sagas de películas)</a></li>
+  </ul></li>
   <li><a href="#teleplay-categoría" id="toc-teleplay-categoría" class="nav-link" data-scroll-target="#teleplay-categoría">Teleplay (categoría)</a></li>
   <li><a href="#destacados-el-carrusel-de-inicio" id="toc-destacados-el-carrusel-de-inicio" class="nav-link" data-scroll-target="#destacados-el-carrusel-de-inicio">Destacados (el carrusel de Inicio)</a></li>
   <li><a href="#tipos-de-fuente-de-vídeo" id="toc-tipos-de-fuente-de-vídeo" class="nav-link" data-scroll-target="#tipos-de-fuente-de-vídeo">Tipos de fuente de vídeo</a></li>
@@ -506,10 +510,24 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Importación</strong> — llega desde <strong>Fuentes</strong> (archive.org, TMDB) a <strong>Revisiones</strong>, donde lo apruebas antes de publicar. También hay importación manual.</li>
 <li><strong>Premium</strong> — al crear, se marca premium automáticamente según una regla 60/40 por tipo; se puede forzar manualmente. El premium se libera al cabo de un tiempo.</li>
 <li><strong>Duración (min) y la duración real del archivo</strong> — la app lee sola cuánto dura cada archivo de vídeo (sin reproducirlo) al pegar la URL, al importar y en cada verificación. Bajo la casilla <strong>Duración (min)</strong> sale una línea: <em>“Archivo 96:13 · "Similares" saldrá en el 92:00”</em> (igual en series). Ese número de la casilla es el que manda para cuándo aparece <strong>“A continuación”</strong> o la tarjeta de siguiente episodio: sale un minuto después de los minutos de la ficha, nunca antes de 15 min del final ni después de 45 s del final. Si la ficha llega al final del archivo (TMDB cuenta los créditos), sale a unos 2:30 del final. Si un título nuevo llega sin duración, se rellena con la del archivo. Para que “A continuación” salga al empezar los créditos, pon en la casilla el minuto en que empiezan: la línea te dice dónde caerá antes de guardar.</li>
+<li><strong>Serie</strong> y <strong>Colección</strong> — ver sus secciones, abajo.</li>
 <li><strong>Descargas</strong> — el contenido descargable se guarda para ver offline (PWA). Los <em>embeds</em> no son descargables por diseño salvo cuando el resolver lo permite.</li>
 <li><strong>Publicar en redes</strong> — icono de compartir en cada fila y junto al título de la ficha. Abre un asistente con el <strong>enlace corto</strong> por red (<code>malecontv.es/f/ID</code>, <code>/i/ID</code>, <code>/t/ID</code>, <code>/o/ID</code>) y un texto sugerido; se copia con un clic. Al pegarlo en la red sale la tarjeta con la imagen y el título (los episodios con el nombre de la serie). Quien entre por él cuenta como venido de esa red (ver <strong><a href="./usuarios.html">Usuarios › Origen</a></strong>). Los canales tienen el mismo botón (<code>/f/c/ID</code>).</li>
 </ul>
 <p><img src="images/publicar-redes.png" class="img-fluid" alt="El asistente “Publicar en redes”: un enlace corto por red, texto sugerido y Copiar en cada uno."> - <strong>Edición masiva</strong> — selecciona varios vídeos y cambia de golpe activo, destacado, premium, descarga, categoría, país, clasificación, fecha de estreno, playlists y <strong>Tags</strong> (escríbelos <strong>separados por coma</strong>; lo escrito <strong>reemplaza</strong> los tags de los seleccionados).</p>
+<section id="serie-al-crear-un-vídeo" class="level3">
+<h3 class="anchored" data-anchor-id="serie-al-crear-un-vídeo">Serie al crear un vídeo</h3>
+<p>Al escribir en <strong>Serie</strong> aparecen las series que ya existen, con su número de episodios; se elige con clic o con ↓/↑ y Enter (Esc cierra solo la lista). Al elegirla se proponen temporada y episodio, y el <strong>Título</strong> se escribe solo con el formato del capítulo anterior (“Episodio 7” → “Episodio 8”, “1x07” → “1x08”). Si cambias el episodio, el título lo sigue; si escribes tú el título, ya no se toca. Una serie que no está en la lista es una serie nueva (1x01).</p>
+</section>
+<section id="colección-sagas-de-películas" class="level3">
+<h3 class="anchored" data-anchor-id="colección-sagas-de-películas">Colección (sagas de películas)</h3>
+<p>En la ficha de una <strong>película</strong> (no de un capítulo), el campo <strong>Colección</strong> junta las partes de una saga: se pone <strong>el mismo nombre en todas</strong> (por ejemplo “Balto” en Balto I y en Balto II).</p>
+<ul>
+<li>Lo <strong>rellenas tú</strong>. Al escribir salen las colecciones que ya existen, con cuántas películas tiene cada una.</li>
+<li>Con el campo vacío te <strong>sugiere un nombre</strong> (otra parte del catálogo o TMDB), que usas con <strong>Usar</strong>.</li>
+<li>Si lo escribes casi igual que una que existe (mayúsculas, tildes), se guarda con el nombre de la que existe, para que la saga no se parta en dos. Vacío = sin colección.</li>
+<li>En el reproductor, las partes salen juntas encima de Similares, y al acabar una el velo propone la siguiente que falte por ver (ver <strong><a href="./reproducir.html">Reproducir</a></strong>).</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -520,9 +538,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Series en los “Top 10” de la portada.</strong> Cada serie sale como <strong>una sola tarjeta con su nombre</strong> (no episodios sueltos), enlazando a su página de serie. La fila “Series que Enganchan” solo aparece cuando hay <strong>3 o más series</strong> en el catálogo.</p>
+<p><strong>Series en los “Top 10” de la portada.</strong> Cada serie sale como <strong>una sola tarjeta con su nombre</strong> (no episodios sueltos), enlazando a su página de serie, y cuenta <strong>entera</strong>: las personas que vieron cualquiera de sus capítulos. La fila “Series que Enganchan” solo aparece cuando hay <strong>3 o más series</strong> en el catálogo. Cómo se calcula el top: ver <strong><a href="./explorar.html">Explorar</a></strong>.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="teleplay-categoría" class="level2">
 <h2 class="anchored" data-anchor-id="teleplay-categoría">Teleplay (categoría)</h2>
@@ -536,7 +555,7 @@ Note
 </section>
 <section id="destacados-el-carrusel-de-inicio" class="level2">
 <h2 class="anchored" data-anchor-id="destacados-el-carrusel-de-inicio">Destacados (el carrusel de Inicio)</h2>
-<p><strong>Quién elige lo que sale en el carrusel grande de Inicio.</strong> Lo elige la app sola, <strong>una vez al día</strong>, y reparte <strong>20 plazas</strong> con estas cuotas:</p>
+<p><strong>Quién elige lo que sale en el carrusel grande de Inicio.</strong> Lo decide la app sola, con <strong>20 plazas</strong> repartidas en cuatro grupos (los números se cambian en <strong><a href="./configuracion.html">Ajustes › Destacados</a></strong>):</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -545,35 +564,41 @@ Note
 </colgroup>
 <thead>
 <tr class="header">
-<th>Cuota</th>
+<th>Grupo</th>
 <th>Plazas</th>
-<th>De dónde salen</th>
+<th>Qué entra</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Descubrimiento</td>
-<td>10</td>
-<td>Los títulos <strong>menos vistos</strong>, para darles salida</td>
+<td>Recién estrenados</td>
+<td>6</td>
+<td>Lo que se acaba de estrenar (el día del estreno ya cuenta)</td>
 </tr>
 <tr class="even">
-<td>Tendencia</td>
+<td>Próximos</td>
 <td>3</td>
-<td>Los más vistos del momento</td>
+<td>Los próximos estrenos</td>
 </tr>
 <tr class="odd">
-<td>Premium</td>
-<td>3</td>
-<td>Al azar entre los premium</td>
+<td>En alza</td>
+<td>4</td>
+<td>Lo que más se ha visto en los últimos 7 días</td>
 </tr>
 <tr class="even">
-<td>Estrenos</td>
-<td>4</td>
-<td>Los estrenos más próximos</td>
+<td>Catálogo</td>
+<td>el resto</td>
+<td>Por turno: lo que hace más tiempo que no sale, o no ha salido nunca</td>
 </tr>
 </tbody>
 </table>
-<p>De una misma serie entra <strong>un solo capítulo</strong>. Las 20 plazas son las mismas para todos, pero el <strong>orden lo pone cada persona</strong>: primero lo que dejó a medias, después lo que encaja con lo que ha visto, y el resto detrás. Como el descubrimiento y el premium se sortean, cada día cambia una parte del carrusel; algún título puede repetir y eso es normal, la idea es que no se detenga nunca.</p>
+<ul>
+<li><strong>Cuánto se queda cada uno:</strong> como mínimo <strong>7 días</strong>. Después sigue solo si <strong>“tira”</strong> (en los últimos 3 días se ve al menos como la media de los destacados), y como máximo <strong>21 días</strong>. Al salir, <strong>descansa 14 días</strong> antes de poder volver por turno.</li>
+<li><strong>Los estrenos del día nunca esperan:</strong> si no caben, ocupan una plaza del catálogo y sale el que menos tira.</li>
+<li><strong>De una serie cuenta un solo título</strong>, y lo decide su 1x01.</li>
+<li>Se recalcula <strong>cada hora</strong> y al crear, editar, aprobar o editar en bloque.</li>
+<li><strong>Orden del carrusel:</strong> primero lo de cada persona (lo que dejó a medias, “Porque has visto”), y después recién estrenados, en alza, próximos y catálogo.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -584,7 +609,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Puedes marcar Destacado a mano</strong> en la ficha del vídeo. Entra en el acto y, si ya había 20, sale el más antiguo. Ojo: <strong>el reparto del día siguiente puede quitarlo</strong>, porque vuelve a repartir las 20 plazas desde cero. Para algo que quieras sostener en el tiempo, usa el calendario de estrenos.</p>
+<p><strong>El interruptor “Destacado” de la ficha significa “puede salir”</strong>, no “sale ya”. Lo puesto a mano entra cuando le toca, como el resto. Debajo del interruptor la ficha dice lo que pasará de verdad: “Entra al guardar · 7 días mínimo”, “Entra el 24 oct, día de su estreno”, “En espera · entra hacia el 31 oct”, “Lo decide el 1x01 de la serie” o “No saldrá en el hero”. En <strong>Admin › Vídeos</strong> la columna <strong>“En el hero”</strong> dice qué está saliendo ahora. Apagarlo saca el título del carrusel y entra otro.</p>
 </div>
 </div>
 </section>

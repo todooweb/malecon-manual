@@ -467,7 +467,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#el-reproductor" id="toc-el-reproductor" class="nav-link active" data-scroll-target="#el-reproductor">El reproductor</a></li>
+  <li><a href="#el-reproductor" id="toc-el-reproductor" class="nav-link active" data-scroll-target="#el-reproductor">El reproductor</a>
+  <ul class="collapse">
+  <li><a href="#colección-sagas-de-películas" id="toc-colección-sagas-de-películas" class="nav-link" data-scroll-target="#colección-sagas-de-películas">Colección (sagas de películas)</a></li>
+  <li><a href="#cuándo-cuenta-como-vista" id="toc-cuándo-cuenta-como-vista" class="nav-link" data-scroll-target="#cuándo-cuenta-como-vista">Cuándo cuenta como vista</a></li>
+  </ul></li>
   <li><a href="#al-terminar-a-continuación" id="toc-al-terminar-a-continuación" class="nav-link" data-scroll-target="#al-terminar-a-continuación">Al terminar: “A continuación”</a></li>
   <li><a href="#series-y-episodios" id="toc-series-y-episodios" class="nav-link" data-scroll-target="#series-y-episodios">Series y episodios</a></li>
   <li><a href="#descargar-para-ver-sin-internet" id="toc-descargar-para-ver-sin-internet" class="nav-link" data-scroll-target="#descargar-para-ver-sin-internet">Descargar para ver sin internet</a></li>
@@ -509,16 +513,34 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Mi Lista</strong> — el corazón guarda el título en tu lista.</li>
 <li><strong>Compartir</strong> — genera un <strong>enlace corto</strong> con tu referido (<code>?ref=</code>); si alguien lo abre, ganas puntos. Es <code>malecontv.es/p/ID</code> en una película o serie y <code>malecontv.es/c/ID</code> en un canal. Los dos los sirve el servidor, así que WhatsApp y Facebook enseñan <strong>carátula, título y sinopsis</strong>, y quien lo abre cae en la ficha, no en la pantalla de entrar.</li>
 <li><strong>Reportar</strong> — el botón <strong>“¿Algo mal con este contenido?”</strong> (bajo la ficha) abre el diálogo de reporte: no reproduce, mala calidad, audio, subtítulos… (te puede dar puntos).</li>
-<li><strong>Recomendados</strong> — títulos parecidos al final.</li>
+<li><strong>Colección</strong> — las partes de una saga, encima de Similares (ver abajo).</li>
+<li><strong>Similares</strong> — títulos parecidos. No repiten las películas de la colección.</li>
 </ul>
-<p>El <strong>progreso se guarda solo</strong> cada ~30 s; a partir del 70% (o 30 min) cuenta como visto, y así aparece en <strong>“Continuar viendo”</strong>.</p>
+<p>El <strong>progreso se guarda solo</strong> y la app retoma <strong>en el segundo donde lo dejaste</strong>, también con ok.ru: una pausa larga con la página abierta ya no adelanta la posición ni la marca como terminada.</p>
+<section id="colección-sagas-de-películas" class="level3">
+<h3 class="anchored" data-anchor-id="colección-sagas-de-películas">Colección (sagas de películas)</h3>
+<p>Si la película es parte de una <strong>saga</strong> (Balto I y II, El diablo viste de Prada I y II…), encima de <strong>Similares</strong> sale el bloque <strong>“Colección”</strong> con <strong>todas las partes en orden</strong>, cada una con su sinopsis: las ya estrenadas y los <strong>preestrenos</strong> con su fecha delante (“Estreno 4 DIC · …”). La que estás viendo sale atenuada. Las partes de la saga no se repiten en Similares. El admin decide qué es saga (ver <strong><a href="./catalogo.html">Catálogo</a></strong>).</p>
+</section>
+<section id="cuándo-cuenta-como-vista" class="level3">
+<h3 class="anchored" data-anchor-id="cuándo-cuenta-como-vista">Cuándo cuenta como vista</h3>
+<p>Los créditos empiezan un minuto después de los minutos de la ficha (igual que el velo de abajo):</p>
+<ul>
+<li><strong>Llegas a los créditos viéndola</strong> → cuenta como <strong>vista</strong> en ese momento, aunque te vayas enseguida.</li>
+<li><strong>Saltas a los créditos</strong> con la barra → solo cuenta si ves <strong>20 s</strong> de créditos; si sales antes, sigue <strong>a medias</strong>.</li>
+<li><strong>Abres una ya vista</strong> → empieza <strong>desde el principio</strong> y no sale el velo. Si sales enseguida, <strong>sigue vista</strong>.</li>
+<li><strong>Vuelves a verla un rato</strong> (≥30 s) o mueves la barra → queda <strong>a medias en ese punto</strong> y vuelve a <strong>“Continuar viendo”</strong>. Si retrocedes a una escena, se guarda esa escena.</li>
+<li>Los <strong>capítulos de series</strong> siguen las mismas reglas.</li>
+</ul>
+</section>
 </section>
 <section id="al-terminar-a-continuación" class="level2">
 <h2 class="anchored" data-anchor-id="al-terminar-a-continuación">Al terminar: “A continuación”</h2>
 <p>Cuando una <strong>película</strong> entra en los créditos (según los minutos de la ficha; el admin los ajusta por título), sale un <strong>velo</strong> a pantalla entera, como el de Zapping:</p>
 <ul>
 <li>Arriba, <strong>“¿Te gustó …?”</strong> con los tres botones de reacción (<strong>No es para mí / Me gusta / Me encanta</strong>). Son los mismos de la ficha y alimentan las recomendaciones.</li>
-<li>Debajo, <strong>tres títulos parecidos</strong> (los tres primeros de Similares) con carátula, sinopsis, <strong>Ver</strong> y el marcador de <strong>Mi Lista</strong>.</li>
+<li>Debajo, <strong>tres títulos</strong> con carátula, sinopsis, <strong>Ver</strong> y el marcador de <strong>Mi Lista</strong>. <strong>Nunca ofrece lo que ya viste</strong>: primero los parecidos sin ver, luego lo más visto sin ver, luego lo que tienes a medias y, si no queda nada, lo que viste hace más tiempo.</li>
+<li>Si la película es de una <strong>colección</strong>, el primero es <strong>la próxima parte que no has visto</strong>: la siguiente; si ya la viste, la de después; si es la última, la primera que te falte de antes. Si la siguiente aún es un preestreno, no propone ninguna parte (no se salta ninguna). Si ya las viste todas, no propone ninguna. Como mucho una de la saga; las otras dos son parecidas.</li>
+<li>Si pulsas un título del velo, el título nuevo <strong>no</strong> muestra el velo hasta llegar a <strong>sus</strong> créditos.</li>
 <li>La <strong>×</strong> lo cierra y siguen los créditos; no vuelve a salir en ese título. Si rebobinas fuera de los créditos, se recoge. <strong>Nada se reproduce solo</strong> y no hay cuenta atrás.</li>
 <li>En <strong>pantalla completa</strong> el velo cubre el zoom; con Esc sales del zoom y el velo sigue hasta la ×.</li>
 <li>En <strong>móvil</strong> los tres títulos van apilados; con el móvil girado, en fila.</li>
