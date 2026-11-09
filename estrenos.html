@@ -466,6 +466,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#cómo-funciona" id="toc-cómo-funciona" class="nav-link active" data-scroll-target="#cómo-funciona">Cómo funciona</a></li>
   <li><a href="#cómo-se-reparten-las-fechas" id="toc-cómo-se-reparten-las-fechas" class="nav-link" data-scroll-target="#cómo-se-reparten-las-fechas">Cómo se reparten las fechas</a></li>
+  <li><a href="#programar-series" id="toc-programar-series" class="nav-link" data-scroll-target="#programar-series">Programar series</a></li>
   <li><a href="#conflicto-de-calendario-al-poner-una-fecha-a-mano" id="toc-conflicto-de-calendario-al-poner-una-fecha-a-mano" class="nav-link" data-scroll-target="#conflicto-de-calendario-al-poner-una-fecha-a-mano">«Conflicto de calendario» al poner una fecha a mano</a></li>
   <li><a href="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre" id="toc-premium-ve-antes-pre-estreno-y-el-piloto-es-libre" class="nav-link" data-scroll-target="#premium-ve-antes-pre-estreno-y-el-piloto-es-libre">Premium ve antes (pre-estreno) y el piloto es libre</a></li>
   </ul>
@@ -516,15 +517,27 @@ ul.task-list li input[type="checkbox"] {
 <p>En <strong>Ajustes › Contenido &amp; Estrenos › Calendario de Estrenos</strong> decides cómo pone las fechas el sistema cuando aprueba o importa contenido nuevo (lo ya programado <strong>no se mueve</strong> al cambiar estos ajustes):</p>
 <ul>
 <li><strong>Días entre películas</strong> y <strong>días entre series</strong> — cuánto separar dos estrenos (0 = pueden coincidir). Entre series solo cuenta el <strong>estreno</strong> de cada temporada, no cada episodio.</li>
-<li><strong>Cómo sale cada temporada</strong> — por defecto; cada serie puede cambiarlo en su 1x01: <strong>en dos mitades</strong> (con N días entre una y otra) o <strong>un episodio cada N días</strong> (0 = toda la temporada el mismo día).</li>
+<li><strong>Cómo sale cada temporada</strong> — por defecto; cada serie puede cambiarlo en <strong>Programar series</strong>: <strong>en dos mitades</strong> (con N días entre una y otra) o <strong>un episodio cada N días</strong> (0 = toda la temporada el mismo día).</li>
 <li><strong>Días entre temporadas</strong> — desde el último episodio de una temporada hasta el estreno de la siguiente.</li>
+<li><strong>Publicar días antes del estreno</strong> (de 1 a 60; por defecto <strong>7</strong>) — lo nuevo (series y películas) con fecha más lejana entra <strong>desactivado</strong>, y una tarea diaria lo publica, con su «Avísame», cuando faltan esos días o menos. Antes no lo ve nadie, tampoco Premium. Lo ya programado no se toca. Para que algo no salga, quítale la fecha. Los avisos del Asesor y el «Próximo estreno» del panel sí cuentan lo que espera a publicarse.</li>
 </ul>
-<p><strong>Cada serie puede tener su propia regla.</strong> En <strong>Admin › Videos</strong>, al editar (o dar de alta) el <strong>episodio 1 de la temporada 1</strong>, sale <strong>“Cómo sale esta serie”</strong>: <em>Como en Ajustes</em>, <em>Dos mitades</em>, <em>Cada X días</em> o <em>Cada semana</em> (y eliges el día: por ejemplo, los viernes). Vale para toda la serie; en los demás episodios solo se ve («Esta serie sale cada viernes. Se cambia en su 1x01.»), y si no tiene regla propia no sale nada. Si al cambiarla la serie ya tiene episodios con fecha futura, pregunta <strong>“¿Reprogramar los episodios pendientes?”</strong>:</p>
+</section>
+<section id="programar-series" class="level2">
+<h2 class="anchored" data-anchor-id="programar-series">Programar series</h2>
+<p>Los <strong>capítulos de serie entran sin fecha y desactivados</strong> (al importar una serie completa, al darlos de alta a mano o al aprobarlos en Revisiones). Las películas no cambian. Las fechas de las series se ponen en <strong>Admin › Vídeos › «Programar series»</strong> (el botón de arriba lleva un contador). Se abre una ventana con buscador y tres apartados:</p>
 <ul>
-<li><strong>Sí, reprogramar</strong> — cada temporada mantiene su primera fecha pendiente y el resto de sus episodios se reparten con la regla nueva. Lo ya emitido no se toca.</li>
-<li><strong>No, solo para los nuevos</strong> — lo programado se queda como está; la regla vale para lo que entre después.</li>
+<li><strong>Por programar</strong> — series con capítulos aún sin fecha.</li>
+<li><strong>Revisar</strong> — series a las que les queda algo por estrenar y no cumplen su regla.</li>
+<li><strong>Programadas</strong> — las que ya tienen sus fechas. Las series ya emitidas enteras no salen.</li>
 </ul>
-<p>Al dar de alta a mano un episodio nuevo, la fecha propuesta sigue la regla de la serie; si no tiene, el ritmo que ya lleva la temporada (por ejemplo, cada viernes) y, si no lleva ninguno, los Ajustes.</p>
+<p><strong>Programar</strong> abre un asistente por temporadas:</p>
+<ul>
+<li><strong>«Cómo sale esta serie»</strong>: <em>Como en Ajustes</em>, <em>Dos mitades</em>, <em>Cada X días</em> o <em>Cada semana</em> (y eliges el día, por ejemplo los viernes). Vale para toda la serie. En la ficha de un capítulo solo se ve («Esta serie sale cada viernes. Se cambia en «Programar series».»).</li>
+<li><strong>El inicio de cada temporada</strong> se puede cambiar; las siguientes se recolocan solas. Una temporada nunca empieza antes de que acabe la anterior: si su fecha cae encima, se pone «días entre temporadas» después del final de la anterior.</li>
+<li>Debajo, los capítulos con su fecha y un aviso si chocan con otra serie. Al confirmar se ponen las fechas y se publica lo que ya toca.</li>
+</ul>
+<p><strong>Reprogramar</strong> (en una serie ya programada) solo mueve <strong>lo no estrenado</strong>. Cada capítulo tiene la casilla <strong>«Mantener»</strong> para dejar su fecha; la cabecera de cada temporada tiene otra que marca o desmarca <strong>toda la temporada</strong> (a medias si solo hay algunos). La propuesta se recalcula sola.</p>
+<p><strong>En la ficha de un capítulo sin programar</strong>, la fecha y el interruptor <strong>Activo</strong> están bloqueados: se ponen en Programar series. En una edición en bloque esos capítulos se saltan y te dice cuántos.</p>
 </section>
 <section id="conflicto-de-calendario-al-poner-una-fecha-a-mano" class="level2">
 <h2 class="anchored" data-anchor-id="conflicto-de-calendario-al-poner-una-fecha-a-mano">«Conflicto de calendario» al poner una fecha a mano</h2>

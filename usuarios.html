@@ -464,7 +464,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#buscar-y-editar" id="toc-buscar-y-editar" class="nav-link active" data-scroll-target="#buscar-y-editar">Buscar y editar</a></li>
+  <li><a href="#buscar-y-editar" id="toc-buscar-y-editar" class="nav-link active" data-scroll-target="#buscar-y-editar">Buscar y editar</a>
+  <ul class="collapse">
+  <li><a href="#pagado-por-premium-pagado-fuera-de-la-app" id="toc-pagado-por-premium-pagado-fuera-de-la-app" class="nav-link" data-scroll-target="#pagado-por-premium-pagado-fuera-de-la-app">Pagado por (Premium pagado fuera de la app)</a></li>
+  </ul></li>
   <li><a href="#estados-de-una-cuenta" id="toc-estados-de-una-cuenta" class="nav-link" data-scroll-target="#estados-de-una-cuenta">Estados de una cuenta</a>
   <ul class="collapse">
   <li><a href="#mismo-nombre-de-correo" id="toc-mismo-nombre-de-correo" class="nav-link" data-scroll-target="#mismo-nombre-de-correo">Mismo nombre de correo</a></li>
@@ -513,6 +516,17 @@ ul.task-list li input[type="checkbox"] {
 <li>La ficha de cada usuario reúne sus datos, su origen, quién lo refirió y sus referidos. Incluye el campo <strong>Fin de prueba Premium</strong>: Premium temporal hasta ese día (inclusive) — sirve para <strong>regalar o extender</strong> la prueba a mano; el botón <strong>Quitar</strong> la elimina.</li>
 <li><strong>Prueba Premium en la lista</strong>: los usuarios en prueba llevan el badge <strong>“Prueba”</strong> (con su fecha al pasar el ratón). En el buscador puedes <strong>filtrar</strong> por <em>Prueba Premium</em> (En prueba / Expirada / Sin prueba), por fecha de <strong>Fin de prueba</strong> (antes/después de), y <strong>agrupar</strong> por estado de prueba.</li>
 </ul>
+<section id="pagado-por-premium-pagado-fuera-de-la-app" class="level3">
+<h3 class="anchored" data-anchor-id="pagado-por-premium-pagado-fuera-de-la-app">Pagado por (Premium pagado fuera de la app)</h3>
+<p>Para quien paga el Premium por otra vía, por ejemplo la <strong>suscripción de la página de Facebook</strong>. En la ficha, al lado de <strong>Membresía</strong>, el campo <strong>«Pagado por»</strong>: <em>Nadie</em>, <em>Facebook</em>, <em>App</em> u <em>Otro</em>.</p>
+<ul>
+<li><strong>Con un valor</strong>, la cuenta es <strong>Premium fija</strong> (la Membresía sale con candado) y <strong>sin prueba</strong>: «Fin de prueba» pasa a «Sin prueba», así que no ve el chip PRUEBA ni le llega el correo «te quedan X días».</li>
+<li><strong>Volver a «Nadie» es la baja</strong>: la Membresía vuelve a Free (se puede cambiar a mano si es un regalo).</li>
+<li>El servidor lo garantiza también: a quien paga no se le puede poner Free ni prueba, tampoco en bloque. Poner «Nadie» en bloque no toca la Membresía.</li>
+<li>En la lista, <strong>«Pagado por» se puede filtrar y agrupar</strong> (ya no hace falta apuntarlo en Notas).</li>
+</ul>
+<p>Cuando alguien se suscribe en Facebook, el Premium <strong>se activa a mano</strong>: buscas su cuenta por el correo y pones «Pagado por: Facebook». Si aún no tiene cuenta, en <strong>Invitar usuario</strong> está el mismo selector: la invitación queda guardada <strong>unida a ese correo</strong> y, cuando se registra y verifica el correo, entra ya como Premium y sin prueba. Le llega un correo «Tu Premium de MalecónTV ya está activo». Reinvitar sustituye la invitación; reinvitar con «Nadie» la borra. Si el correo ya tiene cuenta, sale el aviso de siempre con <strong>«Abrir su ficha»</strong>.</p>
+</section>
 </section>
 <section id="estados-de-una-cuenta" class="level2">
 <h2 class="anchored" data-anchor-id="estados-de-una-cuenta">Estados de una cuenta</h2>
