@@ -469,6 +469,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dispositivos-conectados" id="toc-dispositivos-conectados" class="nav-link" data-scroll-target="#dispositivos-conectados">Dispositivos conectados</a></li>
   </ul></li>
   <li><a href="#premium-gratis-por-puntos" id="toc-premium-gratis-por-puntos" class="nav-link" data-scroll-target="#premium-gratis-por-puntos">Premium <strong>gratis</strong> (por puntos)</a></li>
+  <li><a href="#suscribirme-pagar-premium" id="toc-suscribirme-pagar-premium" class="nav-link" data-scroll-target="#suscribirme-pagar-premium">Suscribirme (pagar Premium)</a></li>
   <li><a href="#prueba-premium-al-registrarse-trial" id="toc-prueba-premium-al-registrarse-trial" class="nav-link" data-scroll-target="#prueba-premium-al-registrarse-trial">Prueba Premium al registrarse (trial)</a></li>
   <li><a href="#free-vs-premium" id="toc-free-vs-premium" class="nav-link" data-scroll-target="#free-vs-premium">Free vs Premium</a></li>
   <li><a href="#referidos-desde-el-lado-del-usuario" id="toc-referidos-desde-el-lado-del-usuario" class="nav-link" data-scroll-target="#referidos-desde-el-lado-del-usuario">Referidos, desde el lado del usuario</a></li>
@@ -521,13 +522,25 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Cómo gano Premium: los pasos Comparte, Invita y Gana.</figcaption>
 </figure>
 </div>
-<p>MalecónTV <strong>no cobra</strong>: el Premium se <strong>desbloquea acumulando puntos</strong> y es <strong>de por vida</strong>.</p>
+<p>Si las <strong>Recompensas</strong> están activas (<strong><a href="./configuracion.html">Ajustes › Recompensas Premium</a></strong>), el Premium también se <strong>desbloquea acumulando puntos</strong>, y así es <strong>de por vida</strong>.</p>
 <p>Cómo ganar puntos:</p>
 <ul>
 <li><strong>Compartir</strong> la app → sumas cuando alguien <strong>abre</strong> tu enlace (hay un tope diario).</li>
 <li><strong>Invitar</strong> (referidos) → una <strong>bonificación grande</strong> cuando alguien se registra con tu enlace.</li>
 </ul>
-<p>Al llegar a la <strong>meta</strong>, tu cuenta pasa a <strong>Premium automáticamente</strong>.</p>
+<p>Al llegar a la <strong>meta</strong>, tu cuenta pasa a <strong>Premium automáticamente</strong>. Con las Recompensas apagadas, abrir un enlace no suma y los referidos cuentan pero no dan puntos; los puntos que ya tiene cada uno no se tocan y quien ya es Premium por puntos lo conserva.</p>
+</section>
+<section id="suscribirme-pagar-premium" class="level2">
+<h2 class="anchored" data-anchor-id="suscribirme-pagar-premium">Suscribirme (pagar Premium)</h2>
+<p>Cuando el admin enciende una <strong>forma de pago</strong> (<strong><a href="./configuracion.html">Ajustes › Cobro</a></strong>; hoy, la suscripción de la página de Facebook), la app ofrece <strong>«Suscribirme»</strong> en el muro del reproductor (vídeos y canales), en el aviso de Inicio, en la tarjeta del perfil y en la chapa de la prueba.</p>
+<ul>
+<li>Todos llevan a la <strong>página Premium</strong>: dos tarjetas, <strong>Gratis</strong> y <strong>Premium</strong>. Solo el botón <strong>Suscribirme</strong> de esa página abre el pago (en otra pestaña), con el aviso <strong>«Suscríbete con el mismo correo de tu cuenta»</strong>: así se encuentra su cuenta para activarle el Premium. En el móvil la tarjeta Premium va primero.</li>
+<li><strong>En la app no se escribe el precio</strong> (ni se nombra Facebook): el precio lo enseña la página de pago antes de pagar.</li>
+<li><strong>Quien ya es Premium</strong> ve <strong>«Tu plan actual»</strong> en su tarjeta. Si paga por Facebook, debajo dice <strong>«Date de baja desde Facebook.»</strong>; en la tarjeta Gratis, «Si te das de baja, vuelves a este plan.».</li>
+<li>Quien está en la <strong>prueba</strong> ve el pago en la página Premium.</li>
+<li>Si no hay ni pago ni Recompensas, el muro solo dice «Este contenido es solo para usuarios Premium.», sin botones, y no hay aviso en Inicio ni tarjeta en el perfil.</li>
+</ul>
+<p>El Premium de quien paga en Facebook <strong>se activa a mano</strong>: en su ficha de usuario, <strong>«Pagado por: Facebook»</strong> (ver <strong><a href="./usuarios.html">Usuarios</a></strong>). Para que no se quede nadie sin activar, cuando alguien pulsa el botón de pago el Asesor deja un aviso «fue a pagar, comprueba en Meta» y, si lo has configurado, avisa por correo o push (ver <strong><a href="./configuracion.html">Ajustes › Cobro</a></strong>).</p>
 </section>
 <section id="prueba-premium-al-registrarse-trial" class="level2">
 <h2 class="anchored" data-anchor-id="prueba-premium-al-registrarse-trial">Prueba Premium al registrarse (trial)</h2>
@@ -536,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Al aterrizar por primera vez ve una <strong>celebración</strong>: “¡Estrenas Premium GRATIS!” con sus ventajas (se muestra una sola vez).</li>
 <li>El chip <strong>PREMIUM</strong> de la barra superior se convierte en <strong>cuenta atrás</strong> (“PREMIUM · X días”); en los <strong>3 últimos días late</strong> para avisar. Es clicable → lleva a la tarjeta <strong>Gana Premium Gratis</strong> del perfil, donde además aparece “Tienes Premium · quedan X días”.</li>
 <li>A <strong>mitad de la prueba</strong> recibe <strong>un correo</strong> (“Te quedan X días de Premium”) con títulos premium elegidos por sus gustos, para que aproveche los días que le quedan. Solo uno por usuario.</li>
-<li>Al <strong>expirar</strong> vuelve a <strong>gratis</strong> automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le invita a <strong>compartir para desbloquearlo</strong>.</li>
+<li>Al <strong>expirar</strong> vuelve a <strong>gratis</strong> automáticamente (sin cron: se evalúa en vivo); si intenta ver contenido premium, el muro le ofrece <strong>Suscribirme</strong> y/o <strong>compartir para desbloquearlo</strong>, según lo que esté encendido.</li>
 <li>Si durante la prueba alcanza la <strong>meta de puntos</strong>, se queda Premium por puntos (la prueba deja de importar).</li>
 <li><strong>Premium revocado</strong> (admin) anula también la prueba.</li>
 <li>Apagar el interruptor en Ajustes <strong>solo afecta a registros futuros</strong>: quien ya tiene días los disfruta hasta su fecha. El admin puede <strong>regalar/extender/quitar</strong> la prueba a cualquiera desde su ficha (campo <strong>Fin de prueba Premium</strong>) o en masa.</li>

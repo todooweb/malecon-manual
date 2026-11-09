@@ -476,6 +476,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reglas-de-gamificación" id="toc-reglas-de-gamificación" class="nav-link" data-scroll-target="#reglas-de-gamificación">Reglas de Gamificación</a></li>
   <li><a href="#recompensas-premium" id="toc-recompensas-premium" class="nav-link" data-scroll-target="#recompensas-premium">Recompensas Premium</a></li>
   </ul></li>
+  <li><a href="#cobro" id="toc-cobro" class="nav-link" data-scroll-target="#cobro">Cobro</a>
+  <ul class="collapse">
+  <li><a href="#formas-de-pago" id="toc-formas-de-pago" class="nav-link" data-scroll-target="#formas-de-pago">Formas de pago</a></li>
+  </ul></li>
   <li><a href="#sistema-integraciones" id="toc-sistema-integraciones" class="nav-link" data-scroll-target="#sistema-integraciones">Sistema &amp; Integraciones</a>
   <ul class="collapse">
   <li><a href="#claves-de-api" id="toc-claves-de-api" class="nav-link" data-scroll-target="#claves-de-api">Claves de API</a></li>
@@ -510,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Todo lo que se puede configurar vive en <strong>Admin › Ajustes</strong>, agrupado en tres bloques: <strong>Contenido &amp; Estrenos</strong>, <strong>Marketing &amp; Comunidad</strong> y <strong>Sistema &amp; Integraciones</strong>.</p>
+<p>Todo lo que se puede configurar vive en <strong>Admin › Ajustes</strong>, agrupado en bloques: <strong>Contenido &amp; Estrenos</strong>, <strong>Marketing &amp; Comunidad</strong>, <strong>Cobro</strong> y <strong>Sistema &amp; Integraciones</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/ajustes-full.png" class="img-fluid figure-img"></p>
@@ -659,9 +663,22 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="recompensas-premium">Recompensas Premium</h3>
 <p>Una tarjeta con dos interruptores e indicador verde/rojo:</p>
 <ul>
-<li><strong>Recompensas Activas/Desactivadas</strong> — el sistema de puntos.</li>
+<li><strong>Recompensas Activas/Desactivadas</strong> — el sistema de puntos. Apagado: abrir un enlace de referido no suma, y los referidos verificados cuentan pero no suman ni restan puntos. Los puntos que hay no se tocan y quien ya es Premium por puntos lo conserva.</li>
 <li><strong>Prueba Activa/Desactivada</strong> + <strong>Días de prueba</strong> (7) — la <strong>Prueba Premium</strong> de los registros nuevos (ver <strong><a href="./premium.html">Cuenta y Premium</a></strong>). Sale <strong>desactivada por defecto</strong>; se enciende a mano. Apagarla <strong>no</strong> quita los días a quien ya los tiene: solo corta los registros futuros.</li>
 </ul>
+<p>Recompensas (puntos), Prueba (días al registrarse) y <strong>Formas de pago</strong> (abajo, en Cobro) son independientes: ninguno apaga a otro.</p>
+</section>
+</section>
+<section id="cobro" class="level2">
+<h2 class="anchored" data-anchor-id="cobro">Cobro</h2>
+<section id="formas-de-pago" class="level3">
+<h3 class="anchored" data-anchor-id="formas-de-pago">Formas de pago</h3>
+<p>Las vías por las que alguien puede pagar Premium. Mientras alguna esté encendida, la app enseña <strong>«Suscribirme»</strong> (ver <strong><a href="./premium.html">Cuenta y Premium › Suscribirme</a></strong>). Todo sale <strong>apagado por defecto</strong>: sin tocar nada, la app queda como antes.</p>
+<ul>
+<li><strong>Suscripción de Facebook</strong> — interruptor y <strong>enlace</strong> de la suscripción. Si está encendida, el enlace es obligatorio y tiene que empezar por <code>https://</code>. El Premium de quien paga así <strong>se activa a mano</strong> con «Pagado por: Facebook» en su ficha (ver <strong><a href="./usuarios.html">Usuarios</a></strong>).</li>
+<li><strong>Pasarela de pago (tarjeta)</strong> — recuadro reservado: todavía no hace nada.</li>
+</ul>
+<p>Dentro del recuadro de Facebook, <strong>«Avisar cuando alguien vaya a pagar»</strong>: eliges hasta 10 <strong>usuarios de la app</strong> («Avisar a», con buscador por nombre o correo) y si se les avisa por <strong>Correo</strong> y/o por <strong>Push</strong>. Cuando alguien pulsa el botón de pago, a cada uno le llega el aviso (uno por persona y día) para que lo compruebe en Meta y le active el Premium. El Asesor deja además un aviso en Alertas. Sin Correo ni Push, el aviso solo queda en el Panel. Si un usuario elegido no puede recibirlo, lo dice debajo («Correo no válido», «Sin push activada»).</p>
 </section>
 </section>
 <section id="sistema-integraciones" class="level2">
