@@ -47,8 +47,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7ac54f6727574f77f036aa228cef5e5e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d5460b5c0697641e1c2b6d0e9407db5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2234549b1cf1fd87a7989f75432eeb8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a05ba48c2af6a8a936c0ad5d9c277204.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -553,7 +553,13 @@ Important
 <h3 class="anchored" data-anchor-id="cómo-vamos">¿Cómo vamos?</h3>
 <p>El botón <strong>“¿Cómo vamos?”</strong> del Panel abre el <strong>parte del día</strong>: cómo está la app ahora mismo, en una ventana.</p>
 <ul>
-<li><strong>Resumen de la IA</strong> — en puntos cortos (cifra + qué + comparación, p.&nbsp;ej. <em>«Reproducciones: 91, frente a 33 ayer a esta hora»</em>): ⚠ lo que hay que mirar, ✓ lo que va bien y ℹ los datos. Solo pone ✓ si la cifra de hoy <strong>supera</strong> a la de ayer a esta hora; los <strong>fallos de usuarios</strong> van siempre como ⚠, y los avisos de hace más de 7 días se juntan en una línea («avisos viejos sin cerrar»). Se pide con <strong>Redactar</strong> (hay un número de resúmenes al día).</li>
+<li><strong>Resumen de la IA</strong> — en puntos: ⚠ lo que hay que mirar, ✓ lo que va bien y ℹ los datos. Se pide con <strong>Redactar</strong> (3 al día).
+<ul>
+<li><strong>Altas, clics y reproducciones</strong> las pone el servidor, con su cifra exacta: hoy, ayer a esta hora y <strong>lo normal de este día de la semana a esta hora</strong> (lo habitual de las 4 semanas anteriores), p.&nbsp;ej. <em>«Clics: 12, frente a 25 ayer a esta hora · lo normal un domingo: 11»</em>. El color sale de lo normal, no de ayer: ⚠ si está por debajo de la mitad de lo normal, ✓ si está por encima. Así, el día después de un pico no sale en rojo si es un día normal.</li>
+<li>Debajo, la IA <strong>lo explica</strong>: cuál está por encima o por debajo de lo normal y <strong>por qué</strong>, según los títulos que traen gente (un reel que se apaga, otro que empieza). Si algo está por debajo, dice <strong>qué hacer</strong>. Ve los últimos 28 días y lo que dijo los 3 días anteriores, para corregirse. Cada cifra que escribe tiene que estar en los datos; si no, esa frase no sale.</li>
+<li>A la IA no le llega el <strong>nombre</strong> de ningún usuario: los avisos que lo llevan («X fue a pagar», «X: mismo correo que…») le llegan sin él. En el panel se siguen viendo con su nombre.</li>
+<li>Los <strong>fallos de usuarios</strong> van siempre como ⚠, y los avisos de hace más de 7 días se juntan en una línea («avisos viejos sin cerrar»).</li>
+</ul></li>
 <li><strong>MalecónTV (app)</strong> — CPU, <strong>memoria real de la app</strong>, caché de vídeo, base de datos, horas encendida, <strong>fallos de usuarios</strong> (pantalla en blanco, cuelgues en su navegador) y tareas fallidas de las últimas 24 h. La caché de vídeo tiene tope y al llenarse borra sola lo menos usado: <strong>llena es lo normal</strong> y no sale como aviso.</li>
 <li><strong>Fuentes</strong> — vídeos y canales que van bien, con fallos o caídos, última comprobación y lo que espera en Revisiones.</li>
 <li><strong>Clics en enlaces</strong>, <strong>Reproducciones (sin admins)</strong> y <strong>Altas</strong> — <strong>hoy</strong> frente a <strong>ayer a esta misma hora</strong> (la flecha ↑↓) y el total de ayer, por red y con los títulos que más mueven. Las reproducciones <strong>no cuentan las de los administradores</strong> (pruebas y gestión, no audiencia).</li>
