@@ -238,6 +238,17 @@
     ]
   },
   {
+    "objectID": "premium.html#landing-para-la-publicidad-malecontv.espremium",
+    "href": "premium.html#landing-para-la-publicidad-malecontv.espremium",
+    "title": "Cuenta, Premium y puntos",
+    "section": "Landing para la publicidad: malecontv.es/premium",
+    "text": "Landing para la publicidad: malecontv.es/premium\nPágina pública (la abre cualquiera, sin cuenta) para poner en los anuncios de Facebook. Casi todo el mundo llega desde el navegador de dentro de Facebook, que no comparte la sesión: por eso no pide entrar antes.\n\nCon la suscripción de Facebook encendida (Ajustes → Formas de pago): un botón «Suscribirme» que abre directamente el enlace de la suscripción de Ajustes. Si cambias el enlace, la landing usa el nuevo. Debajo: «Después de suscribirte, te ayudamos a activar Premium en MalecónTV». Quien paga así no tiene cuenta todavía: cuando la cree, le pones tú «Pagado por: Facebook» en su ficha.\nCon la suscripción apagada: el botón es «Crear cuenta gratis» (con los días de prueba, si la prueba está encendida).\nSin precio (lo ve antes de pagar, en su moneda). Enseña los títulos más vistos y las 4 ventajas de Premium.\nEn el móvil es corta y el botón se queda fijo abajo solo cuando el de arriba ya no se ve.\n«¿Cómo vamos?» → Suscribirme: «Landing /premium: N personas · M a pagar» (últimos 7 días, sin nombres; una por conexión y día, así que recargar no suma).",
+    "crumbs": [
+      "Para el usuario",
+      "Cuenta y Premium"
+    ]
+  },
+  {
     "objectID": "premium.html#prueba-premium-al-registrarse-trial",
     "href": "premium.html#prueba-premium-al-registrarse-trial",
     "title": "Cuenta, Premium y puntos",
