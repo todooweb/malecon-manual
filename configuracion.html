@@ -484,6 +484,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sistema-integraciones" id="toc-sistema-integraciones" class="nav-link" data-scroll-target="#sistema-integraciones">Sistema &amp; Integraciones</a>
   <ul class="collapse">
   <li><a href="#claves-de-api" id="toc-claves-de-api" class="nav-link" data-scroll-target="#claves-de-api">Claves de API</a></li>
+  <li><a href="#píxeles-de-meta" id="toc-píxeles-de-meta" class="nav-link" data-scroll-target="#píxeles-de-meta">Píxeles de Meta</a></li>
   <li><a href="#origen-de-usuarios" id="toc-origen-de-usuarios" class="nav-link" data-scroll-target="#origen-de-usuarios">Origen de usuarios</a></li>
   <li><a href="#configuración-de-sesiones" id="toc-configuración-de-sesiones" class="nav-link" data-scroll-target="#configuración-de-sesiones">Configuración de Sesiones</a></li>
   <li><a href="#límite-de-descargas-por-membresía" id="toc-límite-de-descargas-por-membresía" class="nav-link" data-scroll-target="#límite-de-descargas-por-membresía">Límite de Descargas por Membresía</a></li>
@@ -697,6 +698,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="claves-de-api" class="level3">
 <h3 class="anchored" data-anchor-id="claves-de-api">Claves de API</h3>
 <p>Tres claves para servicios externos (ver <strong><a href="./apis.html">APIs externas</a></strong>): <strong>Google (Gemini)</strong>, <strong>TMDB</strong> y <strong>OpenSubtitles</strong>. Cada una es un campo de contraseña con ojo para mostrar/ocultar. Si se deja vacío, el servidor usa la clave de las variables de entorno.</p>
+</section>
+<section id="píxeles-de-meta" class="level3">
+<h3 class="anchored" data-anchor-id="píxeles-de-meta">Píxeles de Meta</h3>
+<p>En <strong>Ajustes › Sistema &amp; Integraciones › Píxeles de Meta</strong> hay tres campos para los píxeles de Meta (Facebook): <strong>el de siempre</strong>, <strong>el de la campaña</strong> y uno <strong>opcional</strong>. Va <strong>solo el número</strong> del píxel (el que Meta llama «ID del píxel» o «del conjunto de datos»), no el código entero: si se pega el código, no guarda y lo avisa. Vacío = ese no se usa. Al guardar, la web lo usa desde la siguiente visita, <strong>sin desplegar</strong>.</p>
+<p>Cada píxel recibe una vista por cada sección que se abre y un «va a pagar» cuando alguien pulsa «Suscribirme» (en la página Premium y en malecontv.es/premium). El de siempre está además dentro de Google Tag Manager: si algún día se cambia el número 1 aquí, el de Google Tag Manager sigue recibiendo datos hasta que se quite allí.</p>
 </section>
 <section id="origen-de-usuarios" class="level3">
 <h3 class="anchored" data-anchor-id="origen-de-usuarios">Origen de usuarios</h3>
